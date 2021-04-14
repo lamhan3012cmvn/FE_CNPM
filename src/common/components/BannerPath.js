@@ -4,10 +4,10 @@ import SingleBanner from "./SingleBanner"
 const BannerPath = () => {
   return (
     <>
-      <section className="banner_part">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-12">
+      <section classNameName="banner_part">
+        <div classNameName="container">
+          <div classNameName="row align-items-center">
+            <div classNameName="col-lg-12">
               <Carousel autoplay autoplaySpeed={1500}>
                 <SingleBanner />
                 <SingleBanner />

@@ -15,24 +15,24 @@ const settings = {
 const ProductList = () => {
   return (
     <>
-      <section class="product_list section_padding">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-12">
-              <div class="section_tittle text-center">
+      <section className="product_list section_padding">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-12">
+              <div className="section_tittle text-center">
                 <h2>
                   awesome <span>shop</span>
                 </h2>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="product_list_slider owl-carousel">
-                <div class="single_product_list_slider">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="product_list_slider owl-carousel">
+                <div className="single_product_list_slider">
                   <Slider {...settings}>
                     <div>
-                      <div class="row align-items-center justify-content-between">
+                      <div className="row align-items-center justify-content-between">
                         <ProductItem />
                         <ProductItem />
                         <ProductItem />
@@ -44,7 +44,7 @@ const ProductList = () => {
                       </div>
                     </div>
                     <div>
-                      <div class="row align-items-center justify-content-between">
+                      <div className="row align-items-center justify-content-between">
                         <ProductItem />
                         <ProductItem />
                         <ProductItem />
@@ -56,7 +56,7 @@ const ProductList = () => {
                       </div>
                     </div>
                     <div>
-                      <div class="row align-items-center justify-content-between">
+                      <div className="row align-items-center justify-content-between">
                         <ProductItem />
                         <ProductItem />
                         <ProductItem />
@@ -68,7 +68,7 @@ const ProductList = () => {
                       </div>
                     </div>
                     <div>
-                      <div class="row align-items-center justify-content-between">
+                      <div className="row align-items-center justify-content-between">
                         <ProductItem />
                         <ProductItem />
                         <ProductItem />
@@ -80,26 +80,6 @@ const ProductList = () => {
                       </div>
                     </div>
                   </Slider>
-                  {/* <div class="row align-items-center justify-content-between">
-                    <ProductItem />
-                    <ProductItem />
-                    <ProductItem />
-                    <ProductItem />
-                    <ProductItem />
-                    <ProductItem />
-                    <ProductItem />
-                    <ProductItem />
-                  </div>
-                  <div class="row align-items-center justify-content-between">
-                    <ProductItem />
-                    <ProductItem />
-                    <ProductItem />
-                    <ProductItem />
-                    <ProductItem />
-                    <ProductItem />
-                    <ProductItem />
-                    <ProductItem />
-                  </div> */}
                 </div>
               </div>
             </div>

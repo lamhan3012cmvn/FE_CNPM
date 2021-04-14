@@ -1,9 +1,13 @@
 import { BrowserRouter as Router } from "react-router-dom"
-import HomePage from "../pages/HomePage"
+import HomeRouter from "./Home.Router"
+import LoginRouter from "./Login.Router"
+import Tets from "./Test"
 const Routers = () => {
   return (
     <Router>
-      <HomePage />
+      <HomeRouter />
+      <LoginRouter />
+      <Tets />
     </Router>
   )
 }
