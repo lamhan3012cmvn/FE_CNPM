@@ -11,7 +11,7 @@ const Login = () => {
                   There are advances being made in science and technology
                   everyday, and a good example of this is the
                 </p>
-                <a href="#" className="btn_3">
+                <a href="/register" className="btn_3">
                   Create an Account
                 </a>
               </div>

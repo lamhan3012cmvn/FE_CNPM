@@ -2854,6 +2854,36 @@ ul {
   transition: 0.5s;
 }
 
+.slick-thumb{
+  margin-left: 5px;
+    width: 100px;
+    transition-duration: 600ms;
+    height: 400px;
+    transform: translate3d(0px, 0px, 0px);
+position: absolute!important;
+    right: 0;
+    top: 0;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    overflow: hidden;
+    transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    user-select: none;
+    
+}
+.slick-thumb li{
+  width: 100%;
+  height: 146.66666666666666px;
+  margin-bottom: 5px;
+}
+
+
 @media (max-width: 991px) {
   /* line 58, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product_list.scss */
   .single_product_item img {
