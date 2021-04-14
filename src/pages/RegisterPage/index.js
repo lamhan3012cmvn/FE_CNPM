@@ -1,16 +1,16 @@
 import AppFooter from "../../common/components/AppFooter"
 import AppHeader from "../../common/components/AppHeader"
 import Breadcrumb from "../../common/components/Breadcrumb"
-import Login from "../../common/components/Login"
-const LoginPage = () => {
+import Register from "../../common/components/Register"
+const RegisterPage = () => {
   return (
     <>
       <AppHeader />
       {/* <Breadcrumb /> */}
-      <Login />
+      <Register />
       <AppFooter />
     </>
   )
 }
 
-export default LoginPage
+export default RegisterPage
