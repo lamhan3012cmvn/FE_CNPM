@@ -12,8 +12,8 @@ const AppHeader = () => {
     <>
       <header className="main_menu home_menu">
         <div className="container">
-          <div class="row align-items-center">
-            <div class="col-lg-12">
+          <div className="row align-items-center">
+            <div className="col-lg-12">
               <nav className="navbar navbar-expand-lg navbar-light">
                 <a className="navbar-brand">
                   <img src={logo} alt="logo" />

@@ -33,50 +33,30 @@ const ProductList = () => {
                   <Slider {...settings}>
                     <div>
                       <div className="row align-items-center justify-content-between">
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="row align-items-center justify-content-between">
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="row align-items-center justify-content-between">
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="row align-items-center justify-content-between">
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
+                        <div className="col-lg-3 col-sm-6">
+                          <ProductItem />
+                        </div>
+                        <div className="col-lg-3 col-sm-6">
+                          <ProductItem />
+                        </div>
+                        <div className="col-lg-3 col-sm-6">
+                          <ProductItem />
+                        </div>
+                        <div className="col-lg-3 col-sm-6">
+                          <ProductItem />
+                        </div>
+                        <div className="col-lg-3 col-sm-6">
+                          <ProductItem />
+                        </div>
+                        <div className="col-lg-3 col-sm-6">
+                          <ProductItem />
+                        </div>
+                        <div className="col-lg-3 col-sm-6">
+                          <ProductItem />
+                        </div>
+                        <div className="col-lg-3 col-sm-6">
+                          <ProductItem />
+                        </div>
                       </div>
                     </div>
                   </Slider>

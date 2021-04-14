@@ -100,8 +100,8 @@ const AppFooter = () => {
                     id="newsletter-form-email"
                     placeholder="Email Address"
                     className="placeholder hide-on-focus"
-                    onfocus="this.placeholder = ''"
-                    onblur="this.placeholder = ' Email Address '"
+                    // onfocus="this.placeholder = ''"
+                    // onblur="this.placeholder = ' Email Address '"
                   />
                   <button
                     type="submit"
