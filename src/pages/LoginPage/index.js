@@ -5,10 +5,7 @@ import Login from "../../common/components/Login"
 const LoginPage = () => {
   return (
     <>
-      <AppHeader />
-      {/* <Breadcrumb /> */}
       <Login />
-      <AppFooter />
     </>
   )
 }

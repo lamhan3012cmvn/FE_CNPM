@@ -5,10 +5,8 @@ import SingleProduct from "../../common/components/SingleProduct"
 const SingleProductPage = () => {
   return (
     <>
-      <AppHeader />
       <Breadcrumb />
       <SingleProduct />
-      <AppFooter />
     </>
   )
 }

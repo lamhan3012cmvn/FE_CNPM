@@ -4,9 +4,7 @@ import CartArea from "../../common/components/CartArea"
 const CartPage = () => {
   return (
     <>
-      <AppHeader />
       <CartArea />
-      <AppFooter />
     </>
   )
 }

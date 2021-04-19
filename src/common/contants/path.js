@@ -4,5 +4,7 @@ export const PATH = {
   cartArea: "/cartArea",
   category: "/category",
   register: "/register",
-  singleProduct: "/singleProduct"
+  singleProduct: "/singleProduct",
+  confirmation: "/confirmation",
+  tracking: "/tracking"
 }

@@ -6,10 +6,8 @@ import CategoryProduct from "../../common/components/CategoryProduct"
 const CategoryPage = () => {
   return (
     <>
-      <AppHeader />
       <Breadcrumb />
       <CategoryProduct />
-      <AppFooter />
     </>
   )
 }
