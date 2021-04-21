@@ -6,7 +6,11 @@ import ConfirmationPage from "../pages/ConfirmationPage"
 const ConfirmationRoute = () => {
   return (
     <Switch>
-      <Route exact path={PATH.confirmation} component={() => <ConfirmationPage />} />
+      <Route
+        exact
+        path={PATH.confirmation}
+        component={() => <ConfirmationPage />}
+      />
     </Switch>
   )
 }

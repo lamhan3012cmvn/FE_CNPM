@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react"
 
 const BaseAuth = () => {
-  return (
-    <div>
-      Base Auth
-    </div>
-  )
+  return <div>Base Auth</div>
 }
 
 export default BaseAuth

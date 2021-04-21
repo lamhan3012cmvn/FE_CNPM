@@ -4,7 +4,11 @@ import SingleProductPage from "../pages/SingleProductPage"
 const SingleProductRouter = () => {
   return (
     <Switch>
-      <Route path={PATH.singleProduct} exact component={() => <SingleProductPage />} />
+      <Route
+        path={PATH.singleProduct}
+        exact
+        component={() => <SingleProductPage />}
+      />
     </Switch>
   )
 }

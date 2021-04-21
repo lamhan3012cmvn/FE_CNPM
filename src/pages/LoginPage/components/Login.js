@@ -1,4 +1,15 @@
+import { useSelector, useDispatch } from "react-redux"
+import { loginUser } from "../../../redux/_actions/Auth/user.Action"
+import { Link } from "react-router-dom"
+import { PATH } from "../../../common/contants/path"
 const Login = () => {
+  const dispatch = useDispatch()
+
+  const login = e => {
+    e.preventDefault()
+    dispatch(loginUser({ email: "sample@gmail.com", password: "lamlamlam" }))
+  }
+
   return (
     <section className="login_part padding_top">
       <div className="container">
@@ -11,9 +22,9 @@ const Login = () => {
                   There are advances being made in science and technology
                   everyday, and a good example of this is the
                 </p>
-                <a href="/register" className="btn_3">
+                <Link to={PATH.register} className="btn_3">
                   Create an Account
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -24,7 +35,7 @@ const Login = () => {
                   Welcome Back ! <br />
                   Please Sign in now
                 </h3>
-                <form className="row contact_form" novalidate="novalidate">
+                <form className="row contact_form" onSubmit={login}>
                   <div className="col-md-12 form-group p_star">
                     <input
                       type="text"
@@ -42,14 +53,14 @@ const Login = () => {
                   <div className="col-md-12 form-group">
                     <div className="creat_account d-flex align-items-center">
                       <input type="checkbox" id="f-option" name="selector" />
-                      <label for="f-option">Remember me</label>
+                      <label html-for="f-option">Remember me</label>
                     </div>
                     <button type="submit" value="submit" className="btn_3">
                       log in
                     </button>
-                    <a className="lost_pass" href="#">
+                    <Link className="lost_pass" href="#">
                       forget password?
-                    </a>
+                    </Link>
                   </div>
                 </form>
               </div>

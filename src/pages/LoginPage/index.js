@@ -1,7 +1,4 @@
-import AppFooter from "../../common/components/AppFooter"
-import AppHeader from "../../common/components/AppHeader"
-import Breadcrumb from "../../common/components/Breadcrumb"
-import Login from "../../common/components/Login"
+import Login from "./components/Login"
 const LoginPage = () => {
   return (
     <>

@@ -2,12 +2,12 @@ import Slider from "react-slick"
 import product_1 from "../../img/product/single-product/product_1.png"
 const SingleProduct = () => {
   const settings = {
-    customPaging: function(i) {
+    customPaging: function (i) {
       return (
         <a>
           <img src={product_1} />
         </a>
-      );
+      )
     },
     dots: true,
     dotsClass: "slick-dots slick-thumb",

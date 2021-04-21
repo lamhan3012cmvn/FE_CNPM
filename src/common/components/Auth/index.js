@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { auth } from "../_actions/user_actions"
+import { authRequest } from "../../../redux/_actions/Auth/user.Action"
 import { useSelector, useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
 
@@ -10,7 +10,7 @@ const Authentication = (SpecificComponent, option, adminRoute = null) => {
     const history = useHistory()
     useEffect(() => {
       //To know my current status, send Auth request
-      dispatch(auth()).then(response => {
+      dispatch(authRequest()).then(response => {
         //Not Loggined in Status
         if (!response.payload.isAuth) {
           if (option) {

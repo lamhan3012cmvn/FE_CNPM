@@ -1,8 +1,14 @@
 import logo from "../../img/logo.png"
 import { FaBars, FaCartPlus } from "react-icons/fa"
 import { FiSearch } from "react-icons/fi"
-import { AiOutlineHeart, AiOutlineCloseCircle } from "react-icons/ai"
+import {
+  AiOutlineHeart,
+  AiOutlineCloseCircle,
+  AiOutlineUser
+} from "react-icons/ai"
 import { useState } from "react"
+import { Link } from "react-router-dom"
+import { PATH } from "../../common/contants/path"
 const AppHeader = () => {
   const [modalSearch, setModalSearch] = useState(false)
   const changeSearch = () => {
@@ -15,9 +21,9 @@ const AppHeader = () => {
           <div className="row align-items-center">
             <div className="col-lg-12">
               <nav className="navbar navbar-expand-lg navbar-light">
-                <a className="navbar-brand">
+                <Link className="navbar-brand" to="/">
                   <img src={logo} alt="logo" />
-                </a>
+                </Link>
                 <button className="navbar-toggler">
                   <span className="menu_icon">
                     <FaBars />
@@ -29,93 +35,119 @@ const AppHeader = () => {
                 >
                   <ul className="navbar-nav">
                     <li className="nav-item">
-                      <a className="nav-link" href="index.html">
+                      <Link className="nav-link" to="/">
                         Home
-                      </a>
+                      </Link>
                     </li>
                     <li className="nav-item dropdown">
-                      <a
+                      <Link
                         className="nav-link dropdown-toggle"
-                        href="blog.html"
                         id="navbarDropdown_1"
                       >
                         Shop
-                      </a>
+                      </Link>
                       <div className="dropdown-menu">
-                        <a className="dropdown-item" href="category.html">
-                          shop category
-                        </a>
-                        <a className="dropdown-item" href="single-product.html">
-                          product details
-                        </a>
+                        <Link className="dropdown-item" to={PATH.category}>
+                          Shop category
+                        </Link>
+                        <Link className="dropdown-item" to={PATH.singleProduct}>
+                          Product details
+                        </Link>
                       </div>
                     </li>
+                    {/*                     
                     <li className="nav-item dropdown">
-                      <a
+                      <Link
                         className="nav-link dropdown-toggle"
-                        href="blog.html"
                         id="navbarDropdown_3"
                       >
                         pages
-                      </a>
+                      </Link>
                       <div className="dropdown-menu">
-                        <a className="dropdown-item" href="\login">
+                        <Link className="dropdown-item" href="\login">
                           login
-                        </a>
-                        <a className="dropdown-item" href="tracking.html">
+                        </Link>
+                        <Link className="dropdown-item" href="tracking.html">
                           tracking
-                        </a>
-                        <a className="dropdown-item" href="checkout.html">
+                        </Link>
+                        <Link className="dropdown-item" href="checkout.html">
                           product checkout
-                        </a>
-                        <a className="dropdown-item" href="cart.html">
+                        </Link>
+                        <Link className="dropdown-item" href="cart.html">
                           shopping cart
-                        </a>
-                        <a className="dropdown-item" href="confirmation.html">
+                        </Link>
+                        <Link
+                          className="dropdown-item"
+                          href="confirmation.html"
+                        >
                           confirmation
-                        </a>
-                        <a className="dropdown-item" href="elements.html">
+                        </Link>
+                        <Link className="dropdown-item" href="elements.html">
                           elements
-                        </a>
+                        </Link>
                       </div>
-                    </li>
-                    <li className="nav-item dropdown">
-                      <a
+                    </li> */}
+                    {/* <li className="nav-item dropdown">
+                      <Link
                         className="nav-link dropdown-toggle"
-                        href="blog.html"
                         id="navbarDropdown_2"
                       >
                         blog
-                      </a>
+                      </Link>
                       <div className="dropdown-menu">
-                        <a className="dropdown-item" href="blog.html">
+                        <Link className="dropdown-item" href="blog.html">
                           blog
-                        </a>
-                        <a className="dropdown-item" href="single-blog.html">
+                        </Link>
+                        <Link className="dropdown-item" href="single-blog.html">
                           Single blog
-                        </a>
+                        </Link>
                       </div>
-                    </li>
+                    </li> */}
 
                     <li className="nav-item">
-                      <a className="nav-link" href="contact.html">
+                      <Link className="nav-link" to="/">
                         Contact
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
                 <div className="hearer_icon d-flex">
-                  <a onClick={changeSearch}>
+                  <Link onClick={changeSearch}>
                     <FiSearch />
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/">
                     <AiOutlineHeart />
-                  </a>
+                  </Link>
                   <div className="dropdown cart">
-                    <a className="dropdown-toggle">
+                    <Link className="dropdown-toggle">
                       <FaCartPlus />
-                    </a>
+                    </Link>
                     <div className="single_product"></div>
+                  </div>
+                  <div className="dropdown cart">
+                    <Link className="dropdown-toggle">
+                      <AiOutlineUser />
+                    </Link>
+                    <div
+                      className="dropdown-menu"
+                      style={{ marginTop: "35px" }}
+                    >
+                      <Link className="dropdown-item" to={PATH.login}>
+                        Login
+                      </Link>
+                      <Link className="dropdown-item" to={PATH.tracking}>
+                        tracking
+                      </Link>
+                      {/* <Link className="dropdown-item" to={PATH.che}>
+                        product checkout
+                      </Link> */}
+                      <Link className="dropdown-item" to={PATH.cartArea}>
+                        shopping cart
+                      </Link>
+                      <Link className="dropdown-item" hto={PATH.confirmation}>
+                        confirmation
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </nav>

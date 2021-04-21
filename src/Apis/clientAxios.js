@@ -2,9 +2,12 @@ import axios from "axios"
 import queryString from "query-string"
 
 const axiosClient = axios.create({
-  baseURL: process.env.BASE_URL,
-  timeout: 1000,
-  headers: { "content-type": "application/json" },
+  baseURL: "http://localhost:3333/",
+  timeout: 20000,
+  headers: {
+    "content-type": "application/json",
+    "Access-Control-Allow-Origin": "*"
+  },
   paramsSerializer: params => queryString.stringify(params)
 })
 
