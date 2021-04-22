@@ -7,6 +7,7 @@ class Example {
     return axiosClient.get(this.url, { params })
   }
 }
+
 const ex = new Example("example")
 
 export default ex

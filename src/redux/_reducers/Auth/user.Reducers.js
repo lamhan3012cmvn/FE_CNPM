@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import {
-  LOGIN_USER,
+  LOGIN_USER_SUCCESS,
+  LOGIN_USER_FAIL,
   REGISTER_USER,
   AUTH_USER,
   LOGOUT_USER
@@ -8,10 +9,10 @@ import {
 
 export default function (state = {}, action) {
   switch (action.type) {
-    case REGISTER_USER:
-      return { ...state, register: action.payload }
-    case LOGIN_USER:
-      return { ...state, loginSucces: action.payload }
+    case LOGIN_USER_FAIL:
+      return { ...state, loginSuccess: action.payload }
+    case LOGIN_USER_SUCCESS:
+      return { ...state, loginSuccess: action.payload }
     case AUTH_USER:
       return { ...state, userData: action.payload }
     case LOGOUT_USER:

@@ -2,12 +2,20 @@ import { useSelector, useDispatch } from "react-redux"
 import { loginUser } from "../../../redux/_actions/Auth/user.Action"
 import { Link } from "react-router-dom"
 import { PATH } from "../../../common/contants/path"
+import { useHistory } from "react-router-dom"
 const Login = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
 
-  const login = e => {
+  const login = async e => {
     e.preventDefault()
-    dispatch(loginUser({ email: "sample@gmail.com", password: "lamlamlam" }))
+    const email = e.target.username.value
+    const password = e.target.password.value
+    const res = await dispatch(loginUser({ email, password }))
+    if (res.payload && res.payload.userId) {
+      history.push("/")
+      return
+    }
   }
 
   return (
@@ -41,6 +49,8 @@ const Login = () => {
                       type="text"
                       className="form-control"
                       placeholder="Username"
+                      name="username"
+                      required
                     />
                   </div>
                   <div className="col-md-12 form-group p_star">
@@ -48,6 +58,8 @@ const Login = () => {
                       type="password"
                       className="form-control"
                       placeholder="Password"
+                      name="password"
+                      required
                     />
                   </div>
                   <div className="col-md-12 form-group">
@@ -58,7 +70,7 @@ const Login = () => {
                     <button type="submit" value="submit" className="btn_3">
                       log in
                     </button>
-                    <Link className="lost_pass" href="#">
+                    <Link className="lost_pass" to="/">
                       forget password?
                     </Link>
                   </div>

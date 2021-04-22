@@ -6,11 +6,7 @@ import Auth from "../common/components/Auth"
 const CategoryRoute = () => {
   return (
     <Switch>
-      <Route
-        exact
-        path={PATH.category}
-        component={() => Auth(<CategoryPage />, false)}
-      />
+      <Route exact path={PATH.category} component={Auth(CategoryPage, false)} />
     </Switch>
   )
 }

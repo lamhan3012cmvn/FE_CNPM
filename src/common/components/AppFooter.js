@@ -1,5 +1,5 @@
 import React from "react"
-
+import { Link } from "react-router-dom"
 const AppFooter = () => {
   return (
     <footer className="footer_part">
@@ -10,16 +10,16 @@ const AppFooter = () => {
               <h4>Top Products</h4>
               <ul className="list-unstyled">
                 <li>
-                  <a href="">Managed Website</a>
+                  <Link to="">Managed Website</Link>
                 </li>
                 <li>
-                  <a href="">Manage Reputation</a>
+                  <Link to="">Manage Reputation</Link>
                 </li>
                 <li>
-                  <a href="">Power Tools</a>
+                  <Link to="">Power Tools</Link>
                 </li>
                 <li>
-                  <a href="">Marketing Service</a>
+                  <Link to="">Marketing Service</Link>
                 </li>
               </ul>
             </div>
@@ -29,16 +29,16 @@ const AppFooter = () => {
               <h4>Quick Links</h4>
               <ul className="list-unstyled">
                 <li>
-                  <a href="">Jobs</a>
+                  <Link to="">Jobs</Link>
                 </li>
                 <li>
-                  <a href="">Brand Assets</a>
+                  <Link to="">Brand Assets</Link>
                 </li>
                 <li>
-                  <a href="">Investor Relations</a>
+                  <Link to="">Investor Relations</Link>
                 </li>
                 <li>
-                  <a href="">Terms of Service</a>
+                  <Link to="">Terms of Service</Link>
                 </li>
               </ul>
             </div>
@@ -48,16 +48,16 @@ const AppFooter = () => {
               <h4>Features</h4>
               <ul className="list-unstyled">
                 <li>
-                  <a href="">Jobs</a>
+                  <Link to="">Jobs</Link>
                 </li>
                 <li>
-                  <a href="">Brand Assets</a>
+                  <Link to="">Brand Assets</Link>
                 </li>
                 <li>
-                  <a href="">Investor Relations</a>
+                  <Link to="">Investor Relations</Link>
                 </li>
                 <li>
-                  <a href="">Terms of Service</a>
+                  <Link to="">Terms of Service</Link>
                 </li>
               </ul>
             </div>
@@ -67,16 +67,16 @@ const AppFooter = () => {
               <h4>Resources</h4>
               <ul className="list-unstyled">
                 <li>
-                  <a href="">Guides</a>
+                  <Link to="">Guides</Link>
                 </li>
                 <li>
-                  <a href="">Research</a>
+                  <Link to="">Research</Link>
                 </li>
                 <li>
-                  <a href="">Experts</a>
+                  <Link to="">Experts</Link>
                 </li>
                 <li>
-                  <a href="">Agencies</a>
+                  <Link to="">Agencies</Link>
                 </li>
               </ul>
             </div>
@@ -130,24 +130,24 @@ const AppFooter = () => {
               <div className="footer_icon social_icon">
                 <ul className="list-unstyled">
                   <li>
-                    <a href="#" className="single_social_icon">
+                    <Link to="" href="#" className="single_social_icon">
                       <i className="fab fa-facebook-f"></i>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="single_social_icon">
+                    <Link to="" href="#" className="single_social_icon">
                       <i className="fab fa-twitter"></i>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="single_social_icon">
+                    <Link to="" href="#" className="single_social_icon">
                       <i className="fas fa-globe"></i>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="single_social_icon">
+                    <Link to="" href="#" className="single_social_icon">
                       <i className="fab fa-behance"></i>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

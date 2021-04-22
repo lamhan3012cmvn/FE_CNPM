@@ -8,28 +8,31 @@ const Authentication = (SpecificComponent, option, adminRoute = null) => {
     const user = useSelector(state => state.user)
     const dispatch = useDispatch()
     const history = useHistory()
+    const fetchAuth = async () => {
+      console.log("run con me may")
+      const res = await dispatch(authRequest())
+      console.log(res)
+      // if (!res.payload.isAuth) {
+      //   if (option) {
+      //     history.push("/login")
+      //   }
+      //   //Loggined in Status
+      // } else {
+      //   //supposed to be Admin page, but not admin person wants to go inside
+      //   if (adminRoute && !res.payload.isAdmin) {
+      //     history.push("/")
+      //   }
+      //   //Logged in Status, but Try to go into log in page
+      //   else {
+      //     if (option === false) {
+      //       history.push("/")
+      //     }
+      //   }
+      // }
+    }
     useEffect(() => {
+      fetchAuth()
       //To know my current status, send Auth request
-      dispatch(authRequest()).then(response => {
-        //Not Loggined in Status
-        if (!response.payload.isAuth) {
-          if (option) {
-            history.push("/login")
-          }
-          //Loggined in Status
-        } else {
-          //supposed to be Admin page, but not admin person wants to go inside
-          if (adminRoute && !response.payload.isAdmin) {
-            history.push("/")
-          }
-          //Logged in Status, but Try to go into log in page
-          else {
-            if (option === false) {
-              history.push("/")
-            }
-          }
-        }
-      })
     }, [])
     return <SpecificComponent {...props} user={user} />
   }

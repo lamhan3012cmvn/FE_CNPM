@@ -1,10 +1,9 @@
 import authAPI from "../../../Apis/Auth.Api"
 import {
-  LOGIN_USER,
-  REGISTER_USER,
-  AUTH_USER,
-  LOGOUT_USER,
-  USER_SERVER
+  LOGIN_USER_FAIL,
+  LOGIN_USER_SUCCESS,
+  GET_USER_FAIL,
+  GET_USER_SUCCESS
 } from "./type"
 import { changeLoading } from "../System/app.Action"
 
@@ -16,22 +15,21 @@ export function loginUser(dataToSubmit) {
   return async dispatch => {
     try {
       loading(dispatch, true)
-
-      const data = await auth.login(dataToSubmit)
+      const data = await authAPI.login(dataToSubmit)
       console.log(
-        `LHA:  ===> file: user.Action.js ===> line 14 ===> data`,
+        `LHA:  ===> file: user.Action.js ===> line 19 ===> data`,
         data
       )
       loading(dispatch)
       return {
-        type: LOGIN_USER,
-        payload: data
+        type: LOGIN_USER_SUCCESS,
+        payload: { userId: data }
       }
     } catch {
       loading(dispatch)
       return {
-        type: LOGIN_USER,
-        payload: {}
+        type: LOGIN_USER_FAIL,
+        payload: null
       }
     }
   }
@@ -39,31 +37,21 @@ export function loginUser(dataToSubmit) {
 
 export const authRequest = () => async dispatch => {
   try {
-    loading(dispatch, true)
-    const data = await authAPI.login()
-    console.log(`LHA:  ===> file: user.Action.js ===> line 14 ===> data`, data)
-    loading(dispatch)
+    // loading(dispatch, true)
+    console.log("authReq")
+    const data = await authAPI.getAuth()
+    console.log(`LHA:  ===> file: user.Action.js ===> line 38 ===> data`, data)
+    // loading(dispatch)
     return {
-      type: AUTH_USER,
+      type: GET_USER_SUCCESS,
       payload: data
     }
   } catch {
     loading(dispatch)
     return {
-      type: AUTH_USER,
+      type: GET_USER_FAIL,
       payload: {}
     }
-  }
-}
-
-export function auth() {
-  // const request = axios
-  //   .get(`${USER_SERVER}/auth`)
-  //   .then(response => response.data)
-
-  return {
-    type: AUTH_USER,
-    payload: {}
   }
 }
 
