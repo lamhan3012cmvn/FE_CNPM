@@ -2,21 +2,27 @@
 import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
-  REGISTER_USER,
   AUTH_USER,
   LOGOUT_USER
 } from "../../_actions/Auth/type"
 
-export default function (state = {}, action) {
+const initState = {
+  user: {},
+  isLogin: false
+}
+export default function (state = initState, action) {
+  console.log(action)
   switch (action.type) {
     case LOGIN_USER_FAIL:
       return { ...state, loginSuccess: action.payload }
     case LOGIN_USER_SUCCESS:
-      return { ...state, loginSuccess: action.payload }
+      return { ...state, user: action.payload, isLogin: true }
     case AUTH_USER:
-      return { ...state, userData: action.payload }
+      return { ...state, userData: action.payload, isLogin: true }
     case LOGOUT_USER:
       return { ...state }
+    case "abc":
+      return { ...state, isLogin: action.payload }
     default:
       return state
   }

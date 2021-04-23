@@ -1,5 +1,5 @@
 import { Switch, Route } from "react-router-dom"
-import { PATH } from "../common/contants/path"
+import { PATH } from "../common/constants/path"
 import HomePage from "../pages/HomePage"
 const HomeRouter = () => {
   return (

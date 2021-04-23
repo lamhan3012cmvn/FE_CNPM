@@ -1,6 +1,4 @@
-import React from "react"
-import ProductItem from "./ProductItem"
-import { Carousel } from "antd"
+import ProductItem from "../../../common/components/ProductItem"
 import Slider from "react-slick"
 const settings = {
   dots: true,

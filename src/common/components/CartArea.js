@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 const CartArea = () => {
   return (
@@ -58,17 +59,17 @@ const CartArea = () => {
                 </tr>
                 <tr className="bottom_button">
                   <td>
-                    <a className="btn_1" href="#">
+                    <Link className="btn_1" to="#">
                       Update Cart
-                    </a>
+                    </Link>
                   </td>
                   <td></td>
                   <td></td>
                   <td>
                     <div className="cupon_text float-right">
-                      <a className="btn_1" href="#">
+                      <Link className="btn_1" to="#">
                         Close Coupon
-                      </a>
+                      </Link>
                     </div>
                   </td>
                 </tr>
@@ -92,16 +93,16 @@ const CartArea = () => {
                     <div className="shipping_box">
                       <ul className="list">
                         <li>
-                          <a href="#">Flat Rate: $5.00</a>
+                          <Link to="#">Flat Rate: $5.00</Link>
                         </li>
                         <li>
-                          <a href="#">Free Shipping</a>
+                          <Link to="#">Free Shipping</Link>
                         </li>
                         <li>
-                          <a href="#">Flat Rate: $10.00</a>
+                          <Link to="#">Flat Rate: $10.00</Link>
                         </li>
                         <li className="active">
-                          <a href="#">Local Delivery: $2.00</a>
+                          <Link to="#">Local Delivery: $2.00</Link>
                         </li>
                       </ul>
                       <h6>
@@ -119,21 +120,21 @@ const CartArea = () => {
                         <option value="4">Select a State</option>
                       </select>
                       <input type="text" placeholder="Postcode/Zipcode" />
-                      <a className="btn_1" href="#">
+                      <Link className="btn_1" to="#">
                         Update Details
-                      </a>
+                      </Link>
                     </div>
                   </td>
                 </tr>
               </tbody>
             </table>
             <div className="checkout_btn_inner float-right">
-              <a className="btn_1" href="#">
+              <Link className="btn_1" to="#">
                 Continue Shopping
-              </a>
-              <a className="btn_1 checkout_btn_1" href="#">
+              </Link>
+              <Link className="btn_1 checkout_btn_1" to="#">
                 Proceed to checkout
-              </a>
+              </Link>
             </div>
           </div>
         </div>

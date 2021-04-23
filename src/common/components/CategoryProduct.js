@@ -229,42 +229,46 @@ const CategoryProduct = () => {
                   <nav aria-label="Page navigation example">
                     <ul className="pagination justify-content-center">
                       <li className="page-item">
-                        <Link to="" className="page-link" aria-label="Previous">
+                        <Link
+                          to="#"
+                          className="page-link"
+                          aria-label="Previous"
+                        >
                           <i className="ti-angle-double-left"></i>
                         </Link>
                       </li>
                       <li className="page-item">
-                        <Link to="" className="page-link">
+                        <Link to="#" className="page-link">
                           1
                         </Link>
                       </li>
                       <li className="page-item">
-                        <Link to="" className="page-link">
+                        <Link to="#" className="page-link">
                           2
                         </Link>
                       </li>
                       <li className="page-item">
-                        <Link to="" className="page-link">
+                        <Link to="#" className="page-link">
                           3
                         </Link>
                       </li>
                       <li className="page-item">
-                        <Link to="" className="page-link">
+                        <Link to="#" className="page-link">
                           4
                         </Link>
                       </li>
                       <li className="page-item">
-                        <Link to="" className="page-link">
+                        <Link to="#" className="page-link">
                           5
                         </Link>
                       </li>
                       <li className="page-item">
-                        <Link to="" className="page-link">
+                        <Link to="#" className="page-link">
                           6
                         </Link>
                       </li>
                       <li className="page-item">
-                        <Link to="" className="page-link" aria-label="Next">
+                        <Link to="#" className="page-link" aria-label="Next">
                           <i className="ti-angle-double-right"></i>
                         </Link>
                       </li>

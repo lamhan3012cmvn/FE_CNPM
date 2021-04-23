@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import img1 from "../../img/product/product_1.png"
 const ProductItem = () => {
   return (
@@ -7,9 +8,9 @@ const ProductItem = () => {
         <div className="single_product_text">
           <h4>Quartz Belt Watch</h4>
           <h3>$150.00</h3>
-          <a href="#" className="add_cart">
+          <Link to="#" className="add_cart">
             + add to cart<i className="ti-heart"></i>
-          </a>
+          </Link>
         </div>
       </div>
     </>

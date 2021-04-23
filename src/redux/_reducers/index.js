@@ -1,4 +1,5 @@
 import userReducer from "./Auth/user.Reducers"
-import systemReucer from "./System/app.Reducer"
-const rootReducers = { user: userReducer, system: systemReucer }
+import systemReducer from "./System/app.Reducer"
+
+const rootReducers = { user: userReducer, system: systemReducer }
 export default rootReducers

@@ -1,12 +1,14 @@
+/* eslint-disable no-console */
+import { Link } from "react-router-dom"
 import Slider from "react-slick"
 import product_1 from "../../img/product/single-product/product_1.png"
 const SingleProduct = () => {
   const settings = {
     customPaging: function (i) {
       return (
-        <a>
-          <img src={product_1} />
-        </a>
+        <Link to="#">
+          <img src={product_1} alt="" />
+        </Link>
       )
     },
     dots: true,
@@ -31,30 +33,18 @@ const SingleProduct = () => {
             <div class="product_slider_img">
               <Slider {...settings}>
                 <div>
-                  <img src={product_1}></img>
+                  <img src={product_1} alt=""></img>
                 </div>
                 <div>
-                  <img src={product_1}></img>
+                  <img src={product_1} alt=""></img>
                 </div>
                 <div>
-                  <img src={product_1}></img>
+                  <img src={product_1} alt=""></img>
                 </div>
                 <div>
-                  <img src={product_1}></img>
+                  <img src={product_1} alt=""></img>
                 </div>
               </Slider>
-              {/* <div id="vertical">
-                  
-                  <div>
-                    <img src={product_1} />
-                  </div>
-                  <div >
-                    <img src={product_1} />
-                  </div>
-                  <div >
-                    <img src={product_1} />
-                  </div>
-                </div> */}
             </div>
           </div>
           <div class="col-lg-5 col-xl-4">
@@ -66,15 +56,14 @@ const SingleProduct = () => {
               <h2>$149.99</h2>
               <ul class="list">
                 <li>
-                  <a class="active" href="#">
+                  <Link class="active" to="#">
                     <span>Category</span> : Household
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">
-                    {" "}
+                  <Link to="#">
                     <span>Availibility</span> : In Stock
-                  </a>
+                  </Link>
                 </li>
               </ul>
               <p>
@@ -85,7 +74,6 @@ const SingleProduct = () => {
               <div class="card_area d-flex justify-content-between align-items-center">
                 <div class="product_count">
                   <span class="inumber-decrement">
-                    {" "}
                     <i class="ti-minus"></i>
                   </span>
                   <input
@@ -96,17 +84,15 @@ const SingleProduct = () => {
                     max="10"
                   ></input>
                   <span class="number-increment">
-                    {" "}
                     <i class="ti-plus"></i>
                   </span>
                 </div>
-                <a href="#" class="btn_3">
+                <Link to="#" class="btn_3">
                   add to cart
-                </a>
-                <a href="#" class="like_us">
-                  {" "}
-                  <i class="ti-heart"></i>{" "}
-                </a>
+                </Link>
+                <Link to="#" class="like_us">
+                  <i class="ti-heart"></i>
+                </Link>
               </div>
             </div>
           </div>

@@ -8,3 +8,5 @@ export const PATH = {
   confirmation: "/confirmation",
   tracking: "/tracking"
 }
+
+export const PATH_API = {}

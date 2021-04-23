@@ -1,4 +1,4 @@
-import { PATH } from "../common/contants/path"
+import { PATH } from "../common/constants/path"
 import { Switch, Route } from "react-router-dom"
 import LoginPage from "../pages/LoginPage"
 const LoginRouter = () => {

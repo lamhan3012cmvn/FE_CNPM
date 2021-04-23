@@ -1,24 +1,34 @@
+/* eslint-disable no-console */
 import axiosClient from "./clientAxios.js"
 import Cookie from "js-cookie"
-class Auth {
-  constructor(url) {
-    this.url = url
-  }
-  getAll(params) {
-    return axiosClient.get(this.url, { params })
-  }
-  async login(body) {
-    const res = await axiosClient.post(`${this.url}/login`, { ...body })
+
+const login = async body => {
+  try {
+    const res = await axiosClient.post(`auth/login`, { ...body })
+
     Cookie.set("token", res.data.token)
     Cookie.set("tokenExp", res.data.tokenExp)
-    return res.data._id
-  }
-  async getAuth() {
-    const res = await axiosClient.get(`${this.url}/getAuth`)
-    console.log(`LHA:  ===> file: Auth.Api.js ===> line 22 ===> res`, res)
-    return res
+    return res.data
+  } catch (err) {
+    console.log(err)
+    return null
   }
 }
-const auth = new Auth("auth")
 
-export default auth
+const getAuth = async () => {
+  try {
+    const res = await axiosClient.get(`auth/getAuth`)
+    console.log(`LHA:  ===> file: Auth.Api.js ===> line 16 ===> res`, res)
+    if (res.status === 200) {
+      return res
+    }
+    return null
+  } catch (err) {
+    console.log(err)
+    return null
+  }
+}
+
+const Auth = { getAuth, login }
+
+export default Auth

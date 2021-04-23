@@ -1,8 +1,9 @@
 import { FaPlay } from "react-icons/fa"
-import feature1 from "../../img/feature/feature_1.png"
-import feature2 from "../../img/feature/feature_2.png"
-import feature3 from "../../img/feature/feature_3.png"
-import feature4 from "../../img/feature/feature_4.png"
+import { Link } from "react-router-dom"
+import feature1 from "../../../img/feature/feature_1.png"
+import feature2 from "../../../img/feature/feature_2.png"
+import feature3 from "../../../img/feature/feature_3.png"
+import feature4 from "../../../img/feature/feature_4.png"
 const FeaturePart = () => {
   return (
     <>
@@ -20,9 +21,9 @@ const FeaturePart = () => {
               <div className="single_feature_post_text">
                 <p>Premium Quality</p>
                 <h3>Latest foam Sofa</h3>
-                <a href="#" className="feature_btn">
+                <Link to="#" className="feature_btn">
                   EXPLORE NOW <FaPlay />
-                </a>
+                </Link>
                 <img src={feature1} alt="" />
               </div>
             </div>
@@ -30,9 +31,9 @@ const FeaturePart = () => {
               <div className="single_feature_post_text">
                 <p>Premium Quality</p>
                 <h3>Latest foam Sofa</h3>
-                <a href="#" className="feature_btn">
+                <Link to="#" className="feature_btn">
                   EXPLORE NOW <FaPlay />
-                </a>
+                </Link>
                 <img src={feature2} alt="" />
               </div>
             </div>
@@ -40,9 +41,9 @@ const FeaturePart = () => {
               <div className="single_feature_post_text">
                 <p>Premium Quality</p>
                 <h3>Latest foam Sofa</h3>
-                <a href="#" className="feature_btn">
+                <Link to="#" className="feature_btn">
                   EXPLORE NOW <FaPlay />
-                </a>
+                </Link>
                 <img src={feature3} alt="" />
               </div>
             </div>
@@ -50,9 +51,9 @@ const FeaturePart = () => {
               <div className="single_feature_post_text">
                 <p>Premium Quality</p>
                 <h3>Latest foam Sofa</h3>
-                <a href="#" className="feature_btn">
+                <Link to="#" className="feature_btn">
                   EXPLORE NOW <FaPlay />
-                </a>
+                </Link>
                 <img src={feature4} alt="" />
               </div>
             </div>

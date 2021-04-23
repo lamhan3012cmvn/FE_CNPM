@@ -1,5 +1,5 @@
 import { Route, Switch } from "react-router"
-import { PATH } from "../common/contants/path"
+import { PATH } from "../common/constants/path"
 import CartPage from "../pages/CartPage"
 
 const CartRouter = () => {

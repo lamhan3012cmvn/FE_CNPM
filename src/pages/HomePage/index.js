@@ -1,6 +1,6 @@
-import BannerPath from "../../common/components/BannerPath"
-import FeaturePart from "../../common/components/FeaturePart"
-import ProductList from "../../common/components/ProductList"
+import BannerPath from "./components/BannerPath"
+import FeaturePart from "./components/FeaturePart"
+import ProductList from "./components/ProductList"
 
 const HomePage = () => {
   return (

@@ -1,6 +1,6 @@
 import React from "react"
 import { Route, Switch } from "react-router"
-import { PATH } from "../common/contants/path"
+import { PATH } from "../common/constants/path"
 import CategoryPage from "../pages/Category"
 import Auth from "../common/components/Auth"
 const CategoryRoute = () => {

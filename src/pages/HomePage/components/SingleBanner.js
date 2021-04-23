@@ -1,5 +1,12 @@
-import banner from "../../img/banner_img.png"
-const SingleBanner = () => {
+import { useDispatch } from "react-redux"
+import { Link } from "react-router-dom"
+import { Test } from "../../../redux/_actions/Auth/user.Action"
+const SingleBanner = props => {
+  const { bannerImg } = props
+  const dispatch = useDispatch()
+  const test = () => {
+    dispatch(Test(true))
+  }
   return (
     <div className="single_banner_slider">
       <div
@@ -16,14 +23,14 @@ const SingleBanner = () => {
                 Incididunt ut labore et dolore magna aliqua quis ipsum
                 suspendisse ultrices gravida. Risus commodo viverra
               </p>
-              <a href="#" className="btn_2">
+              <Link to="#" className="btn_2" onClick={test}>
                 buy now
-              </a>
+              </Link>
             </div>
           </div>
         </div>
         <div className="banner_img d-none d-lg-block">
-          <img src={banner} alt="" />
+          <img src={bannerImg} alt="" />
         </div>
       </div>
     </div>
