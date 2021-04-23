@@ -3,9 +3,11 @@ import {
   LOGIN_USER_FAIL,
   LOGIN_USER_SUCCESS,
   GET_USER_FAIL,
-  GET_USER_SUCCESS
+  GET_USER_SUCCESS,
+  LOGOUT_USER
 } from "./type"
 import { changeLoading } from "../System/app.Action"
+import Cookies from "js-cookie"
 
 const loading = (dispatch, loading = false) => {
   dispatch(changeLoading(loading))
@@ -25,11 +27,13 @@ export function loginUser(dataToSubmit) {
         type: LOGIN_USER_SUCCESS,
         payload: data
       })
+      return true
     } catch {
       dispatch({
         type: LOGIN_USER_FAIL,
-        payload: null
+        payload: {}
       })
+      return false
     }
   }
 }
@@ -50,13 +54,11 @@ export const authRequest = () => async dispatch => {
   }
 }
 
-// export function logoutUser() {
-//   const request = axios
-//     .get(`${USER_SERVER}/logout`)
-//     .then(response => response.data)
-
-//   return {
-//     type: LOGOUT_USER,
-//     payload: request
-//   }
-// }
+export function logoutUser() {
+  Cookies.remove("token")
+  Cookies.remove("tokenExp")
+  return {
+    type: LOGOUT_USER,
+    payload: {}
+  }
+}

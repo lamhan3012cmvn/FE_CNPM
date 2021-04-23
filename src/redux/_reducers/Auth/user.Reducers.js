@@ -11,7 +11,6 @@ const initState = {
   isLogin: false
 }
 export default function (state = initState, action) {
-  console.log(action)
   switch (action.type) {
     case LOGIN_USER_FAIL:
       return { ...state, loginSuccess: action.payload }
@@ -20,7 +19,7 @@ export default function (state = initState, action) {
     case AUTH_USER:
       return { ...state, userData: action.payload, isLogin: true }
     case LOGOUT_USER:
-      return { ...state }
+      return { ...state, user: action.payload, isLogin: false }
     case "abc":
       return { ...state, isLogin: action.payload }
     default:

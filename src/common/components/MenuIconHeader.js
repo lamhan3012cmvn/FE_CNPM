@@ -2,18 +2,22 @@ import React from "react"
 import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai"
 import { FaCartPlus } from "react-icons/fa"
 import { FiSearch } from "react-icons/fi"
+import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
+import { logoutUser } from "../../redux/_actions/Auth/user.Action"
 import { PATH } from "../constants/path"
 
 const MenuIconHeader = props => {
+  const dispacth = useDispatch()
   const { onChange, isLogin, user } = props
-  console.log(`LHA:  ===> file: MenuIconHeader.js ===> line 10 ===> user`, user)
-
+  const handleLogout = () => {
+    dispacth(logoutUser())
+  }
   const renderUser = () => {
     return (
       <div className="dropdown-menu" style={{ marginTop: "35px" }}>
         <Link className="dropdown-item " to={PATH.login}>
-          {user.fullName}aaa
+          {user.fullName}
         </Link>
         <Link className="dropdown-item " to={PATH.tracking}>
           tracking
@@ -23,6 +27,9 @@ const MenuIconHeader = props => {
         </Link>
         <Link className="dropdown-item " to={PATH.confirmation}>
           confirmation
+        </Link>
+        <Link className="dropdown-item " to="#" onClick={handleLogout}>
+          Logout
         </Link>
       </div>
     )

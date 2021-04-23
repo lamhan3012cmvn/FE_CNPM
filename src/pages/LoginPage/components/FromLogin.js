@@ -7,15 +7,13 @@ import { loginUser } from "../../../redux/_actions/Auth/user.Action"
 const FromLogin = () => {
   const dispatch = useDispatch()
   const history = useHistory()
-  const user = useSelector(state => state.user.user._id)
 
   const login = async e => {
     e.preventDefault()
     const email = e.target.username.value
     const password = e.target.password.value
-    await dispatch(loginUser({ email, password }))
-
-    if (user) {
+    const res = dispatch(loginUser({ email, password }))
+    if (res) {
       history.push("/")
       return
     }

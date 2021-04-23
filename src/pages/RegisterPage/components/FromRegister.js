@@ -1,6 +1,7 @@
 import React from "react"
 
 const FromRegister = () => {
+  const step1 = () => {}
   return (
     <div className="col-lg-6 col-md-6">
       <div className="login_part_form">
