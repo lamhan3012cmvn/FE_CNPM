@@ -3,9 +3,10 @@ import axiosClient from "./clientAxios.js"
 import Cookie from "js-cookie"
 import notify from "../common/Notify/index.js"
 
+const url = "auth/"
 const login = async body => {
   try {
-    const res = await axiosClient.post(`auth/login`, { ...body })
+    const res = await axiosClient.post(`${url}login`, { ...body })
 
     Cookie.set("token", res.data.token)
     Cookie.set("tokenExp", res.data.tokenExp)
@@ -13,7 +14,21 @@ const login = async body => {
     return res.data
   } catch (err) {
     console.log(err)
-    return {}
+    return null
+  }
+}
+const register = async body => {
+  try {
+    console.log(`LHA:  ===> file: Auth.Api.js ===> line 21 ===> body`, body)
+    const res = await axiosClient.post(`${url}register`, {
+      email: body.Email,
+      password: body.Password
+    })
+    console.log(res)
+    return res.data
+  } catch (err) {
+    console.log(err)
+    return null
   }
 }
 
@@ -29,6 +44,6 @@ const getAuth = async () => {
   }
 }
 
-const Auth = { getAuth, login }
+const Auth = { getAuth, login, register }
 
 export default Auth

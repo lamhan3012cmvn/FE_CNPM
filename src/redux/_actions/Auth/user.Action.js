@@ -2,6 +2,8 @@ import authAPI from "../../../Apis/Auth.Api"
 import {
   LOGIN_USER_FAIL,
   LOGIN_USER_SUCCESS,
+  REGISTER_USER_SUCCESS,
+  REGISTER_USER_FAIL,
   GET_USER_FAIL,
   GET_USER_SUCCESS,
   LOGOUT_USER
@@ -60,5 +62,23 @@ export function logoutUser() {
   return {
     type: LOGOUT_USER,
     payload: {}
+  }
+}
+
+export const registerUser = body => async dispatch => {
+  try {
+    const data = await authAPI.register(body)
+    dispatch({
+      type: REGISTER_USER_SUCCESS,
+      payload: data
+    })
+    return true
+  } catch (err) {
+    console.log(err)
+    dispatch({
+      type: REGISTER_USER_FAIL,
+      payload: {}
+    })
+    return false
   }
 }

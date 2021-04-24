@@ -2,6 +2,8 @@
 import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
+  REGISTER_USER_SUCCESS,
+  REGISTER_USER_FAIL,
   AUTH_USER,
   LOGOUT_USER
 } from "../../_actions/Auth/type"
@@ -20,8 +22,10 @@ export default function (state = initState, action) {
       return { ...state, userData: action.payload, isLogin: true }
     case LOGOUT_USER:
       return { ...state, user: action.payload, isLogin: false }
-    case "abc":
-      return { ...state, isLogin: action.payload }
+    case REGISTER_USER_SUCCESS:
+      return { ...state, user: action.payload }
+    case REGISTER_USER_FAIL:
+      return { ...state, user: action.payload }
     default:
       return state
   }
