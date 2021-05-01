@@ -1,0 +1,9 @@
+.banner_img{
+  position: relative;
+}
+.banner_img .content
+{
+  position:absolute;
+  top:20%;
+  left: 20%;
+}

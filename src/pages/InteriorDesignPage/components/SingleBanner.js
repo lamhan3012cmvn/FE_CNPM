@@ -1,14 +1,7 @@
 import React from "react"
+import "./Style.SingleBanner.css"
 const SingleBanner = props => {
   const { bannerImg } = props
-  console.log(
-    `LHA:  ===> file: SingleBanner.js ===> line 4 ===> bannerImg`,
-    bannerImg
-  )
-  console.log(
-    `LHA:  ===> file: SingleBanner.js ===> line 4 ===> bannerImg`,
-    bannerImg
-  )
   return (
     <div className="single_banner_slider">
       <div
@@ -18,7 +11,7 @@ const SingleBanner = props => {
         }}
       >
         <div className="banner_img d-none d-lg-block">
-          <img src={bannerImg} alt="" />
+          <img src={bannerImg} alt="" style={{ objectFit: "cover" }} />
         </div>
       </div>
     </div>
