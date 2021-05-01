@@ -8,8 +8,8 @@ import HomeRouter from "./Home.Router"
 import LoginRouter from "./Login.Router"
 import RegisterRouter from "./Register.Router"
 import SingleProductRouter from "./SingleProduct.Router"
-import Tets from "./Test"
 import TrackingRoute from "./Tracking.Route"
+import InteriorDesignRouter from "./InteriorDesign.Router"
 
 const Routers = () => {
   return (
@@ -23,7 +23,7 @@ const Routers = () => {
       <SingleProductRouter />
       <ConfirmationRoute />
       <TrackingRoute />
-      <Tets />
+      <InteriorDesignRouter />
       <AppFooter />
     </Router>
   )

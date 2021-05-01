@@ -6,7 +6,8 @@ export const PATH = {
   register: "/register",
   singleProduct: "/singleProduct",
   confirmation: "/confirmation",
-  tracking: "/tracking"
+  tracking: "/tracking",
+  interiorDesign: "/interiorDesign"
 }
 
 export const PATH_API = {}
