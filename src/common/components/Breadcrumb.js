@@ -1,4 +1,5 @@
-const Breadcrumb = () => {
+const Breadcrumb = props => {
+  const { namePage, preLink } = props
   return (
     <section className="breadcrumb breadcrumb_bg">
       <div className="container">
@@ -6,9 +7,10 @@ const Breadcrumb = () => {
           <div className="col-lg-8">
             <div className="breadcrumb_iner">
               <div className="breadcrumb_iner_item">
-                <h2>Tracking Order</h2>
+                <h2>{namePage ? namePage : "...Page"}</h2>
                 <p>
-                  Home <span>-</span> Tracking Order
+                  {preLink ? preLink.name : "...From"} <span>-</span>{" "}
+                  {namePage ? namePage : "...Page"}
                 </p>
               </div>
             </div>
