@@ -1,5 +1,6 @@
 import ProductItem from "../../../common/components/ProductItem"
 import Slider from "react-slick"
+import TitleList from "../../../common/components/TitleList"
 const settings = {
   dots: true,
   infinite: true,
@@ -15,15 +16,7 @@ const ProductList = () => {
     <>
       <section className="product_list section_padding">
         <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-12">
-              <div className="section_tittle text-center">
-                <h2>
-                  awesome <span>shop</span>
-                </h2>
-              </div>
-            </div>
-          </div>
+          <TitleList title="awesome" content="shop" />
           <div className="row">
             <div className="col-lg-12">
               <div className="product_list_slider owl-carousel">

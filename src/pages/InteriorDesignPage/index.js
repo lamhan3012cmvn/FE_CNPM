@@ -2,6 +2,7 @@ import { useState } from "react"
 import AppSlider from "../../common/components/AppSlider"
 import BannerPath from "../../common/components/BannerPath"
 import Breadcrumb from "../../common/components/Breadcrumb"
+import ProjectPart from "./components/ProjectPart"
 import SingleBanner from "./components/SingleBanner"
 const InteriorDesignPage = () => {
   const img2 =
@@ -22,6 +23,7 @@ const InteriorDesignPage = () => {
         style={{ marginTop: "83.24px" }}
         propsComponents={componentBanner}
       />
+      <ProjectPart />
       {/* <BannerPath propsComponents={componentBanner} /> */}
     </>
   )

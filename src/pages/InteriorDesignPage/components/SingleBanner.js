@@ -1,5 +1,4 @@
 import React from "react"
-import "./Style.SingleBanner.css"
 const SingleBanner = props => {
   const { bannerImg } = props
   return (
