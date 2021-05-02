@@ -3,6 +3,7 @@ import AppSlider from "../../common/components/AppSlider"
 import BannerPath from "../../common/components/BannerPath"
 import Breadcrumb from "../../common/components/Breadcrumb"
 import ProjectPart from "./components/ProjectPart"
+import SelectProjectType from "./components/SelectProjectType"
 import SingleBanner from "./components/SingleBanner"
 const InteriorDesignPage = () => {
   const img2 =
@@ -17,14 +18,26 @@ const InteriorDesignPage = () => {
       component: <SingleBanner key={2} bannerImg={img2} />
     }
   ])
+
   return (
     <>
       <AppSlider
         style={{ marginTop: "83.24px" }}
         propsComponents={componentBanner}
       />
-      <ProjectPart />
-      {/* <BannerPath propsComponents={componentBanner} /> */}
+
+      <ProjectPart
+        content={
+          <SelectProjectType
+            projectType={[
+              { id: "1", type: "Chung Cu" },
+              { id: "2", type: "Biet Thu" },
+              { id: "3", type: "Nha Pho" }
+            ]}
+          />
+        }
+        CartsInterior={[1, 2, 3]}
+      />
     </>
   )
 }

@@ -1,46 +1,26 @@
-import ProductItem from "../../../common/components/ProductItem"
 import TitleList from "../../../common/components/TitleList"
+import CartInterior from "./CartInterior"
 
-const ProjectPart = () => {
+const ProjectPart = props => {
+  const { content, CartsInterior = [] } = props
+
+  const render = () => {
+    return CartsInterior ? (
+      CartsInterior.map(e => (
+        <div className="col-lg-4 col-sm-6">
+          <CartInterior />
+        </div>
+      ))
+    ) : (
+      <h3>Empty</h3>
+    )
+  }
   return (
     <section className="product_list section_padding">
       <div className="container">
-        <TitleList title="Project" content="Chung Cu" />
-        <div className="row">
-          <div className="col-lg-12">
-            <div className="product_list_slider owl-carousel">
-              <div className="single_product_list_slider">
-                <div>
-                  <div className="row align-items-center justify-content-between">
-                    <div className="col-lg-3 col-sm-6">
-                      <ProductItem />
-                    </div>
-                    <div className="col-lg-3 col-sm-6">
-                      <ProductItem />
-                    </div>
-                    <div className="col-lg-3 col-sm-6">
-                      <ProductItem />
-                    </div>
-                    <div className="col-lg-3 col-sm-6">
-                      <ProductItem />
-                    </div>
-                    <div className="col-lg-3 col-sm-6">
-                      <ProductItem />
-                    </div>
-                    <div className="col-lg-3 col-sm-6">
-                      <ProductItem />
-                    </div>
-                    <div className="col-lg-3 col-sm-6">
-                      <ProductItem />
-                    </div>
-                    <div className="col-lg-3 col-sm-6">
-                      <ProductItem />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <TitleList title="Project" content={content} />
+        <div className="row align-items-center justify-content-center">
+          {render()}
         </div>
       </div>
     </section>
