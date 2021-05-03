@@ -1,10 +1,13 @@
 import { PATH } from "../common/constants/path"
 import { Switch, Route } from "react-router-dom"
-import RegisterPage from "../pages/RegisterPage"
+import { lazy } from "react"
+
+const RegisterPage = lazy(() => import("../pages/RegisterPage"))
+
 const RegisterRouter = () => {
   return (
     <Switch>
-      <Route path={PATH.register} exact component={() => <RegisterPage />} />
+      <Route path={PATH.register} exact component={RegisterPage} />
     </Switch>
   )
 }

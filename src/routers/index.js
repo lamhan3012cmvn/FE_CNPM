@@ -13,21 +13,25 @@ import TrackingRoute from "./Tracking.Route"
 import InteriorDesignRouter from "./InteriorDesign.Router"
 import ContactRouter from "./Contact.Router"
 
+import { Suspense } from "react"
+
 const Routers = () => {
   return (
     <Router>
-      <AppHeader />
-      <HomeRouter />
-      <LoginRouter />
-      <CartRouter />
-      <CategoryRoute />
-      <RegisterRouter />
-      <SingleProductRouter />
-      <ConfirmationRoute />
-      <TrackingRoute />
-      <InteriorDesignRouter />
-      <ContactRouter />
-      <AppFooter />
+      <Suspense fallback={<div>Loading...</div>}>
+        <AppHeader />
+        <HomeRouter />
+        <LoginRouter />
+        <CartRouter />
+        <CategoryRoute />
+        <RegisterRouter />
+        <SingleProductRouter />
+        <ConfirmationRoute />
+        <TrackingRoute />
+        <InteriorDesignRouter />
+        <ContactRouter />
+        <AppFooter />
+      </Suspense>
     </Router>
   )
 }

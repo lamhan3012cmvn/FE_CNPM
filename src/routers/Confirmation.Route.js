@@ -1,16 +1,13 @@
-import React from "react"
+import React, { lazy } from "react"
 import { Route, Switch } from "react-router"
 import { PATH } from "../common/constants/path"
-import ConfirmationPage from "../pages/ConfirmationPage"
+
+const ConfirmationPage = lazy(() => import("../pages/ConfirmationPage"))
 
 const ConfirmationRoute = () => {
   return (
     <Switch>
-      <Route
-        exact
-        path={PATH.confirmation}
-        component={() => <ConfirmationPage />}
-      />
+      <Route exact path={PATH.confirmation} component={ConfirmationPage} />
     </Switch>
   )
 }

@@ -1,11 +1,12 @@
+import { lazy } from "react"
 import { Route, Switch } from "react-router"
 import { PATH } from "../common/constants/path"
-import TrackingPage from "../pages/TrackingPage"
 
+const TrackingPage = lazy(() => import("../pages/TrackingPage"))
 const TrackingRoute = () => {
   return (
     <Switch>
-      <Route exact path={PATH.tracking} component={() => <TrackingPage />} />
+      <Route exact path={PATH.tracking} component={TrackingPage} />
     </Switch>
   )
 }
