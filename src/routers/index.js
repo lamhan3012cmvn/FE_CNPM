@@ -11,6 +11,7 @@ import RegisterRouter from "./Register.Router"
 import SingleProductRouter from "./SingleProduct.Router"
 import TrackingRoute from "./Tracking.Route"
 import InteriorDesignRouter from "./InteriorDesign.Router"
+import ContactRouter from "./Contact.Router"
 
 const Routers = () => {
   return (
@@ -25,6 +26,7 @@ const Routers = () => {
       <ConfirmationRoute />
       <TrackingRoute />
       <InteriorDesignRouter />
+      <ContactRouter />
       <AppFooter />
     </Router>
   )
