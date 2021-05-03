@@ -5,8 +5,9 @@ const ContactPage = () => {
     <section class="contact-section padding_top">
       <div class="container">
         <div class="d-none d-sm-block mb-5 pb-4">
-          <div id="map" style={{ height: "480px" }}></div>
-          {/* React google npm */}
+          <div id="map" style={{ height: "480px" }}>
+            React google npm
+          </div>
         </div>
 
         <div class="row">
