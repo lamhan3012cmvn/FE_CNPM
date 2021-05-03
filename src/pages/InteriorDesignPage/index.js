@@ -1,23 +1,24 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
 import AppSlider from "../../common/components/AppSlider"
-import BannerPath from "../../common/components/BannerPath"
-import Breadcrumb from "../../common/components/Breadcrumb"
 import ProjectPart from "./components/ProjectPart"
 import SelectProjectType from "./components/SelectProjectType"
 import SingleBanner from "./components/SingleBanner"
 const InteriorDesignPage = () => {
-  const img2 =
-    "https://firebasestorage.googleapis.com/v0/b/cnpm-e5af3.appspot.com/o/InteriorDesign%2FBannerInteriorDesign%2Fslide-thiet-ke-noi-that-2.jpg?alt=media&token=064831d6-b63c-4ac0-8a8e-585be58485ee"
-  const img1 =
-    "https://firebasestorage.googleapis.com/v0/b/cnpm-e5af3.appspot.com/o/InteriorDesign%2FBannerInteriorDesign%2Fslide-thiet-ke-noi-that-3.jpg?alt=media&token=0fb53c95-ac9f-4306-b8e3-5a11d499131f"
-  const [componentBanner, setComponentBanner] = useState([
-    {
-      component: <SingleBanner key={1} bannerImg={img1} />
-    },
-    {
-      component: <SingleBanner key={2} bannerImg={img2} />
-    }
-  ])
+  const [componentBanner, setComponentBanner] = useState([])
+  const ImgBanner = useSelector(state => state.interior.ImgBanner)
+
+  const [cartsInterior, setCartsInterior] = useState([])
+
+  useEffect(() => {
+    setComponentBanner(
+      ImgBanner.map((e, i) => {
+        return {
+          component: <SingleBanner key={i} bannerImg={e} />
+        }
+      })
+    )
+  }, [ImgBanner])
 
   return (
     <>

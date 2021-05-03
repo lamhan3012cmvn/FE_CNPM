@@ -2877,7 +2877,7 @@ ul {
   -moz-transition-property: -moz-transform;
   user-select: none;
   width: 25px;
-height: 25px;
+  height: 25px;
 }
 .slick-thumb li {
   width: 100%;

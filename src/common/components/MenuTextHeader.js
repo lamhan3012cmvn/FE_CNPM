@@ -14,7 +14,17 @@ const MenuTextHeader = () => {
             Home
           </Link>
         </li>
-        <li className="nav-item dropdown">
+        <li className="nav-item">
+          <Link className="nav-link" to={PATH.category}>
+            Shop category
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to={PATH.interiorDesign}>
+            Interior Design
+          </Link>
+        </li>
+        {/* <li className="nav-item dropdown">
           <Link
             to="/"
             className="nav-link dropdown-toggle"
@@ -24,13 +34,13 @@ const MenuTextHeader = () => {
           </Link>
           <div className="dropdown-menu">
             <Link className="dropdown-item" to={PATH.category}>
-              Shop category
+             
             </Link>
             <Link className="dropdown-item" to={PATH.singleProduct}>
               Product details
             </Link>
           </div>
-        </li>
+        </li> */}
         <li className="nav-item">
           <Link className="nav-link" to="/">
             Contact
