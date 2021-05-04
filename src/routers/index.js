@@ -14,11 +14,12 @@ import InteriorDesignRouter from "./InteriorDesign.Router"
 import ContactRouter from "./Contact.Router"
 
 import { Suspense } from "react"
+import Loading from "../common/components/Loading"
 
 const Routers = () => {
   return (
     <Router>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loading />}>
         <AppHeader />
         <HomeRouter />
         <LoginRouter />

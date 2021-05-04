@@ -11,29 +11,29 @@ const Authentication = (SpecificComponent, option, adminRoute = null) => {
     const history = useHistory()
     const fetchAuth = async () => {
       const res = await dispatch(authRequest())
+      //res.payload.isAuth === false chưa đăng nhập
       if (res.payload && !res.payload.isAuth) {
         if (option) {
+          //bắt buộc đăng nhập
           history.push("/login")
         }
-        //Loggined in Status
       } else {
-        //supposed to be Admin page, but not admin person wants to go inside
+        //đã đăng nhập
         if (adminRoute && !res.payload.isAdmin) {
+          //Kiểm tra khong phai admin
           history.push("/")
-        }
-        //Logged in Status, but Try to go into log in page
-        else {
-          if (option === false) {
-            history.push("/")
-          }
+        } else {
+          // if (option === false) {
+          //   history.push("/")
+          // }
         }
       }
     }
     useEffect(() => {
       fetchAuth()
-
       //To know my current status, send Auth request
     }, [])
+    //Đã có login
     return <SpecificComponent {...props} user={user} />
   }
   return AuthenticationCheck
