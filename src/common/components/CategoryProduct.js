@@ -1,118 +1,19 @@
 import React from "react"
 import ProductItem from "./ProductItem"
 import { Link } from "react-router-dom"
+import FilterWidget from "./FilterWidget"
+import { useSelector } from "react-redux"
 const CategoryProduct = () => {
+  const FilterCategory = useSelector(state => state.filter.category)
+  const FilterColor = useSelector(state => state.filter.color)
   return (
     <section className="cat_product_area section_padding">
       <div className="container">
         <div className="row">
           <div className="col-lg-3">
             <div className="left_sidebar_area">
-              <aside className="left_widgets p_filter_widgets">
-                <div className="l_w_title">
-                  <h3>Browse Categories</h3>
-                </div>
-                <div className="widgets_inner">
-                  <ul className="list">
-                    <li>
-                      <Link>Frozen Fish</Link>
-                      <span>(250)</span>
-                    </li>
-                    <li>
-                      <Link>Dried Fish</Link>
-                      <span>(250)</span>
-                    </li>
-                    <li>
-                      <Link>Fresh Fish</Link>
-                      <span>(250)</span>
-                    </li>
-                    <li>
-                      <Link>Meat Alternatives</Link>
-                      <span>(250)</span>
-                    </li>
-                    <li>
-                      <Link>Fresh Fish</Link>
-                      <span>(250)</span>
-                    </li>
-                    <li>
-                      <Link>Meat Alternatives</Link>
-                      <span>(250)</span>
-                    </li>
-                    <li>
-                      <Link>Meat</Link>
-                      <span>(250)</span>
-                    </li>
-                  </ul>
-                </div>
-              </aside>
-
-              <aside className="left_widgets p_filter_widgets">
-                <div className="l_w_title">
-                  <h3>Product filters</h3>
-                </div>
-                <div className="widgets_inner">
-                  <ul className="list">
-                    <li>
-                      <Link>Apple</Link>
-                    </li>
-                    <li>
-                      <Link>Asus</Link>
-                    </li>
-                    <li className="active">
-                      <Link>Gionee</Link>
-                    </li>
-                    <li>
-                      <Link>Micromax</Link>
-                    </li>
-                    <li>
-                      <Link>Samsung</Link>
-                    </li>
-                  </ul>
-                  <ul className="list">
-                    <li>
-                      <Link>Apple</Link>
-                    </li>
-                    <li>
-                      <Link>Asus</Link>
-                    </li>
-                    <li className="active">
-                      <Link>Gionee</Link>
-                    </li>
-                    <li>
-                      <Link>Micromax</Link>
-                    </li>
-                    <li>
-                      <Link>Samsung</Link>
-                    </li>
-                  </ul>
-                </div>
-              </aside>
-
-              <aside className="left_widgets p_filter_widgets">
-                <div className="l_w_title">
-                  <h3>Color Filter</h3>
-                </div>
-                <div className="widgets_inner">
-                  <ul className="list">
-                    <li>
-                      <Link>Black</Link>
-                    </li>
-                    <li>
-                      <Link>Black Leather</Link>
-                    </li>
-                    <li className="active">
-                      <Link>Black with red</Link>
-                    </li>
-                    <li>
-                      <Link>Gold</Link>
-                    </li>
-                    <li>
-                      <Link>Spacegrey</Link>
-                    </li>
-                  </ul>
-                </div>
-              </aside>
-
+              <FilterWidget title="Product Filter" widgets={FilterCategory} />
+              <FilterWidget title="Color Filter" widgets={FilterColor} />
               <aside className="left_widgets p_filter_widgets price_rangs_aside">
                 <div className="l_w_title">
                   <h3>Price Filter</h3>
