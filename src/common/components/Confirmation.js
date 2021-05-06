@@ -1,16 +1,16 @@
 const Confirmation = () => {
   return (
     <>
-      <section class="confirmation_part padding_top">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="confirmation_tittle">
+      <section className="confirmation_part padding_top">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="confirmation_tittle">
                 <span>Thank you. Your order has been received.</span>
               </div>
             </div>
-            <div class="col-lg-6 col-lx-4">
-              <div class="single_confirmation_details">
+            <div className="col-lg-6 col-lx-4">
+              <div className="single_confirmation_details">
                 <h4>order info</h4>
                 <ul>
                   <li>
@@ -32,8 +32,8 @@ const Confirmation = () => {
                 </ul>
               </div>
             </div>
-            <div class="col-lg-6 col-lx-4">
-              <div class="single_confirmation_details">
+            <div className="col-lg-6 col-lx-4">
+              <div className="single_confirmation_details">
                 <h4>Billing Address</h4>
                 <ul>
                   <li>
@@ -55,8 +55,8 @@ const Confirmation = () => {
                 </ul>
               </div>
             </div>
-            <div class="col-lg-6 col-lx-4">
-              <div class="single_confirmation_details">
+            <div className="col-lg-6 col-lx-4">
+              <div className="single_confirmation_details">
                 <h4>shipping Address</h4>
                 <ul>
                   <li>
@@ -79,11 +79,11 @@ const Confirmation = () => {
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="order_details_iner">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="order_details_iner">
                 <h3>Order Details</h3>
-                <table class="table table-borderless">
+                <table className="table table-borderless">
                   <thead>
                     <tr>
                       <th scope="col" colspan="2">

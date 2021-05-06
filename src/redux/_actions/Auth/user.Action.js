@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import authAPI from "../../../Apis/Auth.Api"
 import {
   LOGIN_USER_FAIL,

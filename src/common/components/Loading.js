@@ -9,7 +9,7 @@ const override = css`
 const Loading = () => {
   return (
     <div id="loading">
-      <div class="wave">
+      <div className="wave">
         <RingLoader
           css={override}
           color={"#FF0046"}

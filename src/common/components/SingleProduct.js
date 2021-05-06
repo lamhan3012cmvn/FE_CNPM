@@ -26,11 +26,11 @@ const SingleProduct = () => {
     }
   }
   return (
-    <div class="product_image_area section_padding">
-      <div class="container">
-        <div class="row s_product_inner justify-content-between">
-          <div class="col-lg-7 col-xl-7">
-            <div class="product_slider_img">
+    <div className="product_image_area section_padding">
+      <div className="container">
+        <div className="row s_product_inner justify-content-between">
+          <div className="col-lg-7 col-xl-7">
+            <div className="product_slider_img">
               <Slider {...settings}>
                 <div>
                   <img src={product_1} alt=""></img>
@@ -47,16 +47,16 @@ const SingleProduct = () => {
               </Slider>
             </div>
           </div>
-          <div class="col-lg-5 col-xl-4">
-            <div class="s_product_text">
+          <div className="col-lg-5 col-xl-4">
+            <div className="s_product_text">
               <h5>
                 previous <span>|</span> next
               </h5>
               <h3>Faded SkyBlu Denim Jeans</h3>
               <h2>$149.99</h2>
-              <ul class="list">
+              <ul className="list">
                 <li>
-                  <Link class="active" to="#">
+                  <Link className="active" to="#">
                     <span>Category</span> : Household
                   </Link>
                 </li>
@@ -71,27 +71,27 @@ const SingleProduct = () => {
                 won't called. Two fruitful let days signs sea together all land
                 fly subdue
               </p>
-              <div class="card_area d-flex justify-content-between align-items-center">
-                <div class="product_count">
-                  <span class="inumber-decrement">
-                    <i class="ti-minus"></i>
+              <div className="card_area d-flex justify-content-between align-items-center">
+                <div className="product_count">
+                  <span className="inumber-decrement">
+                    <i className="ti-minus"></i>
                   </span>
                   <input
-                    class="input-number"
+                    className="input-number"
                     type="text"
                     value="1"
                     min="0"
                     max="10"
                   ></input>
-                  <span class="number-increment">
-                    <i class="ti-plus"></i>
+                  <span className="number-increment">
+                    <i className="ti-plus"></i>
                   </span>
                 </div>
-                <Link to="#" class="btn_3">
+                <Link to="#" className="btn_3">
                   add to cart
                 </Link>
-                <Link to="#" class="like_us">
-                  <i class="ti-heart"></i>
+                <Link to="#" className="like_us">
+                  <i className="ti-heart"></i>
                 </Link>
               </div>
             </div>

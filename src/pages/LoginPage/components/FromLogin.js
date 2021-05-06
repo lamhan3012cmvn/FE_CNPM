@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { useHistory } from "react-router"
 import { Link } from "react-router-dom"
 import { loginUser } from "../../../redux/_actions/Auth/user.Action"

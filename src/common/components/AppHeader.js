@@ -10,7 +10,6 @@ import MenuTextHeader from "./MenuTextHeader"
 import { useSelector } from "react-redux"
 
 const AppHeader = () => {
-  console.log("run")
   const [modalSearch, setModalSearch] = useState(false)
 
   const changeSearch = () => {

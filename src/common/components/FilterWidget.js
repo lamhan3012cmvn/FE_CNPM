@@ -11,10 +11,8 @@ const FilterWidget = props => {
       <div className="widgets_inner">
         <ul className="list">
           {widgets.map((e, i) => (
-            <li>
-              <Link to="#" key={i}>
-                {e.title}
-              </Link>
+            <li key={`${e.title}_${i}`}>
+              <Link to="#">{e.title}</Link>
             </li>
           ))}
         </ul>

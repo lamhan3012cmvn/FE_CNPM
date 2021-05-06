@@ -2,10 +2,6 @@ const SelectProjectType = props => {
   const { projectType } = props
   const changeActive = e => {
     const element = e
-    console.log(
-      `LHA:  ===> file: SelectProjectType.js ===> line 5 ===> element`,
-      element
-    )
   }
   const renderType = () => {
     return projectType.map(e => {

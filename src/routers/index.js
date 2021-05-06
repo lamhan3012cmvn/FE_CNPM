@@ -15,7 +15,6 @@ import ContactRouter from "./Contact.Router"
 
 import { Suspense } from "react"
 import Loading from "../common/components/Loading"
-import Testting from "./Testting"
 
 const Routers = () => {
   return (
