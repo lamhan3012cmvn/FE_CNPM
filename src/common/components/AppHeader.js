@@ -16,6 +16,11 @@ const AppHeader = () => {
     setModalSearch(!modalSearch)
   }
 
+  const [toogle, setToogle] = useState(false)
+  const closeToogle = () => {
+    setToogle(false)
+  }
+
   const currentUser = useSelector(state => state.user)
 
   return (
@@ -28,12 +33,15 @@ const AppHeader = () => {
                 <Link className="navbar-brand" to="/">
                   <img src={logo} alt="logo" />
                 </Link>
-                <button className="navbar-toggler">
+                <button
+                  className="navbar-toggler"
+                  onClick={() => setToogle(!toogle)}
+                >
                   <span className="menu_icon">
                     <FaBars />
                   </span>
                 </button>
-                <MenuTextHeader />
+                <MenuTextHeader FaBars={{ toogle, closeToogle }} />
                 <MenuIconHeader
                   onChange={changeSearch}
                   isLogin={currentUser.isLogin}

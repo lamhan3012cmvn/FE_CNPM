@@ -1,6 +1,7 @@
 import ProductItem from "../../../common/components/ProductItem"
 import Slider from "react-slick"
 import TitleList from "../../../common/components/TitleList"
+import { useSelector } from "react-redux"
 const settings = {
   dots: true,
   infinite: true,
@@ -12,6 +13,7 @@ const settings = {
   cssEase: "linear"
 }
 const ProductList = () => {
+  const products = useSelector(state => state.product.products)
   return (
     <>
       <section className="product_list section_padding">
@@ -24,30 +26,12 @@ const ProductList = () => {
                   <Slider {...settings}>
                     <div>
                       <div className="row align-items-center justify-content-between">
-                        <div className="col-lg-3 col-sm-6">
-                          <ProductItem />
-                        </div>
-                        <div className="col-lg-3 col-sm-6">
-                          <ProductItem />
-                        </div>
-                        <div className="col-lg-3 col-sm-6">
-                          <ProductItem />
-                        </div>
-                        <div className="col-lg-3 col-sm-6">
-                          <ProductItem />
-                        </div>
-                        <div className="col-lg-3 col-sm-6">
-                          <ProductItem />
-                        </div>
-                        <div className="col-lg-3 col-sm-6">
-                          <ProductItem />
-                        </div>
-                        <div className="col-lg-3 col-sm-6">
-                          <ProductItem />
-                        </div>
-                        <div className="col-lg-3 col-sm-6">
-                          <ProductItem />
-                        </div>
+                        {products &&
+                          products.map((e, i) => (
+                            <div className="col-lg-3 col-sm-6" key={i}>
+                              <ProductItem product={e} />
+                            </div>
+                          ))}
                       </div>
                     </div>
                   </Slider>

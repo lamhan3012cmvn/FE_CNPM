@@ -1,7 +1,8 @@
 import filter from "./filter.Reducers"
-
+import category from "./category.Reducers"
 const productReducer = {
-  filter
+  filter,
+  category
 }
 
 export default productReducer

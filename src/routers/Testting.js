@@ -12,7 +12,7 @@ import {
 } from "react-icons/ai"
 import { TiTicket } from "react-icons/ti"
 import SidebarItem from "../common/components/SidebarItem"
-import MessageList from "./MessageList"
+import MessageList from "../common/components/MessageList"
 const Testting = () => {
   return (
     <div id="main-wrapper">

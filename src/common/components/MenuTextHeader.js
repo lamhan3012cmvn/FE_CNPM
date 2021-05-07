@@ -2,14 +2,17 @@ import React from "react"
 import { Link } from "react-router-dom"
 import { PATH } from "../constants/path"
 
-const MenuTextHeader = () => {
+const MenuTextHeader = props => {
+  const { FaBars } = props
+
   return (
     <div
-      className="collapse navbar-collapse main-menu-item"
+      className={`collapse navbar-collapse main-menu-item 
+      ${FaBars.toogle ? "show" : ""}`}
       id="navbarSupportedContent"
     >
       <ul className="navbar-nav">
-        <li className="nav-item">
+        <li className="nav-item" onClick={FaBars.closeToogle}>
           <Link className="nav-link" to="/">
             Home
           </Link>

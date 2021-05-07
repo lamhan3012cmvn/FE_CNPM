@@ -7,6 +7,7 @@ const rootReducers = {
   user: userReducer,
   system: systemReducer,
   interior: interiorReducer,
-  filter: productReducer.filter
+  filter: productReducer.filter,
+  product: productReducer.category
 }
 export default rootReducers

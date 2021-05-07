@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react"
 import BannerPath from "../../common/components/BannerPath"
 import FeaturePart from "./components/FeaturePart"

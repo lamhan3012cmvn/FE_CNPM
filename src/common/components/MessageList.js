@@ -1,11 +1,10 @@
 import React from "react"
 import { AiOutlineBell } from "react-icons/ai"
 import { Link } from "react-router-dom"
-import MessageItem from "../common/components/MessageItem"
-
+import MessageItem from "../components/MessageItem"
 const MessageList = () => {
   return (
-    <li className="nav-item dropdown show">
+    <li className="nav-item dropdown" style={{ marginLeft: "260px" }}>
       <Link
         to="#"
         className="nav-link dropdown-toggle pl-md-3 position-relative"

@@ -19,7 +19,6 @@ const login = async body => {
 }
 const register = async body => {
   try {
-    console.log(`LHA:  ===> file: Auth.Api.js ===> line 21 ===> body`, body)
     const res = await axiosClient.post(`${url}register`, {
       email: body.Email,
       password: body.Password
@@ -35,8 +34,6 @@ const register = async body => {
 const getAuth = async () => {
   try {
     const res = await axiosClient.get(`auth/getAuth`)
-    console.log(`LHA:  ===> file: Auth.Api.js ===> line 16 ===> res`, res)
-
     return res
   } catch (err) {
     console.log(err)

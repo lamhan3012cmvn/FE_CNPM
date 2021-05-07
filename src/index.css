@@ -1,10 +1,13 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700,800&display=swap");
 
 /* @import url("./css/bootstrap.min.css"); */
 
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 
+@import "~rc-slider/assets/index.css";
+
+@import "~bootstrap/dist/css/bootstrap.min.css";
 /* line 2, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_extends.scss */
 .btn_2,
 .form-contact .form-group .btn_1 i {
@@ -25,10 +28,14 @@
 /**************** common css start ****************/
 /* line 4, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_common.scss */
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   padding: 0;
   margin: 0;
   font-size: 14px;
+}
+*{
+  margin: 0;
+  padding:0;
 }
 
 /* line 11, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_common.scss */
@@ -167,14 +174,14 @@ h4,
 h5,
 h6 {
   color: #000;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
 /* line 105, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_common.scss */
 p {
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   line-height: 2;
   font-size: 15px;
   margin-bottom: 0px;
@@ -312,7 +319,7 @@ button:focus,
   color: #556172;
   text-transform: capitalize;
   line-height: 30px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 @media (max-width: 576px) {
@@ -549,7 +556,7 @@ ul {
   border-radius: 5px;
   background-color: #ff3368;
   font-size: 15px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   color: #fff;
   -o-transition: all 0.4s ease-in-out;
@@ -2141,7 +2148,7 @@ ul {
   color: #000;
   font-size: 15px;
   padding: 36px 23px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   text-transform: capitalize;
   line-height: 12px;
   font-weight: 400;
@@ -2536,7 +2543,7 @@ ul {
 .banner_part .single_banner_slider .banner_text p {
   font-size: 15px;
   line-height: 1.8;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   margin-bottom: 70px;
   padding-right: 80px;
 }
@@ -2869,8 +2876,22 @@ ul {
   margin-bottom: 20px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  box-shadow: 0px 10px 20px 0px rgba(0, 23, 51, 0.09)
 }
 
+.single_product_item img{
+  height: 45%;
+}
+.single_product_item .single_product_text
+{
+  height:55%;
+  -webkit-box-shadow: 0px -5px 5px 0px rgba(0,0,0,0.07);
+-moz-box-shadow: 0px -5px 5px 0px rgba(0,0,0,0.07);
+box-shadow: 0px -5px 5px 0px rgba(0,0,0,0.07);
+}
 .slick-thumb {
   margin-left: 5px;
   width: 100px;
@@ -2903,10 +2924,10 @@ ul {
 }
 
 @media (max-width: 991px) {
-  /* line 58, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product_list.scss */
-  .single_product_item img {
-    width: 100%;
+  .single_product_item{
+    height: 400px;
   }
+  
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
@@ -2918,7 +2939,7 @@ ul {
 
 /* line 66, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product_list.scss */
 .single_product_item .single_product_text {
-  padding: 32px 0;
+  padding: 32px 15px;
   background-color: #fff;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -2961,7 +2982,8 @@ ul {
 
 /* line 102, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product_list.scss */
 .single_product_item:hover {
-  box-shadow: 0px 10px 20px 0px rgba(0, 23, 51, 0.09);
+  box-shadow: 0px 10px 20px 0px rgba(0, 23, 51, 0.09)
+  0px 10px 20px 0px rgba(0, 23, 51, 0.09);
 }
 
 /* line 105, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product_list.scss */
@@ -3370,7 +3392,7 @@ ul {
 
 /* line 65, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .single-product .product-btm span {
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 16px;
@@ -3577,7 +3599,7 @@ ul {
 /* line 262, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .p_filter_widgets .list li a {
   font-size: 14px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: normal;
   color: #797979;
   position: relative;
@@ -3623,7 +3645,7 @@ ul {
 /* line 314, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .product_top_bar .left_dorp .sorting span {
   font-size: 14px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #555555;
 }
 
@@ -3636,7 +3658,7 @@ ul {
 /* line 324, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .product_top_bar .left_dorp .sorting .list li {
   font-size: 14px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #555555;
 }
 
@@ -3667,7 +3689,7 @@ ul {
 /* line 353, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .product_top_bar .left_dorp .show span {
   font-size: 14px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #555555;
 }
 
@@ -3680,7 +3702,7 @@ ul {
 /* line 363, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .product_top_bar .left_dorp .show .list li {
   font-size: 14px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #555555;
 }
 
@@ -3799,7 +3821,7 @@ ul {
 
 /* line 485, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .price_value span {
-  margin: 5px 5px 0;
+  margin: 5px;
 }
 
 /* line 490, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
@@ -3813,7 +3835,6 @@ ul {
 /* line 499, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .price_rangs_aside .l_w_title h3 {
   line-height: 20px;
-  margin-bottom: 0px;
 }
 
 /* line 506, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
@@ -3949,7 +3970,7 @@ ul {
 /* line 642, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .s_product_text .list li a {
   font-size: 14px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: normal;
   color: #555555;
 }
@@ -4184,7 +4205,7 @@ ul {
 .product_description_area .tab-content .total_rate .rating_list h3 {
   font-size: 18px;
   color: #2a2a2a;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 700;
   margin-bottom: 10px;
 }
@@ -4228,7 +4249,7 @@ ul {
 /* line 892, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .product_description_area .tab-content .table tbody tr td h5 {
   font-size: 14px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: normal;
   color: #797979;
   margin-bottom: 0px;
@@ -4276,7 +4297,7 @@ ul {
   margin-bottom: 0px;
   font-size: 14px;
   color: #2a2a2a;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   margin-bottom: 8px;
 }
 
@@ -4300,7 +4321,7 @@ ul {
   line-height: 32px;
   border-radius: 16px;
   font-size: 14px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #2a2a2a;
   position: absolute;
   right: 0px;
@@ -4394,7 +4415,7 @@ ul {
   border-top: 0px;
   font-size: 14px;
   font-weight: 500;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #797979;
   border-bottom: 0px !important;
 }
@@ -4433,7 +4454,7 @@ ul {
 .cart_inner .table tbody tr td h5 {
   font-size: 14px;
   color: #2a2a2a;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   margin-bottom: 0px;
 }
 
@@ -4515,7 +4536,7 @@ ul {
   height: 40px;
   font-size: 14px;
   color: #cccccc;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: normal;
   margin-right: -3px;
   outline: none;
@@ -4526,7 +4547,7 @@ ul {
 .cart_inner .table tbody tr.bottom_button td .cupon_text input.placeholder {
   font-size: 14px;
   color: #cccccc;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: normal;
 }
 
@@ -4540,7 +4561,7 @@ ul {
   input:-moz-placeholder {
   font-size: 14px;
   color: #cccccc;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: normal;
 }
 
@@ -4554,7 +4575,7 @@ ul {
   input::-moz-placeholder {
   font-size: 14px;
   color: #cccccc;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: normal;
 }
 
@@ -4568,7 +4589,7 @@ ul {
   input::-webkit-input-placeholder {
   font-size: 14px;
   color: #cccccc;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: normal;
 }
 
@@ -4661,7 +4682,7 @@ ul {
   font-size: 14px;
   font-weight: normal;
   color: #2a2a2a;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -4777,7 +4798,7 @@ ul {
 .check_title h2 {
   font-size: 14px;
   font-weight: normal;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   background: #ecfdff;
   line-height: 40px;
   padding-left: 30px;
@@ -4836,7 +4857,7 @@ ul {
   height: 40px;
   border-radius: 3px;
   font-size: 14px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #797979;
   font-weight: normal;
 }
@@ -4844,7 +4865,7 @@ ul {
 /* line 65, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_mixins.scss */
 .returning_customer .contact_form .form-group input.placeholder {
   font-size: 14px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #797979;
   font-weight: normal;
 }
@@ -4852,7 +4873,7 @@ ul {
 /* line 68, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_mixins.scss */
 .returning_customer .contact_form .form-group input:-moz-placeholder {
   font-size: 14px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #797979;
   font-weight: normal;
 }
@@ -4860,7 +4881,7 @@ ul {
 /* line 71, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_mixins.scss */
 .returning_customer .contact_form .form-group input::-moz-placeholder {
   font-size: 14px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #797979;
   font-weight: normal;
 }
@@ -4868,7 +4889,7 @@ ul {
 /* line 74, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_mixins.scss */
 .returning_customer .contact_form .form-group input::-webkit-input-placeholder {
   font-size: 14px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #797979;
   font-weight: normal;
 }
@@ -4895,7 +4916,7 @@ ul {
   display: block;
   margin-top: 20px;
   font-size: 14px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #797979;
   font-weight: normal;
 }
@@ -4985,7 +5006,7 @@ ul {
   padding: 0px 40px;
   color: #2a2a2a;
   text-transform: capitalize;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   border-radius: 50px;
 }
@@ -5062,7 +5083,7 @@ ul {
 /* line 1574, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .billing_details .contact_form .form-group .country_select .list li {
   font-size: 14px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: normal;
 }
 
@@ -5271,7 +5292,7 @@ ul {
   border-radius: 0px;
   font-size: 14px;
   color: #797979;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: normal;
 }
 
@@ -5283,7 +5304,7 @@ ul {
   input.placeholder {
   font-size: 14px;
   color: #797979;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: normal;
 }
 
@@ -5295,7 +5316,7 @@ ul {
   input:-moz-placeholder {
   font-size: 14px;
   color: #797979;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: normal;
 }
 
@@ -5307,7 +5328,7 @@ ul {
   input::-moz-placeholder {
   font-size: 14px;
   color: #797979;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: normal;
 }
 
@@ -5319,7 +5340,7 @@ ul {
   input::-webkit-input-placeholder {
   font-size: 14px;
   color: #797979;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: normal;
 }
 
@@ -5366,7 +5387,7 @@ ul {
   z-index: 9;
   cursor: pointer;
   -webkit-transition: all 0.25s linear;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   color: #2a2a2a;
   font-size: 13px;
@@ -8077,7 +8098,7 @@ svg {
   }
 
   #main-wrapper .topbar .top-navbar .navbar-header {
-    width: 65px;
+    width: 65px !important;
   }
 
   #main-wrapper .topbar .top-navbar .navbar-header .navbar-brand {
@@ -8906,4 +8927,22 @@ User Profile
   li.selected
   > .has-arrow.active::after {
   border-color: #fff;
+}
+
+
+.rc-slider .rc-slider-track{
+  background: #ff005a !important;
+}
+
+.rc-slider .rc-slider-handle{
+  border: solid 2px #ff005a;
+}
+
+.rc-slider .rc-slider-handle:hover{
+  border-color:#ff005a
+}
+
+.rc-slider-handle-dragging.rc-slider-handle-dragging.rc-slider-handle-dragging {
+  border-color: #ff005a;
+  box-shadow: 0 0 0 2px #ff005a;
 }

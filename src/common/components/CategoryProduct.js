@@ -1,11 +1,38 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import ProductItem from "./ProductItem"
-import { Link } from "react-router-dom"
 import FilterWidget from "./FilterWidget"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+
+import { Range } from "rc-slider"
+
+import { getAllProductApi } from "../../redux/_actions/Product/Category/category.Action"
+import {
+  getAllCategoryApi,
+  getAllRoomApi
+} from "../../redux/_actions/Product/Filter/filter.Action"
+import Pageination from "./Pageination"
+
 const CategoryProduct = () => {
   const FilterCategory = useSelector(state => state.filter.category)
-  const FilterColor = useSelector(state => state.filter.color)
+  const FilterColor = useSelector(state => state.filter.room)
+
+  const [rangeValue, setRangeValue] = useState({ min: 0, max: 100 })
+  const handleRange = value => {
+    setRangeValue({ min: value[0], max: value[1] })
+  }
+
+  const products = useSelector(state => state.product.products)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getAllCategoryApi())
+    dispatch(getAllRoomApi())
+  }, [])
+  useEffect(() => {
+    dispatch(getAllProductApi())
+  }, [])
+
   return (
     <section className="cat_product_area section_padding">
       <div className="container">
@@ -20,27 +47,20 @@ const CategoryProduct = () => {
                 </div>
                 <div className="widgets_inner">
                   <div className="range_item">
-                    {/* <!-- <div id="slider-range"></div> --> */}
-                    {/* <input type="text" className="js-range-slider" value="" /> */}
-                    <div className="d-flex">
+                    <Range
+                      onChange={handleRange}
+                      style={{ marginBottom: "20px" }}
+                      value={[rangeValue.min, rangeValue.max]}
+                    />
+                    <div className="d-flex align-items-center">
                       <div className="price_text">
-                        <p>Price :</p>
+                        <p style={{ marginBottom: "unset" }}>Price :</p>
                       </div>
-                      {/* <div className="price_value d-flex justify-content-center">
-                        <input
-                          type="text"
-                          className="js-input-from"
-                          id="amount"
-                          readOnly
-                        />
+                      <div className="price_value d-flex justify-content-center">
+                        <span>{rangeValue.min}</span>
                         <span>to</span>
-                        <input
-                          type="text"
-                          className="js-input-to"
-                          id="amount"
-                          readOnly
-                        />
-                      </div> */}
+                        <span>{rangeValue.max}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -56,15 +76,6 @@ const CategoryProduct = () => {
                       <span>10000 </span> Prodict Found
                     </p>
                   </div>
-                  {/* <div className="single_product_menu d-flex">
-                    <h5>short by : </h5>
-                    <SelectComponent
-                      options={[
-                        { value: "chocolate", label: "Chocolate" },
-                        { value: "strawberry", label: "Strawberry" }
-                      ]}
-                    />
-                  </div> */}
                   <div className="single_product_menu d-flex">
                     <h5>show :</h5>
                     <div className="top_pageniation">
@@ -97,85 +108,15 @@ const CategoryProduct = () => {
             </div>
 
             <div className="row align-items-center latest_product_inner">
-              <div className="col-lg-4 col-sm-6">
-                <ProductItem />
-              </div>
-              <div className="col-lg-4 col-sm-6">
-                <ProductItem />
-              </div>
-              <div className="col-lg-4 col-sm-6">
-                <ProductItem />
-              </div>
-              <div className="col-lg-4 col-sm-6">
-                <ProductItem />
-              </div>
-              <div className="col-lg-4 col-sm-6">
-                <ProductItem />
-              </div>
-              <div className="col-lg-4 col-sm-6">
-                <ProductItem />
-              </div>
-              <div className="col-lg-4 col-sm-6">
-                <ProductItem />
-              </div>
-              <div className="col-lg-4 col-sm-6">
-                <ProductItem />
-              </div>
-              <div className="col-lg-4 col-sm-6">
-                <ProductItem />
-              </div>
+              {products &&
+                products.map((e, i) => (
+                  <div className="col-lg-4 col-sm-6" key={i}>
+                    <ProductItem product={e} />
+                  </div>
+                ))}
 
               <div className="col-lg-12">
-                <div className="pageination">
-                  <nav aria-label="Page navigation example">
-                    <ul className="pagination justify-content-center">
-                      <li className="page-item">
-                        <Link
-                          to="#"
-                          className="page-link"
-                          aria-label="Previous"
-                        >
-                          <i className="ti-angle-double-left"></i>
-                        </Link>
-                      </li>
-                      <li className="page-item">
-                        <Link to="#" className="page-link">
-                          1
-                        </Link>
-                      </li>
-                      <li className="page-item">
-                        <Link to="#" className="page-link">
-                          2
-                        </Link>
-                      </li>
-                      <li className="page-item">
-                        <Link to="#" className="page-link">
-                          3
-                        </Link>
-                      </li>
-                      <li className="page-item">
-                        <Link to="#" className="page-link">
-                          4
-                        </Link>
-                      </li>
-                      <li className="page-item">
-                        <Link to="#" className="page-link">
-                          5
-                        </Link>
-                      </li>
-                      <li className="page-item">
-                        <Link to="#" className="page-link">
-                          6
-                        </Link>
-                      </li>
-                      <li className="page-item">
-                        <Link to="#" className="page-link" aria-label="Next">
-                          <i className="ti-angle-double-right"></i>
-                        </Link>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
+                <Pageination />
               </div>
             </div>
           </div>

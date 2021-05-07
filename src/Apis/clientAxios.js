@@ -3,7 +3,7 @@ import axios from "axios"
 import queryString from "query-string"
 import Cookie from "js-cookie"
 const axiosClient = axios.create({
-  baseURL: "http://localhost:3333/",
+  baseURL: "http://localhost:3000/",
   timeout: 10000,
   headers: {
     "content-type": "application/json",
@@ -14,10 +14,6 @@ const axiosClient = axios.create({
 
 axiosClient.interceptors.request.use(
   config => {
-    console.log(
-      `LHA:  ===> file: clientAxios.js ===> line 17 ===> config`,
-      config
-    )
     //Handle token here ...
     const token = Cookie.get("token")
     config.headers.authorization = `Bearer ${token}`
