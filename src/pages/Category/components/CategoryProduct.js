@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react"
-import ProductItem from "./ProductItem"
-import FilterWidget from "./FilterWidget"
-import { useDispatch, useSelector } from "react-redux"
-
+import FilterWidget from "../../../common/components/FilterWidget"
+import { useDispatch, useSelector, useStore } from "react-redux"
 import { Range } from "rc-slider"
-
-import { getAllProductApi } from "../../redux/_actions/Product/Category/category.Action"
+import { getAllProductApi } from "../../../redux/_actions/Product/Category/category.Action"
 import {
   getAllCategoryApi,
   getAllRoomApi
-} from "../../redux/_actions/Product/Filter/filter.Action"
-import Pageination from "./Pageination"
+} from "../../../redux/_actions/Product/Filter/filter.Action"
+
+import { AiOutlineSearch } from "react-icons/ai"
+import RenderProduct from "./RenderProduct"
 
 const CategoryProduct = () => {
   const FilterCategory = useSelector(state => state.filter.category)
   const FilterColor = useSelector(state => state.filter.room)
+  const total = useSelector(state => state.product.total)
 
   const [rangeValue, setRangeValue] = useState({ min: 0, max: 100 })
   const handleRange = value => {
@@ -39,8 +39,11 @@ const CategoryProduct = () => {
         <div className="row">
           <div className="col-lg-3">
             <div className="left_sidebar_area">
-              <FilterWidget title="Product Filter" widgets={FilterCategory} />
-              <FilterWidget title="Color Filter" widgets={FilterColor} />
+              <FilterWidget
+                title="Product Filter"
+                widgets={FilterCategory || []}
+              />
+              <FilterWidget title="Color Filter" widgets={FilterColor || []} />
               <aside className="left_widgets p_filter_widgets price_rangs_aside">
                 <div className="l_w_title">
                   <h3>Price Filter</h3>
@@ -73,7 +76,7 @@ const CategoryProduct = () => {
                 <div className="product_top_bar d-flex justify-content-between align-items-center">
                   <div className="single_product_menu">
                     <p>
-                      <span>10000 </span> Prodict Found
+                      <span>{total} </span> Prodict Found
                     </p>
                   </div>
                   <div className="single_product_menu d-flex">
@@ -98,7 +101,7 @@ const CategoryProduct = () => {
                           className="input-group-text"
                           id="inputGroupPrepend"
                         >
-                          <i className="ti-search"></i>
+                          <AiOutlineSearch />
                         </span>
                       </div>
                     </div>
@@ -107,18 +110,7 @@ const CategoryProduct = () => {
               </div>
             </div>
 
-            <div className="row align-items-center latest_product_inner">
-              {products &&
-                products.map((e, i) => (
-                  <div className="col-lg-4 col-sm-6" key={i}>
-                    <ProductItem product={e} />
-                  </div>
-                ))}
-
-              <div className="col-lg-12">
-                <Pageination />
-              </div>
-            </div>
+            <RenderProduct products={products || []} />
           </div>
         </div>
       </div>

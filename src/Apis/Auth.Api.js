@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import axiosClient from "./clientAxios.js"
 import Cookie from "js-cookie"
-import notify from "../common/Notify/index.js"
+import { toast } from "react-toastify"
 
 const url = "auth/"
 const login = async body => {
@@ -19,12 +19,14 @@ const login = async body => {
 }
 const register = async body => {
   try {
+    toast("register")
     const res = await axiosClient.post(`${url}register`, {
       email: body.Email,
-      password: body.Password
+      password: body.Password,
+      fullName: body.FullName
     })
-    console.log(res)
-    return res.data
+    console.log("under", res)
+    return res
   } catch (err) {
     console.log(err)
     return null

@@ -5,32 +5,31 @@ import validator from "validator"
 import { registerUser } from "../../../redux/_actions/Auth/user.Action"
 
 const FromRegister = () => {
-  const [dataFrom, setDataFrom] = useState({})
   const refStep1 = useRef(null)
   const dispatch = useDispatch()
   const history = useHistory()
 
-  const [msg, setmsg] = useState("")
   const submitRegister = async e => {
     e.preventDefault()
-    const { Email, Password, ConfirmPassword } = refStep1.current
+    const { Email, Password, ConfirmPassword, FullName } = refStep1.current
     const isEmail = validator.isEmail(Email.value)
     if (!isEmail) {
-      setmsg("Email khong hop le")
+      // setmsg("Email khong hop le")
       return
     }
     if (Password.value !== ConfirmPassword.value) {
-      setmsg("Password isValid")
+      // setmsg("Password isValid")
+      return
     }
     const obj = {
       Email: Email.value,
-      Password: Password.value
+      Password: Password.value,
+      FullName: FullName.value
     }
-    setDataFrom(obj)
 
     const res = await dispatch(registerUser(obj))
     if (res === true) {
-      history.push("/")
+      history.push("/register/verify")
     } else {
       //Notify
     }
@@ -59,12 +58,21 @@ const FromRegister = () => {
               name="Password"
             />
           </div>
+
           <div className="col-md-12 form-group p_star">
             <input
               type="password"
               className="form-control"
               placeholder="Confirm Password"
               name="ConfirmPassword"
+            />
+          </div>
+          <div className="col-md-12 form-group p_star">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="FullName"
+              name="FullName"
             />
           </div>
           <div className="col-md-12 form-group">

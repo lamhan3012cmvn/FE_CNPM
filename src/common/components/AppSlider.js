@@ -12,16 +12,9 @@ const settings = {
   cssEase: "linear"
 }
 const AppSlider = props => {
-  const { propsComponents } = props
-  const render = () => (
-    <Slider {...settings}>
-      {propsComponents.map(e => {
-        return e.component
-      })}
-    </Slider>
-  )
+  const render = () => <Slider {...settings}>{props.children}</Slider>
 
-  return propsComponents && render()
+  return render()
 }
 
 export default AppSlider

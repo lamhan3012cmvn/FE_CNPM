@@ -10,6 +10,7 @@ import { PATH } from "../constants/path"
 const MenuIconHeader = props => {
   const dispacth = useDispatch()
   const { onChange, isLogin, user } = props
+
   const handleLogout = () => {
     dispacth(logoutUser())
   }

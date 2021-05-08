@@ -1,6 +1,6 @@
 import React from "react"
 import Breadcrumb from "../../common/components/Breadcrumb"
-import CategoryProduct from "../../common/components/CategoryProduct"
+import CategoryProduct from "./components/CategoryProduct"
 const CategoryPage = props => {
   return (
     <>

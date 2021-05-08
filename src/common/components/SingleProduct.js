@@ -1,13 +1,15 @@
 /* eslint-disable no-console */
+import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import Slider from "react-slick"
-import product_1 from "../../img/product/single-product/product_1.png"
+
+import { AiOutlineHeart, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 const SingleProduct = () => {
   const settings = {
     customPaging: function (i) {
       return (
         <Link to="#">
-          <img src={product_1} alt="" />
+          <img src={productDetail.Image} alt="" />
         </Link>
       )
     },
@@ -25,56 +27,74 @@ const SingleProduct = () => {
       console.log("after change", currentSlide)
     }
   }
+  const productDetail = useSelector(state => state.product.productDetail)
+
   return (
     <div className="product_image_area section_padding">
       <div className="container">
         <div className="row s_product_inner justify-content-between">
-          <div className="col-lg-7 col-xl-7">
+          <div className="col-lg-6">
             <div className="product_slider_img">
               <Slider {...settings}>
                 <div>
-                  <img src={product_1} alt=""></img>
+                  <img src={productDetail.Image} alt=""></img>
                 </div>
                 <div>
-                  <img src={product_1} alt=""></img>
+                  <img src={productDetail.Image} alt=""></img>
                 </div>
                 <div>
-                  <img src={product_1} alt=""></img>
+                  <img src={productDetail.Image} alt=""></img>
                 </div>
                 <div>
-                  <img src={product_1} alt=""></img>
+                  <img src={productDetail.Image} alt=""></img>
                 </div>
               </Slider>
-            </div>
-          </div>
-          <div className="col-lg-5 col-xl-4">
-            <div className="s_product_text">
-              <h5>
+              <h5
+                style={{
+                  textAlign: "center",
+                  marginTop: "15px",
+                  fontSize: "18px"
+                }}
+              >
                 previous <span>|</span> next
               </h5>
-              <h3>Faded SkyBlu Denim Jeans</h3>
-              <h2>$149.99</h2>
+            </div>
+          </div>
+          <div className="col-lg-6" style={{ padding: "10px 30px" }}>
+            <div className="s_product_text">
+              <h3>{productDetail.Name}</h3>
+              <h2>{productDetail.Price} VND</h2>
               <ul className="list">
                 <li>
                   <Link className="active" to="#">
-                    <span>Category</span> : Household
+                    <span>Code</span> : &emsp; {productDetail.Code}
                   </Link>
                 </li>
                 <li>
-                  <Link to="#">
-                    <span>Availibility</span> : In Stock
+                  <Link className="active" to="#">
+                    <span>Category</span> : &emsp; Household
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="active">
+                    <span>Availibility</span> : &emsp; In Stock
+                  </Link>
+                </li>
+                <li>
+                  <Link className="active" to="#">
+                    <span>Material</span> : &emsp; {productDetail.Material}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="active">
+                    <span>Quantity</span> : &emsp; {productDetail.Quantity}
                   </Link>
                 </li>
               </ul>
-              <p>
-                First replenish living. Creepeth image image. Creeping can't,
-                won't called. Two fruitful let days signs sea together all land
-                fly subdue
-              </p>
-              <div className="card_area d-flex justify-content-between align-items-center">
+              <div className="card_area d-flex justify-content-between align-items-center mt-15 pl-20 pr-20">
                 <div className="product_count">
                   <span className="inumber-decrement">
-                    <i className="ti-minus"></i>
+                    <AiOutlineMinus />
                   </span>
                   <input
                     className="input-number"
@@ -84,17 +104,23 @@ const SingleProduct = () => {
                     max="10"
                   ></input>
                   <span className="number-increment">
-                    <i className="ti-plus"></i>
+                    <AiOutlinePlus />
                   </span>
                 </div>
                 <Link to="#" className="btn_3">
                   add to cart
                 </Link>
                 <Link to="#" className="like_us">
-                  <i className="ti-heart"></i>
+                  <AiOutlineHeart />
                 </Link>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="row s_product_inner justify-content-between mt-15">
+          <div className="col-12">
+            <h3>Description</h3>
+            <p className="plr-15">{productDetail.Description}</p>
           </div>
         </div>
       </div>

@@ -16,12 +16,6 @@ const loading = (dispatch, loading = false) => {
   dispatch(changeLoading(loading))
 }
 
-export function Test(value) {
-  return {
-    type: "abc",
-    payload: value
-  }
-}
 export function loginUser(dataToSubmit) {
   return async dispatch => {
     try {
@@ -69,11 +63,19 @@ export function logoutUser() {
 export const registerUser = body => async dispatch => {
   try {
     const data = await authAPI.register(body)
-    dispatch({
-      type: REGISTER_USER_SUCCESS,
-      payload: data
-    })
-    return true
+    if (!data) {
+      dispatch({
+        type: REGISTER_USER_FAIL,
+        payload: {}
+      })
+      return false
+    } else {
+      dispatch({
+        type: REGISTER_USER_SUCCESS,
+        payload: data
+      })
+      return true
+    }
   } catch (err) {
     console.log(err)
     dispatch({

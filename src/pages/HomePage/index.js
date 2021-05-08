@@ -6,23 +6,23 @@ import ProductList from "./components/ProductList"
 import SingleBanner from "./components/SingleBanner"
 import img1 from "../../img/banner_img.png"
 const HomePage = () => {
-  const [componentBanner, setComponentBanner] = useState([
+  const [Banner, setBanner] = useState([
     {
-      component: <SingleBanner bannerImg={img1} />
+      img: img1
     },
     {
-      component: <SingleBanner bannerImg={img1} />
+      img: img1
     },
     {
-      component: <SingleBanner bannerImg={img1} />
+      img: img1
     },
     {
-      component: <SingleBanner bannerImg={img1} />
+      img: img1
     }
   ])
   return (
     <>
-      <BannerPath propsComponents={componentBanner} />
+      <BannerPath propsBanner={Banner} />
       <FeaturePart />
       <ProductList />
     </>

@@ -1,9 +1,6 @@
 import { toast } from "react-toastify"
 const notify = content => {
-  toast(content, {
-    position: toast.POSITION.TOP_RIGHT,
-    className: "error toast"
-  })
+  toast(content)
 }
 
 export default notify

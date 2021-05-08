@@ -11,6 +11,16 @@ const getAll = async () => {
     return null
   }
 }
-const Product = { getAll }
+const getById = async id => {
+  try {
+    const res = await axiosClient.get(`${url}getProduct/${id}`)
+    return res.data
+  } catch (err) {
+    console.log(err)
+    return null
+  }
+}
+
+const Product = { getAll, getById }
 
 export default Product

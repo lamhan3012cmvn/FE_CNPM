@@ -3,7 +3,15 @@ import { Route, Switch } from "react-router"
 import { PATH } from "../common/constants/path"
 import Auth from "../common/components/Auth"
 
-const CategoryPage = lazy(() => import("../pages/Category"))
+const lazyLoading = () => {
+  return lazy(
+    () =>
+      new Promise(resolve => {
+        setTimeout(() => resolve(import("../pages/Category")), 500)
+      })
+  )
+}
+const CategoryPage = lazyLoading()
 
 const CategoryRoute = () => {
   return (

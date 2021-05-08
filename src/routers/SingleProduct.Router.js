@@ -6,7 +6,11 @@ const SingleProductPage = lazy(() => import("../pages/SingleProductPage"))
 const SingleProductRouter = () => {
   return (
     <Switch>
-      <Route path={PATH.singleProduct} exact component={SingleProductPage} />
+      <Route
+        path={`${PATH.singleProduct}/:id`}
+        exact
+        component={SingleProductPage}
+      />
     </Switch>
   )
 }

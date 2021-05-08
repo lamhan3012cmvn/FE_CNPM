@@ -8,6 +8,7 @@
 @import "~rc-slider/assets/index.css";
 
 @import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~react-toastify/dist/ReactToastify.css";
 /* line 2, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_extends.scss */
 .btn_2,
 .form-contact .form-group .btn_1 i {
@@ -3788,7 +3789,7 @@ box-shadow: 0px -5px 5px 0px rgba(0,0,0,0.07);
 
 /* line 454, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .product_top_bar .single_product_menu .input-group {
-  width: 150px;
+  width: 200px;
 }
 
 /* line 457, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
@@ -7058,12 +7059,37 @@ h6 {
 .form-select .nice-select::after {
   right: 20px;
 }
+.pl-20{
+  padding-left: 20px;
+}
+
+.pr-20{
+  padding-right: 20px;
+}
+.plr-15{
+  padding: 0 15px;
+}
+
+
+.plr-30{
+  padding: 0 30px;
+}
+
+
 
 /* line 1086, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_elements.scss */
 .mt-10 {
   margin-top: 10px;
 }
 
+.mt-15 {
+  margin-top: 15px;
+}
+
+
+.mt-20 {
+  margin-top: 20px;
+}
 /* line 1089, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_elements.scss */
 .section-top-border {
   padding: 50px 0;

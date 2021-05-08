@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 const FilterWidget = props => {
-  const { title, widgets } = props
+  const { title, widgets = [] } = props
   return (
     <aside className="left_widgets p_filter_widgets">
       <div className="l_w_title">
