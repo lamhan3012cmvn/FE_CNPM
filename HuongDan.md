@@ -15,6 +15,8 @@
 3. gõ lệnh yarn start để run project
 4. Khi run nó sẽ hiện thị trang home
 
+### Backend
 
+Do project call api nên em đã up lên Backend lên host rồi nên ở đây em không có h
 
-#### Lưu ý: run backend trước rồi run frontend
+#### Lưu ý:  run frontend
