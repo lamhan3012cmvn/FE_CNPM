@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux"
 import { useHistory } from "react-router"
 import { Link } from "react-router-dom"
 import { loginUser } from "../../../redux/_actions/Auth/user.Action"
+import validate from "../hooks/validate"
 
 const FromLogin = () => {
   const dispatch = useDispatch()
@@ -12,6 +13,7 @@ const FromLogin = () => {
     e.preventDefault()
     const email = e.target.username.value
     const password = e.target.password.value
+    const isValidate = validate(email, password)
     const res = await dispatch(loginUser({ email, password }))
     if (res) {
       history.push("/")
