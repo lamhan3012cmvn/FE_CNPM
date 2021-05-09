@@ -33,9 +33,13 @@ export function loginUserFail() {
 export function loginUser(dataToSubmit) {
   return async dispatch => {
     try {
-      const data = await authAPI.login(dataToSubmit)
-      dispatch(loginUserSuccess(data))
-      return true
+      const res = await authAPI.login(dataToSubmit)
+      if (res.success) {
+        dispatch(loginUserSuccess(res.data))
+        return true
+      }
+      dispatch(loginUserFail())
+      return false
     } catch {
       dispatch(loginUserFail())
       return false
@@ -43,25 +47,33 @@ export function loginUser(dataToSubmit) {
   }
 }
 
+export const getUserSuccess = data => {
+  return {
+    type: GET_USER_SUCCESS,
+    payload: data
+  }
+}
+
+export const getUserFail = () => {
+  return {
+    type: GET_USER_SUCCESS,
+    payload: {}
+  }
+}
+
 export const authRequest = () => async dispatch => {
   try {
-    const data = await authAPI.getAuth()
-    return {
-      type: GET_USER_SUCCESS,
-      payload: data
-    }
+    const res = await authAPI.getAuth()
+    if (res.success) dispatch(getUserSuccess(res.data))
+    else dispatch(getUserFail())
   } catch {
     loading(dispatch)
-    return {
-      type: GET_USER_FAIL,
-      payload: {}
-    }
+    dispatch(getUserFail())
   }
 }
 
 export function logoutUser() {
   Cookies.remove("token")
-  Cookies.remove("tokenExp")
   return {
     type: LOGOUT_USER,
     payload: {}

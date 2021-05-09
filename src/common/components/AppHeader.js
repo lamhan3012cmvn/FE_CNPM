@@ -1,13 +1,14 @@
 /* eslint-disable no-console */
 import logo from "../../img/logo.png"
 import { FaBars } from "react-icons/fa"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 import SearchHeader from "./SearchHeader"
 import MenuIconHeader from "./MenuIconHeader"
 import MenuTextHeader from "./MenuTextHeader"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { authRequest } from "../../redux/_actions/Auth/user.Action"
 
 const AppHeader = () => {
   const [modalSearch, setModalSearch] = useState(false)
@@ -22,7 +23,10 @@ const AppHeader = () => {
   }
 
   const currentUser = useSelector(state => state.user)
-
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(authRequest())
+  }, [])
   return (
     <>
       <header className="main_menu home_menu">

@@ -5,7 +5,9 @@ import {
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAIL,
   AUTH_USER,
-  LOGOUT_USER
+  LOGOUT_USER,
+  GET_USER_SUCCESS,
+  GET_USER_FAIL
 } from "../../_actions/Auth/type"
 
 const initState = {
@@ -26,6 +28,10 @@ export default function (state = initState, action) {
       return { ...state, user: action.payload }
     case REGISTER_USER_FAIL:
       return { ...state, user: action.payload }
+    case GET_USER_SUCCESS:
+      return { ...state, user: action.payload, isLogin: true }
+    case GET_USER_FAIL:
+      return { ...state, user: {}, isLogin: false }
     default:
       return state
   }

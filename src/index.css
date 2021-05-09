@@ -2269,7 +2269,7 @@ ul {
 }
 
 /* line 130, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_menu.scss */
-.main_menu .cart i:after {
+.main_menu .cart svg:after {
   position: absolute;
   border-radius: 50%;
   background-color: #f13d80;
@@ -2320,9 +2320,9 @@ ul {
 }
 
 /* line 185, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_menu.scss */
-/* .dropdown:hover .dropdown-menu {
+.dropdown:hover .dropdown-menu {
   transform: scale(1);
-} */
+} 
 
 @media (max-width: 991px) {
   /* line 194, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_menu.scss */

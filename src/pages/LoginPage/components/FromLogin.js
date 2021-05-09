@@ -12,7 +12,7 @@ const FromLogin = () => {
     e.preventDefault()
     const email = e.target.username.value
     const password = e.target.password.value
-    const res = dispatch(loginUser({ email, password }))
+    const res = await dispatch(loginUser({ email, password }))
     if (res) {
       history.push("/")
       return

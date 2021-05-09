@@ -2,19 +2,26 @@
 import axiosClient from "./clientAxios.js"
 import Cookie from "js-cookie"
 import { toast } from "react-toastify"
+import notify from "../common/Notify/index.js"
 
 const url = "auth/"
 const login = async body => {
   try {
     const res = await axiosClient.post(`${url}login`, { ...body })
 
-    Cookie.set("token", res.data.token)
-    Cookie.set("tokenExp", res.data.tokenExp)
-    // notify("zo day roi nek")
-    return res.data
+    if (!res) {
+      notify("Dang nhap that bai")
+      return { data: {}, success: false }
+    } else {
+      Cookie.set("token", res.data.token)
+      notify("Dang nhap thanh cong")
+      return { data: {}, success: true }
+    }
   } catch (err) {
     console.log(err)
-    return null
+    return {
+      success: false
+    }
   }
 }
 const register = async body => {
@@ -60,7 +67,7 @@ const verify = async body => {
 const getAuth = async () => {
   try {
     const res = await axiosClient.get(`auth/getAuth`)
-    return res
+    return res ? { data: res.data, success: true } : { success: false }
   } catch (err) {
     console.log(err)
     return null
