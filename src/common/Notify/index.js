@@ -1,6 +1,6 @@
 import { toast } from "react-toastify"
 const notify = content => {
-  toast(content)
+  return toast(content)
 }
 
 export default notify

@@ -16,20 +16,28 @@ const loading = (dispatch, loading = false) => {
   dispatch(changeLoading(loading))
 }
 
+export function loginUserSuccess(data) {
+  return {
+    type: LOGIN_USER_SUCCESS,
+    payload: data
+  }
+}
+
+export function loginUserFail() {
+  return {
+    type: LOGIN_USER_FAIL,
+    payload: {}
+  }
+}
+
 export function loginUser(dataToSubmit) {
   return async dispatch => {
     try {
       const data = await authAPI.login(dataToSubmit)
-      dispatch({
-        type: LOGIN_USER_SUCCESS,
-        payload: data
-      })
+      dispatch(loginUserSuccess(data))
       return true
     } catch {
-      dispatch({
-        type: LOGIN_USER_FAIL,
-        payload: {}
-      })
+      dispatch(loginUserFail())
       return false
     }
   }
@@ -60,28 +68,48 @@ export function logoutUser() {
   }
 }
 
+export const registerUserSuccess = data => {
+  return {
+    type: REGISTER_USER_SUCCESS,
+    payload: data
+  }
+}
+
+export const registerUserFail = () => {
+  return {
+    type: REGISTER_USER_FAIL,
+    payload: {}
+  }
+}
+
 export const registerUser = body => async dispatch => {
   try {
-    const data = await authAPI.register(body)
-    if (!data) {
-      dispatch({
-        type: REGISTER_USER_FAIL,
-        payload: {}
-      })
-      return false
+    const res = await authAPI.register(body)
+    if (!res.success) {
+      dispatch(registerUserFail())
     } else {
-      dispatch({
-        type: REGISTER_USER_SUCCESS,
-        payload: data
-      })
-      return true
+      dispatch(registerUserSuccess(res.data))
     }
+    return res.success
   } catch (err) {
     console.log(err)
-    dispatch({
-      type: REGISTER_USER_FAIL,
-      payload: {}
-    })
+    dispatch(registerUserFail())
+    return false
+  }
+}
+
+export const verifyUser = body => async dispatch => {
+  try {
+    const res = await authAPI.verify(body)
+    if (!res.success) {
+      dispatch(registerUserFail())
+    } else {
+      dispatch(registerUserSuccess(res.data))
+    }
+    return res.success
+  } catch (err) {
+    console.log(err)
+    dispatch(registerUserFail())
     return false
   }
 }

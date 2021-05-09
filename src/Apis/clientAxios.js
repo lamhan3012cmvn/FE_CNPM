@@ -26,8 +26,7 @@ axiosClient.interceptors.request.use(
 )
 axiosClient.interceptors.response.use(
   res => {
-    console.log(`LHA:  ===> file: clientAxios.js ===> line 30 ===> res`, res)
-    // if (res && res.data) return res.data
+    if (res && res.status === 200 && res.data) return res.data
     return res
   },
   err => {

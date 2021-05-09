@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react"
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router"
 import validator from "validator"
+import notify from "../../../common/Notify"
 import { registerUser } from "../../../redux/_actions/Auth/user.Action"
 
 const FromRegister = () => {
@@ -14,11 +15,11 @@ const FromRegister = () => {
     const { Email, Password, ConfirmPassword, FullName } = refStep1.current
     const isEmail = validator.isEmail(Email.value)
     if (!isEmail) {
-      // setmsg("Email khong hop le")
+      notify("Email khong hop le")
       return
     }
     if (Password.value !== ConfirmPassword.value) {
-      // setmsg("Password isValid")
+      notify("Password khong hop le")
       return
     }
     const obj = {
@@ -28,10 +29,9 @@ const FromRegister = () => {
     }
 
     const res = await dispatch(registerUser(obj))
+    console.log(`LHA:  ===> file: FromRegister.js ===> line 32 ===> res`, res)
     if (res === true) {
       history.push("/register/verify")
-    } else {
-      //Notify
     }
   }
   const step1 = () => {

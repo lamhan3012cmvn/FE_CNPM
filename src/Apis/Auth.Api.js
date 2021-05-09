@@ -19,17 +19,41 @@ const login = async body => {
 }
 const register = async body => {
   try {
-    toast("register")
     const res = await axiosClient.post(`${url}register`, {
       email: body.Email,
       password: body.Password,
       fullName: body.FullName
     })
-    console.log("under", res)
-    return res
+    toast(
+      res ? "Đăng ký thành cồng vui lòng xác thực mật khẩu" : "Đăng ký thất bại"
+    )
+    return res ? { data: res || {}, success: true } : { success: false }
   } catch (err) {
     console.log(err)
-    return null
+    return {
+      success: false
+    }
+  }
+}
+
+const verify = async body => {
+  try {
+    const res = await axiosClient.post(`${url}verify`, {
+      email: body.Email,
+      password: body.Password,
+      otp: body.Otp
+    })
+    toast(
+      res
+        ? "Xac thuc tai khoan thanh cong chao mung ban da den website"
+        : "Xac thuc tai khoan that bai"
+    )
+    return res ? { data: res || {}, success: true } : { success: false }
+  } catch (err) {
+    console.log(err)
+    return {
+      success: false
+    }
   }
 }
 
@@ -43,6 +67,6 @@ const getAuth = async () => {
   }
 }
 
-const Auth = { getAuth, login, register }
+const Auth = { getAuth, login, register, verify }
 
 export default Auth

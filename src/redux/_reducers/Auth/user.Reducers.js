@@ -15,7 +15,7 @@ const initState = {
 export default function (state = initState, action) {
   switch (action.type) {
     case LOGIN_USER_FAIL:
-      return { ...state, isLogin: false }
+      return { ...state, user: action.payload, isLogin: false }
     case LOGIN_USER_SUCCESS:
       return { ...state, user: action.payload, isLogin: true }
     case AUTH_USER:
