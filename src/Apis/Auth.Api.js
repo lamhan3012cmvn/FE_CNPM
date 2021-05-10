@@ -67,6 +67,7 @@ const verify = async body => {
 const getAuth = async () => {
   try {
     const res = await axiosClient.get(`auth/getAuth`)
+    console.log(`LHA:  ===> file: Auth.Api.js ===> line 70 ===> res`, res)
     return res ? { data: res.data, success: true } : { success: false }
   } catch (err) {
     console.log(err)

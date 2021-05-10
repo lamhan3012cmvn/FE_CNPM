@@ -2,9 +2,14 @@
 import axiosClient from "./clientAxios.js"
 
 const url = "product/"
-const getAll = async () => {
+const getAll = async (page = 1, limit = 12) => {
   try {
-    const res = await axiosClient.get(`${url}getAllProducts`)
+    const res = await axiosClient.get(`${url}getAllProducts`, {
+      params: {
+        page: page,
+        limit: limit
+      }
+    })
     console.log(`LHA:  ===> file: Product.Api.js ===> line 8 ===> res`, res)
     return res.data
   } catch (err) {
@@ -23,6 +28,17 @@ const getById = async id => {
   }
 }
 
-const Product = { getAll, getById }
+const getFilter = async () => {
+  try {
+    const res = await axiosClient.get(`${url}filter`)
+    console.log(`LHA:  ===> file: Product.Api.js ===> line 29 ===> res`, res)
+    return res.data
+  } catch (err) {
+    console.log(err)
+    return null
+  }
+}
+
+const Product = { getAll, getById, getFilter }
 
 export default Product

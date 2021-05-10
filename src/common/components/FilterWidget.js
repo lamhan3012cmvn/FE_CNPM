@@ -3,6 +3,11 @@ import { Link } from "react-router-dom"
 
 const FilterWidget = props => {
   const { title, widgets = [] } = props
+
+  const onClickCategory = (i, e) => {
+    console.log(`LHA:  ===> file: FilterWidget.js ===> line 10 ===> e`, e)
+    console.log(`LHA:  ===> file: FilterWidget.js ===> line 10 ===> i`, i)
+  }
   return (
     <aside className="left_widgets p_filter_widgets">
       <div className="l_w_title">
@@ -10,29 +15,28 @@ const FilterWidget = props => {
       </div>
       <div className="widgets_inner">
         <ul className="list">
-          {widgets.map((e, i) => (
-            <li key={`${e.name}_${i}`}>
-              <Link to="#">{e.name}</Link>
+          {widgets.map((widget, i) => (
+            <li key={`${widget.name}_${i}`}>
+              <span to="#">
+                <div className="l_w_name">
+                  <h3>{widget.name}</h3>
+                </div>
+
+                <ul className="list" style={{ marginTop: "unset" }}>
+                  {widget.Category.map((cate, i) => (
+                    <li
+                      key={cate._id}
+                      onClick={onClickCategory}
+                      data-key={cate._id}
+                    >
+                      <span to="#">{cate.name}</span>
+                    </li>
+                  ))}
+                </ul>
+              </span>
             </li>
           ))}
         </ul>
-        {/* <ul className="list">
-          <li>
-            <Link>Apple</Link>
-          </li>
-          <li>
-            <Link>Asus</Link>
-          </li>
-          <li className="active">
-            <Link>Gionee</Link>
-          </li>
-          <li>
-            <Link>Micromax</Link>
-          </li>
-          <li>
-            <Link>Samsung</Link>
-          </li>
-        </ul> */}
       </div>
     </aside>
   )

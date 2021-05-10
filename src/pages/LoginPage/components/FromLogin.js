@@ -14,6 +14,7 @@ const FromLogin = () => {
     const email = e.target.username.value
     const password = e.target.password.value
     const isValidate = validate(email, password)
+    if (!isValidate) return
     const res = await dispatch(loginUser({ email, password }))
     if (res) {
       history.push("/")
@@ -35,7 +36,6 @@ const FromLogin = () => {
                 className="form-control"
                 placeholder="Username"
                 name="username"
-                required
               />
             </div>
             <div className="col-md-12 form-group p_star">
@@ -44,7 +44,6 @@ const FromLogin = () => {
                 className="form-control"
                 placeholder="Password"
                 name="password"
-                required
               />
             </div>
             <div className="col-md-12 form-group">

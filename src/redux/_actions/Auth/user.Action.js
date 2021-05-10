@@ -56,7 +56,7 @@ export const getUserSuccess = data => {
 
 export const getUserFail = () => {
   return {
-    type: GET_USER_SUCCESS,
+    type: GET_USER_FAIL,
     payload: {}
   }
 }
@@ -64,11 +64,17 @@ export const getUserFail = () => {
 export const authRequest = () => async dispatch => {
   try {
     const res = await authAPI.getAuth()
-    if (res.success) dispatch(getUserSuccess(res.data))
-    else dispatch(getUserFail())
+    if (res.success) {
+      dispatch(getUserSuccess(res.data))
+      return res.data
+    } else {
+      dispatch(getUserFail())
+      return null
+    }
   } catch {
     loading(dispatch)
     dispatch(getUserFail())
+    return null
   }
 }
 

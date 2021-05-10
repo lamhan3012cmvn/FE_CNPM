@@ -4,7 +4,9 @@ import { Link } from "react-router-dom"
 import Slider from "react-slick"
 
 import { AiOutlineHeart, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
+import { useState } from "react"
 const SingleProduct = () => {
+  const [total, setTotal] = useState(0)
   const settings = {
     customPaging: function (i) {
       return (
@@ -93,17 +95,24 @@ const SingleProduct = () => {
               </ul>
               <div className="card_area d-flex justify-content-between align-items-center mt-15 pl-20 pr-20">
                 <div className="product_count">
-                  <span className="inumber-decrement">
+                  <span
+                    className="inumber-decrement"
+                    onClick={() => setTotal(total - 1 < 0 ? 0 : total - 1)}
+                  >
                     <AiOutlineMinus />
                   </span>
                   <input
                     className="input-number"
                     type="text"
-                    value="1"
+                    value={total}
                     min="0"
                     max="10"
+                    readOnly
                   ></input>
-                  <span className="number-increment">
+                  <span
+                    className="number-increment"
+                    onClick={() => setTotal(total + 1)}
+                  >
                     <AiOutlinePlus />
                   </span>
                 </div>

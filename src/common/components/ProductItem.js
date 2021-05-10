@@ -11,9 +11,9 @@ const ProductItem = props => {
           <div className="single_product_text">
             <h4>{product.Name}</h4>
             <h3>${product.Price}</h3>
-            <Link to="#" className="add_cart">
+            <span to="#" className="add_cart">
               + add to cart<i className="ti-heart"></i>
-            </Link>
+            </span>
           </div>
         </div>
       </Link>
