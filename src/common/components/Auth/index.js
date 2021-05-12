@@ -9,10 +9,13 @@ const Authentication = (SpecificComponent, option, adminRoute = null) => {
     const user = useSelector(state => state.user)
     const dispatch = useDispatch()
     const history = useHistory()
+
     const fetchAuth = async () => {
       const res = await dispatch(authRequest())
+      console.log(`LHA:  ===> file: index.js ===> line 15 ===> res`, res)
       //res.payload.isAuth === false chưa đăng nhập
       if (res && !res.isAuth) {
+        console.log("da dang nahp")
         if (option) {
           //bắt buộc đăng nhập
           history.push("/login")
@@ -23,9 +26,9 @@ const Authentication = (SpecificComponent, option, adminRoute = null) => {
           //Kiểm tra khong phai admin
           history.push("/")
         } else {
-          // if (option === false) {
-          //   history.push("/")
-          // }
+          if (option === false) {
+            history.push("/")
+          }
         }
       }
     }

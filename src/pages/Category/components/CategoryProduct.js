@@ -29,12 +29,22 @@ const CategoryProduct = () => {
     dispatch(getAllProductApi())
   }, [])
 
+  const getAllProduct = () => {
+    dispatch(getAllProductApi())
+  }
   return (
     <section className="cat_product_area section_padding">
       <div className="container">
         <div className="row">
           <div className="col-lg-3">
             <div className="left_sidebar_area">
+              <div
+                className="l_w_name"
+                style={{ textAlign: "center" }}
+                onClick={getAllProduct}
+              >
+                <h3>All Product</h3>
+              </div>
               <FilterWidget title="Product Filter" widgets={Filters || []} />
               <aside className="left_widgets p_filter_widgets price_rangs_aside">
                 <div className="l_w_title">

@@ -1,4 +1,6 @@
 import {
+  GET_ALL_PRODUCT_BY_CATEGORY_FAIL,
+  GET_ALL_PRODUCT_BY_CATEGORY_SUCCESS,
   GET_ALL_PRODUCT_FAIL,
   GET_ALL_PRODUCT_SUCCESS,
   GET_PRODUCT_DETAIL_FAIL,
@@ -28,6 +30,32 @@ export const getAllProductApi = () => async dispatch => {
   } catch (err) {
     console.log(err)
     dispatch(getAllProductsFail())
+    return false
+  }
+}
+
+export function getAllProductsByCategorySuccess(data) {
+  return {
+    type: GET_ALL_PRODUCT_BY_CATEGORY_SUCCESS,
+    payload: data
+  }
+}
+
+export function getAllProductsByCategoryFail() {
+  return {
+    type: GET_ALL_PRODUCT_BY_CATEGORY_FAIL,
+    payload: []
+  }
+}
+
+export const getAllProductByCategoryApi = id => async dispatch => {
+  try {
+    const data = await productApi.getByCate(id)
+    dispatch(getAllProductsByCategorySuccess(data))
+    return true
+  } catch (err) {
+    console.log(err)
+    dispatch(getAllProductsByCategoryFail())
     return false
   }
 }

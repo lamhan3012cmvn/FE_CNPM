@@ -21,7 +21,7 @@ export default function (state = initState, action) {
     case LOGIN_USER_SUCCESS:
       return { ...state, user: action.payload, isLogin: true }
     case AUTH_USER:
-      return { ...state, userData: action.payload, isLogin: true }
+      return { ...state, user: action.payload, isLogin: true }
     case LOGOUT_USER:
       return { ...state, user: action.payload, isLogin: false }
     case REGISTER_USER_SUCCESS:

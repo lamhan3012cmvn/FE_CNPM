@@ -10,7 +10,22 @@ const getAll = async (page = 1, limit = 12) => {
         limit: limit
       }
     })
-    console.log(`LHA:  ===> file: Product.Api.js ===> line 8 ===> res`, res)
+    return res.data
+  } catch (err) {
+    console.log(err)
+    return null
+  }
+}
+const getByCate = async (id, page = 1, limit = 12) => {
+  try {
+    const res = await axiosClient.get(`${url}getProductsByCategory`, {
+      params: {
+        page: page,
+        limit: limit,
+        idCategory: id
+      }
+    })
+    console.log(`LHA:  ===> file: Product.Api.js ===> line 28 ===> res`, res)
     return res.data
   } catch (err) {
     console.log(err)
@@ -20,7 +35,6 @@ const getAll = async (page = 1, limit = 12) => {
 const getById = async id => {
   try {
     const res = await axiosClient.get(`${url}getProduct/${id}`)
-    console.log(`LHA:  ===> file: Product.Api.js ===> line 18 ===> res`, res)
     return res.data
   } catch (err) {
     console.log(err)
@@ -31,7 +45,6 @@ const getById = async id => {
 const getFilter = async () => {
   try {
     const res = await axiosClient.get(`${url}filter`)
-    console.log(`LHA:  ===> file: Product.Api.js ===> line 29 ===> res`, res)
     return res.data
   } catch (err) {
     console.log(err)
@@ -39,6 +52,6 @@ const getFilter = async () => {
   }
 }
 
-const Product = { getAll, getById, getFilter }
+const Product = { getAll, getById, getFilter, getByCate }
 
 export default Product

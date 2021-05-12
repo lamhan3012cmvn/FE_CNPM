@@ -1,7 +1,9 @@
 import ProductItem from "../../../common/components/ProductItem"
 import Slider from "react-slick"
 import TitleList from "../../../common/components/TitleList"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from "react"
+import { getAllProductApi } from "../../../redux/_actions/Product/Category/category.Action"
 const settings = {
   dots: true,
   infinite: true,
@@ -14,6 +16,12 @@ const settings = {
 }
 const ProductList = () => {
   const products = useSelector(state => state.product.products)
+
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getAllProductApi())
+  }, [])
+
   return (
     <>
       <section className="product_list section_padding">

@@ -66,15 +66,15 @@ export const authRequest = () => async dispatch => {
     const res = await authAPI.getAuth()
     if (res.success) {
       dispatch(getUserSuccess(res.data))
-      return res.data
+      return { ...res.data, isAuth: true }
     } else {
       dispatch(getUserFail())
-      return null
+      return { isAuth: false }
     }
   } catch {
     loading(dispatch)
     dispatch(getUserFail())
-    return null
+    return { isAuth: false }
   }
 }
 

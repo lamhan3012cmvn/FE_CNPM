@@ -17,7 +17,7 @@ const CategoryRoute = () => {
   return (
     // component={Auth(CategoryPage, false)}
     <Switch>
-      <Route exact path={PATH.category} component={Auth(CategoryPage, false)} />
+      <Route exact path={PATH.category} component={Auth(CategoryPage, null)} />
     </Switch>
   )
 }

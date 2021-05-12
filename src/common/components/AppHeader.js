@@ -26,7 +26,7 @@ const AppHeader = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(authRequest())
-  }, [])
+  }, [currentUser.isLogin])
   return (
     <>
       <header className="main_menu home_menu">

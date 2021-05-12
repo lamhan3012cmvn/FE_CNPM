@@ -1,12 +1,13 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { getAllProductByCategoryApi } from "../../redux/_actions/Product/Category/category.Action"
 
 const FilterWidget = props => {
   const { title, widgets = [] } = props
 
-  const onClickCategory = (i, e) => {
-    console.log(`LHA:  ===> file: FilterWidget.js ===> line 10 ===> e`, e)
-    console.log(`LHA:  ===> file: FilterWidget.js ===> line 10 ===> i`, i)
+  const dispatch = useDispatch()
+  const onClickCategory = idCategory => {
+    dispatch(getAllProductByCategoryApi(idCategory))
   }
   return (
     <aside className="left_widgets p_filter_widgets">
@@ -17,19 +18,19 @@ const FilterWidget = props => {
         <ul className="list">
           {widgets.map((widget, i) => (
             <li key={`${widget.name}_${i}`}>
-              <span to="#">
+              <span style={{ width: "100%" }}>
                 <div className="l_w_name">
                   <h3>{widget.name}</h3>
                 </div>
 
                 <ul className="list" style={{ marginTop: "unset" }}>
-                  {widget.Category.map((cate, i) => (
+                  {widget.Category.map(cate => (
                     <li
                       key={cate._id}
-                      onClick={onClickCategory}
-                      data-key={cate._id}
+                      onClick={() => onClickCategory(cate._id)}
                     >
-                      <span to="#">{cate.name}</span>
+                      <span>{cate.name}</span>
+                      <span style={{ color: "#ff3368" }}>{cate.total}</span>
                     </li>
                   ))}
                 </ul>

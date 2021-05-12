@@ -1,6 +1,8 @@
 /* eslint-disable import/no-anonymous-default-export */
 
 import {
+  GET_ALL_PRODUCT_BY_CATEGORY_FAIL,
+  GET_ALL_PRODUCT_BY_CATEGORY_SUCCESS,
   GET_ALL_PRODUCT_FAIL,
   GET_ALL_PRODUCT_SUCCESS,
   GET_PRODUCT_DETAIL_FAIL,
@@ -19,6 +21,10 @@ export default function (state = initState, action) {
     case GET_ALL_PRODUCT_SUCCESS:
       return { ...state, products: action.payload }
     case GET_ALL_PRODUCT_FAIL:
+      return { ...state, products: action.payload }
+    case GET_ALL_PRODUCT_BY_CATEGORY_SUCCESS:
+      return { ...state, products: action.payload }
+    case GET_ALL_PRODUCT_BY_CATEGORY_FAIL:
       return { ...state, products: action.payload }
     case GET_PRODUCT_DETAIL_SUCCESS:
       return { ...state, productDetail: action.payload }
