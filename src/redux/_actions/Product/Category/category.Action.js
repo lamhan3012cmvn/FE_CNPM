@@ -7,6 +7,11 @@ import {
   GET_PRODUCT_DETAIL_SUCCESS
 } from "./type"
 import productApi from "../../../../Apis/Product.Api"
+import { changeLoading } from "../../System/app.Action"
+
+const loading = (loading = false) => dispatch => {
+  dispatch(changeLoading(loading))
+}
 
 export function getAllProductsSuccess(data) {
   return {
@@ -24,11 +29,14 @@ export function getAllProductsFail() {
 
 export const getAllProductApi = () => async dispatch => {
   try {
+    dispatch(loading(true))
     const data = await productApi.getAll()
+    dispatch(loading())
     dispatch(getAllProductsSuccess(data))
     return true
   } catch (err) {
     console.log(err)
+    dispatch(loading())
     dispatch(getAllProductsFail())
     return false
   }
@@ -50,11 +58,14 @@ export function getAllProductsByCategoryFail() {
 
 export const getAllProductByCategoryApi = id => async dispatch => {
   try {
+    dispatch(loading(true))
     const data = await productApi.getByCate(id)
+    dispatch(loading())
     dispatch(getAllProductsByCategorySuccess(data))
     return true
   } catch (err) {
     console.log(err)
+    dispatch(loading())
     dispatch(getAllProductsByCategoryFail())
     return false
   }
@@ -76,10 +87,13 @@ export function getAllProductDetailFail() {
 
 export const getAllProductDetailApi = id => async dispatch => {
   try {
+    dispatch(loading(true))
     const data = await productApi.getById(id)
     dispatch(getAllProductDetailSuccess(data))
+    dispatch(loading())
   } catch (err) {
     console.log(err)
     dispatch(getAllProductDetailFail())
+    dispatch(loading())
   }
 }

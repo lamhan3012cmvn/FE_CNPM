@@ -4,7 +4,7 @@ import { lazy } from "react"
 
 const RegisterPage = lazy(() => import("../pages/RegisterPage"))
 const VerifyPage = lazy(() => import("../pages/VerifyPage"))
-const RegisterRouter = () => {
+const RegisterRoute = () => {
   return (
     <Switch>
       <Route path={PATH.register} exact component={RegisterPage} />
@@ -13,4 +13,4 @@ const RegisterRouter = () => {
   )
 }
 
-export default RegisterRouter
+export default RegisterRoute

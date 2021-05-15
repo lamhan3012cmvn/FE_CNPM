@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import AppSlider from "../../common/components/AppSlider"
+import Breadcrumb from "../../common/components/Breadcrumb"
+import TitleList from "../../common/components/TitleList"
+import CartInterior from "./components/CartInterior"
 import ProjectPart from "./components/ProjectPart"
 import SelectProjectType from "./components/SelectProjectType"
 import SingleBanner from "./components/SingleBanner"
@@ -8,7 +11,12 @@ const InteriorDesignPage = () => {
   const [componentBanner, setComponentBanner] = useState([])
   const ImgBanner = useSelector(state => state.interior.ImgBanner)
 
-  const [cartsInterior, setCartsInterior] = useState([])
+  const cartsInterior = useSelector(state => state.interior.Apartment)
+  console.log(
+    `LHA:  ===> file: index.js ===> line 15 ===> cartsInterior`,
+    cartsInterior
+  )
+  // const [cartsInterior, setCartsInterior] = useState([1, 2, 3, 4, 5, 6])
 
   useEffect(() => {
     setComponentBanner(
@@ -19,26 +27,41 @@ const InteriorDesignPage = () => {
       })
     )
   }, [ImgBanner])
-
+  const render = () => {
+    return cartsInterior ? (
+      cartsInterior.map(interior => (
+        <div className="col-lg-4 col-sm-6" style={{ paddingTop: "50px" }}>
+          <CartInterior interior={interior} />
+        </div>
+      ))
+    ) : (
+      <h3>Empty</h3>
+    )
+  }
   return (
     <>
-      <AppSlider
+      {/* <AppSlider
         style={{ marginTop: "83.24px" }}
         propsComponents={componentBanner}
-      />
-
-      <ProjectPart
-        content={
-          <SelectProjectType
-            projectType={[
-              { id: "1", type: "Chung Cu" },
-              { id: "2", type: "Biet Thu" },
-              { id: "3", type: "Nha Pho" }
-            ]}
-          />
-        }
-        CartsInterior={[1, 2, 3]}
-      />
+      /> */}
+      <Breadcrumb namePage="Interior" preLink={{ name: "Home" }} />
+      <section className="interior_list">
+        <div className="container">
+          <TitleList title="Project">
+            <SelectProjectType
+              projectType={[
+                { id: "1", type: "Chung Cu", active: "active" },
+                { id: "2", type: "Biet Thu", active: "" },
+                { id: "3", type: "Nha Pho", active: "" }
+              ]}
+            />
+          </TitleList>
+          <div className="row align-items-center justify-content-center">
+            {render()}
+          </div>
+        </div>
+      </section>
+      {/* <ProjectPart CartsInterior={[1, 2, 3, 4, 5]} /> */}
     </>
   )
 }

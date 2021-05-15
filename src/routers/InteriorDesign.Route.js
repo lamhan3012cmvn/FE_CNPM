@@ -5,7 +5,7 @@ import { PATH } from "../common/constants/path"
 const InteriorDesignPage = lazy(() => import("../pages/InteriorDesignPage"))
 const SingleInteriorPage = lazy(() => import("../pages/SingleInteriorPage"))
 
-const InteriorDesignRouter = () => {
+const InteriorDesignRoute = () => {
   return (
     <Switch>
       <Route exact path={PATH.interiorDesign} component={InteriorDesignPage} />
@@ -18,4 +18,4 @@ const InteriorDesignRouter = () => {
   )
 }
 
-export default InteriorDesignRouter
+export default InteriorDesignRoute

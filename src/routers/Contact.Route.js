@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router"
 import { PATH } from "../common/constants/path"
 
 const ContactPage = lazy(() => import("../pages/ContactPage"))
-const ContactRouter = () => {
+const ContactRoute = () => {
   return (
     <Switch>
       <Route exact path={PATH.contact} component={ContactPage} />
@@ -11,4 +11,4 @@ const ContactRouter = () => {
   )
 }
 
-export default ContactRouter
+export default ContactRoute

@@ -5,7 +5,7 @@ import Auth from "../common/components/Auth"
 
 const LoginPage = lazy(() => import("../pages/LoginPage"))
 
-const LoginRouter = () => {
+const LoginRoute = () => {
   return (
     <Switch>
       <Route path={PATH.login} exact component={Auth(LoginPage, false)} />
@@ -13,4 +13,4 @@ const LoginRouter = () => {
   )
 }
 
-export default LoginRouter
+export default LoginRoute

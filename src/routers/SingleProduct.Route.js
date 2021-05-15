@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom"
 import { lazy } from "react"
 
 const SingleProductPage = lazy(() => import("../pages/SingleProductPage"))
-const SingleProductRouter = () => {
+const SingleProductRoute = () => {
   return (
     <Switch>
       <Route
@@ -15,4 +15,4 @@ const SingleProductRouter = () => {
   )
 }
 
-export default SingleProductRouter
+export default SingleProductRoute

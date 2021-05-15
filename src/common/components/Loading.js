@@ -1,14 +1,16 @@
 import "./Loading.Style.css"
 import RingLoader from "react-spinners/RingLoader"
 import { css } from "@emotion/core"
+import { useSelector } from "react-redux"
 
 const override = css`
   display: block;
 `
 
 const Loading = () => {
-  return (
-    <div id="loading">
+  const l = useSelector(state => state.system.loading)
+  return l ? (
+    <div id={`loading`}>
       <div className="wave">
         <RingLoader
           css={override}
@@ -18,6 +20,8 @@ const Loading = () => {
         />
       </div>
     </div>
+  ) : (
+    ""
   )
 }
 

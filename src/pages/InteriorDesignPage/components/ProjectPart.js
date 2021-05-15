@@ -7,7 +7,7 @@ const ProjectPart = props => {
   const render = () => {
     return CartsInterior ? (
       CartsInterior.map(e => (
-        <div className="col-lg-4 col-sm-6">
+        <div className="col-lg-4 col-sm-6" style={{ paddingTop: "50px" }}>
           <CartInterior />
         </div>
       ))
@@ -18,6 +18,7 @@ const ProjectPart = props => {
   return (
     <section className="product_list section_padding">
       <div className="container">
+        {props.children}
         <TitleList title="Project" content={content} />
         <div className="row align-items-center justify-content-center">
           {render()}

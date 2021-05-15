@@ -1,7 +1,12 @@
+import { useRef, useState } from "react"
+
 const SelectProjectType = props => {
   const { projectType } = props
+  const refProjectType = useRef(null)
   const changeActive = e => {
-    const element = e
+    const current = document.getElementsByClassName("active")
+    current[0].className = current[0].className.replace("active", "")
+    e.target.className += " active"
   }
   const renderType = () => {
     return projectType.map(e => {
@@ -11,15 +16,18 @@ const SelectProjectType = props => {
           onClick={changeActive}
           key={e.id}
         >
-          <h3 className="active">{e.type}</h3>
+          <h3 className={e.active}>{e.type}</h3>
         </div>
       )
     })
   }
   return projectType ? (
-    <section style={{ padding: "30px 0px" }}>
+    <section style={{ paddingBottom: "30px" }}>
       <div className="container">
-        <div className="row align-items-center justify-content-center">
+        <div
+          className="row align-items-center justify-content-center"
+          ref={refProjectType}
+        >
           {renderType()}
         </div>
       </div>
