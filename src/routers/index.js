@@ -16,7 +16,6 @@ import ContactRoute from "./Contact.Route"
 import { Suspense } from "react"
 import Loading from "../common/components/Loading"
 import UserProfile from "./UserProfile.Route"
-import { useSelector } from "react-redux"
 
 const Routers = () => {
   return (
@@ -37,8 +36,6 @@ const Routers = () => {
         <AppFooter />
       </Suspense>
       <Loading />
-
-      {/* <Testting /> */}
     </Router>
   )
 }

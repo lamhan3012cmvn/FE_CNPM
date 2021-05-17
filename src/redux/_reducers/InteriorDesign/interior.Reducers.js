@@ -9,6 +9,7 @@ const initState = {
 
   Apartment: [
     {
+      _id: "1",
       title: "Thiết kế căn hộ 186m2 chung cư The Legend",
       info: {
         project: "Chung cư The Legend –  4 phòng ngủ",
@@ -103,6 +104,7 @@ const initState = {
     },
 
     {
+      _id: "2",
       title: "Thiết kế nội thất căn hộ 82m2 chung cư Florence Mỹ Đình",
       info: {
         project: "Chung cư Florence – 3 phòng ngủ",
@@ -196,6 +198,7 @@ const initState = {
     },
 
     {
+      _id: "3",
       title:
         "Thiết kế nội thất căn hộ 124.6m2 chung cư Premier Berriver Long Biên",
       info: {
@@ -280,6 +283,7 @@ const initState = {
     },
 
     {
+      _id: "3",
       title: "Thiết kế nội thất căn hộ 81.01m2 Hinode City",
       info: {
         project: " Hinode City –  2 phòng ngủ ",
@@ -372,6 +376,7 @@ const initState = {
     },
 
     {
+      _id: "4",
       title: "Thiết kế nội thất căn hộ 89.2m2 Sunshine City",
       info: {
         project: "𝐒𝐮𝐧𝐬𝐡𝐢𝐧𝐞 𝐂𝐢𝐭𝐲 – 2 phòng ngủ + 1",
@@ -458,6 +463,7 @@ const initState = {
     },
 
     {
+      _id: "5",
       title: "Thiết kế nội thất căn hộ 77m2 chung cư Smart City",
       info: {
         project: "Chung cư 2 phòng ngủ",
@@ -568,7 +574,7 @@ const initState = {
       {
         img:
           "https://firebasestorage.googleapis.com/v0/b/cnpm-e5af3.appspot.com/o/Category%2FDuAn%2FchungCu%2Fsmartcity%2FNGUBE2.jpg?alt=media&token=854f08d8-ae39-4ed7-8848-5cbc48fe42b3",
-        content: ""
+        content: "Lam Lma"
       },
       {
         img:

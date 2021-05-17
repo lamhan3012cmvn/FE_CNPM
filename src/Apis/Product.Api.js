@@ -25,7 +25,6 @@ const getByCate = async (id, page = 1, limit = 12) => {
         idCategory: id
       }
     })
-    console.log(`LHA:  ===> file: Product.Api.js ===> line 28 ===> res`, res)
     return res.data
   } catch (err) {
     console.log(err)

@@ -24,10 +24,10 @@ const CategoryProduct = () => {
 
   useEffect(() => {
     dispatch(getAllFilterApi())
-  }, [])
+  }, [dispatch])
   useEffect(() => {
     dispatch(getAllProductApi())
-  }, [])
+  }, [dispatch])
 
   const getAllProduct = () => {
     dispatch(getAllProductApi())

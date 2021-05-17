@@ -1,22 +1,16 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-import AppSlider from "../../common/components/AppSlider"
 import Breadcrumb from "../../common/components/Breadcrumb"
 import TitleList from "../../common/components/TitleList"
 import CartInterior from "./components/CartInterior"
-import ProjectPart from "./components/ProjectPart"
 import SelectProjectType from "./components/SelectProjectType"
 import SingleBanner from "./components/SingleBanner"
+
 const InteriorDesignPage = () => {
   const [componentBanner, setComponentBanner] = useState([])
   const ImgBanner = useSelector(state => state.interior.ImgBanner)
 
   const cartsInterior = useSelector(state => state.interior.Apartment)
-  console.log(
-    `LHA:  ===> file: index.js ===> line 15 ===> cartsInterior`,
-    cartsInterior
-  )
-  // const [cartsInterior, setCartsInterior] = useState([1, 2, 3, 4, 5, 6])
 
   useEffect(() => {
     setComponentBanner(

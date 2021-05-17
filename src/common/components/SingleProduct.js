@@ -4,61 +4,58 @@ import { Link } from "react-router-dom"
 import Slider from "react-slick"
 
 import { AiOutlineHeart, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
-import { useState } from "react"
+import { useRef, useState } from "react"
 const SingleProduct = () => {
+  const refSlider = useRef(null)
   const [total, setTotal] = useState(0)
   const settings = {
     customPaging: function (i) {
-      return (
-        <Link to="#">
-          <img src={productDetail.Image} alt="" />
-        </Link>
-      )
+      return <img src={productDetail.Image[i]} alt="" />
     },
     dots: true,
     dotsClass: "slick-dots slick-thumb",
     infinite: true,
     slidesToShow: 1,
-    slidesToScroll: 1,
-    vertical: true,
-    verticalSwiping: true,
-    beforeChange: function (currentSlide, nextSlide) {
-      console.log("before change", currentSlide, nextSlide)
-    },
-    afterChange: function (currentSlide) {
-      console.log("after change", currentSlide)
-    }
+    slidesToScroll: 1
   }
   const productDetail = useSelector(state => state.product.productDetail)
 
+  const nextSlider = () => {
+    refSlider.current.slickNext()
+  }
+  const prevSlider = () => {
+    refSlider.current.slickPrev()
+  }
   return (
     <div className="product_image_area section_padding">
       <div className="container">
         <div className="row s_product_inner justify-content-between">
           <div className="col-lg-6">
             <div className="product_slider_img">
-              <Slider {...settings}>
-                <div>
-                  <img src={productDetail.Image} alt=""></img>
-                </div>
-                <div>
-                  <img src={productDetail.Image} alt=""></img>
-                </div>
-                <div>
-                  <img src={productDetail.Image} alt=""></img>
-                </div>
-                <div>
-                  <img src={productDetail.Image} alt=""></img>
-                </div>
+              <Slider {...settings} ref={refSlider}>
+                {Object.keys(productDetail).length !== 0 &&
+                  productDetail.Image.map(img => {
+                    return (
+                      <div>
+                        <img src={img} alt=""></img>
+                      </div>
+                    )
+                  })}
               </Slider>
               <h5
                 style={{
                   textAlign: "center",
-                  marginTop: "15px",
+                  marginTop: "80px",
                   fontSize: "18px"
                 }}
               >
-                previous <span>|</span> next
+                <span onClick={prevSlider} style={{ cursor: "pointer" }}>
+                  previous &emsp;&emsp;
+                </span>
+                <span>|</span>
+                <span onClick={nextSlider} style={{ cursor: "pointer" }}>
+                  &emsp;&emsp; next
+                </span>
               </h5>
             </div>
           </div>

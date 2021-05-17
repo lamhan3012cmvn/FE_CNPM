@@ -41,7 +41,6 @@ export const getAllProductApi = () => async dispatch => {
     return false
   }
 }
-
 export function getAllProductsByCategorySuccess(data) {
   return {
     type: GET_ALL_PRODUCT_BY_CATEGORY_SUCCESS,
@@ -71,29 +70,34 @@ export const getAllProductByCategoryApi = id => async dispatch => {
   }
 }
 
-export function getAllProductDetailSuccess(data) {
+export function getProductDetailSuccess(data) {
   return {
     type: GET_PRODUCT_DETAIL_SUCCESS,
     payload: data
   }
 }
 
-export function getAllProductDetailFail() {
+export function getProductDetailFail() {
   return {
     type: GET_PRODUCT_DETAIL_FAIL,
     payload: {}
   }
 }
 
-export const getAllProductDetailApi = id => async dispatch => {
+export const getProductDetailApi = id => async dispatch => {
   try {
     dispatch(loading(true))
     const data = await productApi.getById(id)
-    dispatch(getAllProductDetailSuccess(data))
+    console.log(
+      `LHA:  ===> file: category.Action.js ===> line 92 ===> data`,
+      data
+    )
+    if (data) dispatch(getProductDetailSuccess(data))
+    else dispatch(getProductDetailFail())
     dispatch(loading())
   } catch (err) {
     console.log(err)
-    dispatch(getAllProductDetailFail())
+    dispatch(getProductDetailFail())
     dispatch(loading())
   }
 }
