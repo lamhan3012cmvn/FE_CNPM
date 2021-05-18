@@ -9,7 +9,8 @@ export const PATH = {
   tracking: "/tracking",
   interiorDesign: "/interiorDesign",
   contact: "/contact",
-  userProfile: "/profile"
+  userProfile: "/profile",
+  managerBill: "/managerBill"
 }
 
 export const PATH_API = {}

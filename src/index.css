@@ -6160,12 +6160,13 @@ h6 {
 .plr-15{
   padding: 0 15px;
 }
-
+.plr-20{
+  padding: 0 20px;
+}
 
 .plr-30{
   padding: 0 30px;
 }
-
 
 
 .mt-10 {
@@ -8109,3 +8110,157 @@ User Profile
     -webkit-line-clamp: 1;
     overflow: hidden;
 }
+
+
+/* =========Manager Bill=========== */
+
+:root {
+  --grey : #d7d7d7;
+  --grey2 : #726b6b;
+  --white : #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* input[id="tab-choXacNhan"]:checked ~ div.wrap-status h1.status.choXacNhan,
+input[id="tab-choLayHang"]:checked ~ div.wrap-status h1.status.choLayHang,
+input[id="tab-dangGiao"]:checked ~ div.wrap-status h1.status.dangGiao,
+input[id="tab-daGiao"]:checked ~ div.wrap-status h1.status.daGiao,
+input[id="tab-daHuy"]:checked ~ div.wrap-status h1.status.daHuy,
+input[id="tab-traHang"]:checked ~ div.wrap-status h1.status.traHang,
+input[id="tab-tatCa"]:checked ~ div.wrap-status h1.status.tatCa {
+  display: block;
+} */
+
+
+
+.wrap-content .wrap-name-column {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #FF0060;
+  border-bottom: 1px solid #FF0060;
+}
+
+.wrap-content .wrap-name-column label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  height: 100%;
+  margin: 0;
+  font-weight: 500;
+  color: var(--grey2);
+  margin-top: 2px;
+  border-bottom: 4px solid transparent;
+  transition: all .3s;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+}
+
+.wrap-content .wrap-name-column label.active {
+  color: #FF0060;
+  border-bottom: 4px solid #FF0060;
+  transition: all .3s;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+}
+
+
+.wrap-content .wrap-name-column label:hover {
+  color: #FF0060;
+}
+
+/* ACTIVE TAB */
+input[id="tab-tatCa"]:checked ~ div.wrap-content .wrap-name-column label[for="tab-tatCa"],
+input[id="tab-choXacNhan"]:checked ~ div.wrap-content .wrap-name-column label[for="tab-choXacNhan"],
+input[id="tab-choLayHang"]:checked ~ div.wrap-content .wrap-name-column label[for="tab-choLayHang"],
+input[id="tab-dangGiao"]:checked ~ div.wrap-content .wrap-name-column label[for="tab-dangGiao"],
+input[id="tab-daGiao"]:checked ~ div.wrap-content .wrap-name-column label[for="tab-daGiao"],
+input[id="tab-daHuy"]:checked ~ div.wrap-content .wrap-name-column label[for="tab-daHuy"],
+input[id="tab-traHang"]:checked ~ div.wrap-content .wrap-name-column label[for="tab-traHang"]{
+  color: #FF0060;
+  border-bottom: 4px solid #FF0060;
+  transition: all .3s;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+}
+
+
+.wrap-content .wrap-filter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrap-content .content-tab {
+  position: relative !important;
+}
+
+/* .wrap-content .content-tab .tab-item {
+  display: none;
+} */
+
+/* ACTIVE TAB */
+/* input[id="tab-tatCa"]:checked ~ div.wrap-content .content-tab .tab-item.tabTatCa,
+input[id="tab-choXacNhan"]:checked ~ div.wrap-content .content-tab .tab-item.tabChoXacNhan,
+input[id="tab-choLayHang"]:checked ~ div.wrap-content .content-tab .tab-item.tabChoLayHang,
+input[id="tab-dangGiao"]:checked ~ div.wrap-content .content-tab .tab-item.tabDangGiao,
+input[id="tab-daGiao"]:checked ~ div.wrap-content .content-tab .tab-item.tabDaGiao,
+input[id="tab-daHuy"]:checked ~ div.wrap-content .content-tab .tab-item.tabDaHuy,
+input[id="tab-traHang"]:checked ~ div.wrap-content .content-tab .tab-item.tabTraHang {
+  display: block;
+} */
+
+.wrap-content .content-tab .tab-item .btnChonNgay {
+  background-color: #FF0060;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.wrap-content .content-tab .tab-item .title-colum-tab {
+  background: none;
+    border: 1px solid #FF0060;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding: 10px 0;
+}
+
+.wrap-content .content-tab .tab-item .title-colum-tab,
+.wrap-content .content-tab .tab-item .title-colum-tab select {
+  font-size: 15px;
+  color: var(--grey2);
+  font-weight: 500;
+}
+.wrap-cart .card-header_contextBx{
+  border-bottom: 1px solid #FF0060
+}
+.wrap-cart .card-body div div img{
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  margin-right: 15px;
+}
+
+/* =======End Manager Bill=========== */

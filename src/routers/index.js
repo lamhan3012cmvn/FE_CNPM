@@ -16,6 +16,7 @@ import ContactRoute from "./Contact.Route"
 import { Suspense } from "react"
 import Loading from "../common/components/Loading"
 import UserProfile from "./UserProfile.Route"
+import ManagerBillRoute from "./ManagerBill.Route"
 
 const Routers = () => {
   return (
@@ -33,6 +34,7 @@ const Routers = () => {
         <InteriorDesignRoute />
         <ContactRoute />
         <UserProfile />
+        <ManagerBillRoute />
         <AppFooter />
       </Suspense>
       <Loading />
