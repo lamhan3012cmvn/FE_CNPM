@@ -1,13 +1,16 @@
 /* eslint-disable no-console */
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import Slider from "react-slick"
 
 import { AiOutlineHeart, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 import { useRef, useState } from "react"
+import { createCartUserApi } from "../../redux/_actions/Cart/cart.Action"
 const SingleProduct = () => {
+  const dispatch = useDispatch()
+
   const refSlider = useRef(null)
-  const [total, setTotal] = useState(0)
+  const [total, setTotal] = useState(1)
   const settings = {
     customPaging: function (i) {
       return <img src={productDetail.Image[i]} alt="" />
@@ -26,6 +29,15 @@ const SingleProduct = () => {
   const prevSlider = () => {
     refSlider.current.slickPrev()
   }
+  const handleAddCart = () => {
+    dispatch(
+      createCartUserApi({
+        idProduct: productDetail._id,
+        total: total
+      })
+    )
+  }
+
   return (
     <div className="product_image_area section_padding">
       <div className="container">
@@ -34,9 +46,9 @@ const SingleProduct = () => {
             <div className="product_slider_img">
               <Slider {...settings} ref={refSlider}>
                 {Object.keys(productDetail).length !== 0 &&
-                  productDetail.Image.map(img => {
+                  productDetail.Image.map((img, index) => {
                     return (
-                      <div>
+                      <div key={index}>
                         <img src={img} alt=""></img>
                       </div>
                     )
@@ -113,9 +125,9 @@ const SingleProduct = () => {
                     <AiOutlinePlus />
                   </span>
                 </div>
-                <Link to="#" className="btn_3">
+                <button className="btn_3" onClick={handleAddCart}>
                   add to cart
-                </Link>
+                </button>
                 <Link to="#" className="like_us">
                   <AiOutlineHeart />
                 </Link>

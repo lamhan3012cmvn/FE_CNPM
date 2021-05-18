@@ -1,7 +1,16 @@
-import React from "react"
+import React, { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import CartBody from "../../pages/CartPage/components/cartBody"
+import { getCartUserApi } from "../../redux/_actions/Cart/cart.Action"
 
 const CartArea = () => {
+  const dispatch = useDispatch()
+  const carts = useSelector(state => state.cart.cartUser) || []
+  console.log(`LHA:  ===> file: CartArea.js ===> line 10 ===> carts`, carts)
+  useEffect(() => {
+    dispatch(getCartUserApi())
+  }, [])
   return (
     <section className="cart_area padding_top">
       <div className="container">
@@ -14,50 +23,15 @@ const CartArea = () => {
                   <th scope="col">Price</th>
                   <th scope="col">Quantity</th>
                   <th scope="col">Total</th>
+                  <th scope="col">Check</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>
-                    <div className="media">
-                      <div className="d-flex">
-                        <img
-                          src="img/product/single-product/cart-1.jpg"
-                          alt=""
-                        />
-                      </div>
-                      <div className="media-body">
-                        <p>Minimalistic shop for multipurpose use</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <h5>$360.00</h5>
-                  </td>
-                  <td>
-                    <div className="product_count">
-                      <span className="input-number-decrement">
-                        {" "}
-                        <i className="ti-angle-down"></i>
-                      </span>
-                      <input
-                        className="input-number"
-                        type="text"
-                        value="1"
-                        min="0"
-                        max="10"
-                      />
-                      <span className="input-number-increment">
-                        {" "}
-                        <i className="ti-angle-up"></i>
-                      </span>
-                    </div>
-                  </td>
-                  <td>
-                    <h5>$720.00</h5>
-                  </td>
-                </tr>
-                <tr className="bottom_button">
+                {carts.map(elm => (
+                  <CartBody key={elm._id} cart={elm} />
+                ))}
+
+                {/* <tr className="bottom_button">
                   <td>
                     <Link className="btn_1" to="#">
                       Update Cart
@@ -72,7 +46,7 @@ const CartArea = () => {
                       </Link>
                     </div>
                   </td>
-                </tr>
+                </tr> */}
                 <tr>
                   <td></td>
                   <td></td>
@@ -83,7 +57,7 @@ const CartArea = () => {
                     <h5>$2160.00</h5>
                   </td>
                 </tr>
-                <tr className="shipping_area">
+                {/* <tr className="shipping_area">
                   <td></td>
                   <td></td>
                   <td>
@@ -125,7 +99,7 @@ const CartArea = () => {
                       </Link>
                     </div>
                   </td>
-                </tr>
+                </tr> */}
               </tbody>
             </table>
             <div className="checkout_btn_inner float-right">

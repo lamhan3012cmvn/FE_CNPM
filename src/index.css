@@ -3496,7 +3496,11 @@ ul {
   background: #fff;
   box-shadow: -14.142px 14.142px 20px 0px rgba(0, 0, 0, 0.1);
 }
-
+.cart_area .media img{
+  width: 70px;
+  height: 70px;
+  border: unset !important;
+}
 .cart_area .product_count {
   display: inline-block;
   position: relative;
@@ -3510,12 +3514,21 @@ ul {
   border-radius: 3px;
   padding-left: 10px;
 }
-
+.cart_area .product_count svg{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
 .cart_area .product_count .input-number-increment {
   position: absolute;
   right: 0;
   top: -7px;
   padding: 7px;
+  background: none;
+  margin: 0;
+  outline: none;
+  box-shadow: none;
+  border: none;
   border-left: 1px solid #dddddd;
   display: inline-block;
 }
@@ -3535,6 +3548,11 @@ ul {
   right: 0;
   bottom: -9px;
   padding: 7px;
+  background: none;
+  margin: 0;
+  outline: none;
+  box-shadow: none;
+  border: none;
   border-left: 1px solid #dddddd;
   display: inline-block;
 }

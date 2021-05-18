@@ -2,10 +2,14 @@ import {
   GET_CART_USER_SUCCESS,
   GET_CART_USER_FAIL,
   CREATE_CART_USER_FAIL,
-  CREATE_CART_USER_SUCCESS
+  CREATE_CART_USER_SUCCESS,
+  DELETE_CART_USER_SUCCESS,
+  DELETE_CART_USER_FAIL,
+  UPDATE_CART_USER_SUCCESS,
+  UPDATE_CART_USER_FAIL
 } from "./type"
 
-import { changeLoading } from "../../System/app.Action"
+import { changeLoading } from "../System/app.Action"
 
 import Cart from "../../../Apis/Cart.Api"
 
@@ -30,13 +34,10 @@ export function getCartUserFail() {
 export const getCartUserApi = () => async dispatch => {
   try {
     dispatch(loading(true))
-    const data = await Cart.getCartUser()
-    console.log(
-      `LHA:  ===> file: category.Action.js ===> line 92 ===> data`,
-      data
-    )
-    if (data) dispatch(getCartUserSuccess(data))
-    else dispatch(getCartUserFail())
+    const res = await Cart.getCartUser()
+    if (res.success) {
+      dispatch(getCartUserSuccess(res.data))
+    } else dispatch(getCartUserFail())
     dispatch(loading())
   } catch (err) {
     console.log(err)
@@ -59,20 +60,78 @@ export function createCartUserFail() {
   }
 }
 
-export const createCartUserApi = () => async dispatch => {
+export const createCartUserApi = resData => async dispatch => {
   try {
     dispatch(loading(true))
-    const data = await Cart.getCartUser()
-    console.log(
-      `LHA:  ===> file: category.Action.js ===> line 92 ===> data`,
-      data
-    )
-    if (data) dispatch(createCartUserSuccess(data))
-    else dispatch(createCartUserFail())
+    const res = await Cart.createCartUser(resData)
+    if (res.success) {
+      dispatch(getCartUserApi())
+      dispatch(createCartUserSuccess())
+    } else dispatch(createCartUserFail())
     dispatch(loading())
   } catch (err) {
     console.log(err)
     dispatch(createCartUserFail())
+    dispatch(loading())
+  }
+}
+
+export function deleteCartUserSuccess() {
+  return {
+    type: DELETE_CART_USER_SUCCESS,
+    payload: {}
+  }
+}
+
+export function deleteCartUserFail() {
+  return {
+    type: DELETE_CART_USER_FAIL,
+    payload: {}
+  }
+}
+
+export const deleteCartUserApi = () => async dispatch => {
+  try {
+    dispatch(loading(true))
+    const data = await Cart.deleteCartUser()
+    if (data) {
+      dispatch(getCartUserApi())
+      dispatch(deleteCartUserSuccess())
+    } else dispatch(deleteCartUserFail())
+    dispatch(loading())
+  } catch (err) {
+    console.log(err)
+    dispatch(deleteCartUserFail())
+    dispatch(loading())
+  }
+}
+
+export function updateCartUserSuccess() {
+  return {
+    type: UPDATE_CART_USER_SUCCESS,
+    payload: {}
+  }
+}
+
+export function updateCartUserFail() {
+  return {
+    type: UPDATE_CART_USER_FAIL,
+    payload: {}
+  }
+}
+
+export const updateCartUserApi = () => async dispatch => {
+  try {
+    dispatch(loading(true))
+    const data = await Cart.updateCartUser()
+    if (data) {
+      dispatch(getCartUserApi())
+      dispatch(updateCartUserSuccess())
+    } else dispatch(updateCartUserFail())
+    dispatch(loading())
+  } catch (err) {
+    console.log(err)
+    dispatch(updateCartUserFail())
     dispatch(loading())
   }
 }
