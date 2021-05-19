@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { useParams } from "react-router"
 import Breadcrumb from "../../common/components/Breadcrumb"
-import SingleProduct from "../../common/components/SingleProduct"
+import SingleProduct from "./components/SingleProduct"
 import { getProductDetailApi } from "../../redux/_actions/Product/Category/category.Action"
 
 const SingleProductPage = props => {

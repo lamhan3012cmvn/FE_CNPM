@@ -1,52 +1,30 @@
 import React from "react"
 import { Link } from "react-router-dom"
-
+import ReactPaginate from "react-paginate"
+import { FcPrevious, FcNext } from "react-icons/fc"
+import { HiDotsHorizontal } from "react-icons/hi"
+import { useDispatch } from "react-redux"
+import { changePage } from "../../redux/_actions/Product/Category/category.Action"
 const Pageination = () => {
+  const dispatch = useDispatch()
+  const handleChangePage = e => {
+    dispatch(changePage(e.selected + 1))
+  }
   return (
     <div className="pageination">
-      <nav aria-label="Page navigation example">
-        <ul className="pagination justify-content-center">
-          <li className="page-item">
-            <Link to="#" className="page-link" aria-label="Previous">
-              <i className="ti-angle-double-left"></i>
-            </Link>
-          </li>
-          <li className="page-item">
-            <Link to="#" className="page-link">
-              1
-            </Link>
-          </li>
-          <li className="page-item">
-            <Link to="#" className="page-link">
-              2
-            </Link>
-          </li>
-          <li className="page-item">
-            <Link to="#" className="page-link">
-              3
-            </Link>
-          </li>
-          <li className="page-item">
-            <Link to="#" className="page-link">
-              4
-            </Link>
-          </li>
-          <li className="page-item">
-            <Link to="#" className="page-link">
-              5
-            </Link>
-          </li>
-          <li className="page-item">
-            <Link to="#" className="page-link">
-              6
-            </Link>
-          </li>
-          <li className="page-item">
-            <Link to="#" className="page-link" aria-label="Next">
-              <i className="ti-angle-double-right"></i>
-            </Link>
-          </li>
-        </ul>
+      <nav>
+        <ReactPaginate
+          previousLabel={<FcPrevious />}
+          nextLabel={<FcNext />}
+          breakLabel={<HiDotsHorizontal />}
+          breakClassName={"break-me"}
+          pageCount={7}
+          marginPagesDisplayed={3}
+          pageRangeDisplayed={2}
+          onPageChange={handleChangePage}
+          containerClassName={"pagination justify-content-center"}
+          activeClassName={"active"}
+        />
       </nav>
     </div>
   )

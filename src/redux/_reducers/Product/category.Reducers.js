@@ -6,20 +6,27 @@ import {
   GET_ALL_PRODUCT_FAIL,
   GET_ALL_PRODUCT_SUCCESS,
   GET_PRODUCT_DETAIL_FAIL,
-  GET_PRODUCT_DETAIL_SUCCESS
+  GET_PRODUCT_DETAIL_SUCCESS,
+  CHANGE_PAGE
 } from "../../_actions/Product/Category/type"
 
 const initState = {
   products: [],
   productDetail: {},
   total: 0,
-  limit: 10,
-  page: 2
+  limit: 12,
+  page: 1,
+  pages: 0
 }
 export default function (state = initState, action) {
   switch (action.type) {
     case GET_ALL_PRODUCT_SUCCESS:
-      return { ...state, products: action.payload }
+      return {
+        ...state,
+        products: action.payload.products,
+        total: action.payload.total,
+        pages: action.payload.pages
+      }
     case GET_ALL_PRODUCT_FAIL:
       return { ...state, products: action.payload }
     case GET_ALL_PRODUCT_BY_CATEGORY_SUCCESS:
@@ -30,6 +37,8 @@ export default function (state = initState, action) {
       return { ...state, productDetail: action.payload }
     case GET_PRODUCT_DETAIL_FAIL:
       return { ...state, productDetail: action.payload }
+    case CHANGE_PAGE:
+      return { ...state, page: action.payload }
     default:
       return state
   }

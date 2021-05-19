@@ -1,4 +1,5 @@
 import {
+  CHANGE_PAGE,
   GET_ALL_PRODUCT_BY_CATEGORY_FAIL,
   GET_ALL_PRODUCT_BY_CATEGORY_SUCCESS,
   GET_ALL_PRODUCT_FAIL,
@@ -27,12 +28,12 @@ export function getAllProductsFail() {
   }
 }
 
-export const getAllProductApi = () => async dispatch => {
+export const getAllProductApi = reqData => async dispatch => {
   try {
     dispatch(loading(true))
-    const data = await productApi.getAll()
+    const res = await productApi.getAll(reqData.page, reqData.limit)
     dispatch(loading())
-    dispatch(getAllProductsSuccess(data))
+    dispatch(getAllProductsSuccess(res))
     return true
   } catch (err) {
     console.log(err)
@@ -99,5 +100,12 @@ export const getProductDetailApi = id => async dispatch => {
     console.log(err)
     dispatch(getProductDetailFail())
     dispatch(loading())
+  }
+}
+
+export function changePage(nextPage) {
+  return {
+    type: CHANGE_PAGE,
+    payload: nextPage
   }
 }

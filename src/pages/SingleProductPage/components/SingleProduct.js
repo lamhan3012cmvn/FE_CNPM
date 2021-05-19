@@ -5,7 +5,12 @@ import Slider from "react-slick"
 
 import { AiOutlineHeart, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 import { useRef, useState } from "react"
-import { createCartUserApi } from "../../redux/_actions/Cart/cart.Action"
+import { createCartUserApi } from "../../../redux/_actions/Cart/cart.Action"
+import { BsStar, BsStarFill } from "react-icons/bs"
+
+import ReviewItemProduct from "./ReviewItemProduct"
+import FromRateProduct from "./FromRateProduct"
+
 const SingleProduct = () => {
   const dispatch = useDispatch()
 
@@ -104,12 +109,12 @@ const SingleProduct = () => {
               </ul>
               <div className="card_area d-flex justify-content-between align-items-center mt-15 pl-20 pr-20">
                 <div className="product_count">
-                  <span
-                    className="inumber-decrement"
+                  <button
+                    className="inumber-decrement resetBtn"
                     onClick={() => setTotal(total - 1 < 0 ? 0 : total - 1)}
                   >
                     <AiOutlineMinus />
-                  </span>
+                  </button>
                   <input
                     className="input-number"
                     type="text"
@@ -118,12 +123,12 @@ const SingleProduct = () => {
                     max="10"
                     readOnly
                   ></input>
-                  <span
-                    className="number-increment"
+                  <button
+                    className="number-increment resetBtn"
                     onClick={() => setTotal(total + 1)}
                   >
                     <AiOutlinePlus />
-                  </span>
+                  </button>
                 </div>
                 <button className="btn_3" onClick={handleAddCart}>
                   add to cart
@@ -138,8 +143,81 @@ const SingleProduct = () => {
         <div className="row s_product_inner justify-content-between mt-15">
           <div className="col-12">
             <h3>Description</h3>
-            <p className="plr-15">{productDetail.Description}</p>
+            {productDetail.Description ? (
+              <p className="plr-15">{productDetail.Description}</p>
+            ) : (
+              <h4 className="text-center" style={{ color: "#FF0060" }}>
+                Empty
+              </h4>
+            )}
           </div>
+        </div>
+
+        <div className="row review">
+          <div className="col-lg-6">
+            <div className="row total_rate">
+              <div className="col-6">
+                <div className="box_total">
+                  <h5>Overall</h5>
+                  <h4>4.0</h4>
+                  <h6>(03 Reviews)</h6>
+                </div>
+              </div>
+              <div className="col-6">
+                <div className="rating_list">
+                  <h3>Based on 3 Reviews</h3>
+                  <ul className="list">
+                    <li>
+                      <span>5 Star</span>
+                      <BsStarFill />
+                      <BsStarFill />
+                      <BsStarFill />
+                      <BsStarFill />
+                      <BsStarFill /> <span>01</span>
+                    </li>
+                    <li>
+                      <span>4 Star</span>
+                      <BsStarFill />
+                      <BsStarFill />
+                      <BsStarFill />
+                      <BsStarFill />
+                      <BsStar /> <span>01</span>
+                    </li>
+                    <li>
+                      <span>4 Star</span>
+                      <BsStarFill />
+                      <BsStarFill />
+                      <BsStarFill />
+                      <BsStar />
+                      <BsStar /> <span>01</span>
+                    </li>
+                    <li>
+                      <span>4 Star</span>
+                      <BsStarFill />
+                      <BsStarFill />
+                      <BsStar />
+                      <BsStar />
+                      <BsStar /> <span>01</span>
+                    </li>
+                    <li>
+                      <span>4 Star</span>
+                      <BsStarFill />
+                      <BsStar />
+                      <BsStar />
+                      <BsStar />
+                      <BsStar /> <span>01</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="review_list">
+              <ReviewItemProduct />
+              <ReviewItemProduct />
+              <ReviewItemProduct />
+            </div>
+          </div>
+          <FromRateProduct />
         </div>
       </div>
     </div>

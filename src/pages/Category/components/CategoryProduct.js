@@ -20,17 +20,21 @@ const CategoryProduct = () => {
 
   const products = useSelector(state => state.product.products)
 
+  const page = useSelector(state => state.product.page)
+
+  const limit = useSelector(state => state.product.limit)
+
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getAllFilterApi())
   }, [dispatch])
   useEffect(() => {
-    dispatch(getAllProductApi())
-  }, [dispatch])
+    dispatch(getAllProductApi({ page, limit }))
+  }, [dispatch, page, limit])
 
   const getAllProduct = () => {
-    dispatch(getAllProductApi())
+    dispatch(getAllProductApi({ page, limit }))
   }
   return (
     <section className="cat_product_area section_padding">

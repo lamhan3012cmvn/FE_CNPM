@@ -10,6 +10,7 @@ const getAll = async (page = 1, limit = 12) => {
         limit: limit
       }
     })
+    console.log(`LHA:  ===> file: Product.Api.js ===> line 13 ===> res`, res)
     return res.data
   } catch (err) {
     console.log(err)
