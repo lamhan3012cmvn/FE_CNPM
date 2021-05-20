@@ -16,10 +16,11 @@ const settings = {
 }
 const ProductList = () => {
   const products = useSelector(state => state.product.products)
-
+  const page = 1
+  const limit = 24
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(getAllProductApi())
+    dispatch(getAllProductApi({ page, limit }))
   }, [])
 
   return (

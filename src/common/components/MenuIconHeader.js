@@ -44,7 +44,7 @@ const MenuIconHeader = props => {
         <AiOutlineHeart />
       </Link>
       <div className="dropdown cart">
-        <Link className="dropdown-toggle icon" to="#">
+        <Link className="dropdown-toggle icon" to="/cartArea">
           <FaCartPlus />
         </Link>
         <div className="single_product"></div>

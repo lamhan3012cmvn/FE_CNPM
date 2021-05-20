@@ -1,6 +1,7 @@
 import { PATH } from "../common/constants/path"
 import { Switch, Route } from "react-router-dom"
 import { lazy } from "react"
+import Auth from "../common/components/Auth"
 
 const SingleProductPage = lazy(() => import("../pages/SingleProductPage"))
 const SingleProductRoute = () => {
@@ -9,7 +10,7 @@ const SingleProductRoute = () => {
       <Route
         path={`${PATH.singleProduct}/:id`}
         exact
-        component={SingleProductPage}
+        component={Auth(SingleProductPage, null)}
       />
     </Switch>
   )
