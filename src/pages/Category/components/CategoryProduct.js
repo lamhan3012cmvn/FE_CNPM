@@ -1,40 +1,62 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import FilterWidget from "../../../common/components/FilterWidget"
 import { useDispatch, useSelector, useStore } from "react-redux"
 import { Range } from "rc-slider"
-import { getAllProductApi } from "../../../redux/_actions/Product/Category/category.Action"
+import {
+  changeLimit,
+  getAllProductApi,
+  resetFilter,
+  searchProduct
+} from "../../../redux/_actions/Product/Category/category.Action"
 import { getAllFilterApi } from "../../../redux/_actions/Product/Filter/filter.Action"
 
 import { AiOutlineSearch } from "react-icons/ai"
 import RenderProduct from "./RenderProduct"
+import GetDataProduct from "../hooks/getDataProduct"
 
 const CategoryProduct = () => {
-  const Filters = useSelector(state => state.filter.rooms)
-
-  const total = useSelector(state => state.product.total)
+  const dispatch = useDispatch()
+  const {
+    products,
+    page,
+    limit,
+    search,
+    Filters,
+    total,
+    idCategory
+  } = GetDataProduct()
 
   const [rangeValue, setRangeValue] = useState({ min: 0, max: 100 })
+
   const handleRange = value => {
     setRangeValue({ min: value[0], max: value[1] })
   }
-
-  const products = useSelector(state => state.product.products)
-
-  const page = useSelector(state => state.product.page)
-
-  const limit = useSelector(state => state.product.limit)
-
-  const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getAllFilterApi())
   }, [dispatch])
   useEffect(() => {
-    dispatch(getAllProductApi({ page, limit }))
-  }, [dispatch, page, limit])
+    dispatch(getAllProductApi({ page, limit, search, idCategory }))
+  }, [dispatch, page, limit, search, idCategory])
 
   const getAllProduct = () => {
-    dispatch(getAllProductApi({ page, limit }))
+    dispatch(resetFilter())
+  }
+  const searchRef = useRef(null)
+  const handleSearch = () => {
+    const strSearch = searchRef.current.value
+    dispatch(searchProduct(strSearch))
+
+    searchRef.current.focus()
+  }
+
+  const handleChangeLimit = (e, limit) => {
+    const current = document.querySelector(
+      ".single_product_menu .top_pageniation ul li.active"
+    )
+    current.className = current.className.replace("active", "")
+    e.target.className += " active"
+    dispatch(changeLimit(limit))
   }
   return (
     <section className="cat_product_area section_padding">
@@ -82,16 +104,21 @@ const CategoryProduct = () => {
                 <div className="product_top_bar d-flex justify-content-between align-items-center">
                   <div className="single_product_menu">
                     <p>
-                      <span>{total} </span> Prodict Found
+                      <span>{total} </span> Product Found
                     </p>
                   </div>
                   <div className="single_product_menu d-flex">
-                    <h5>show :</h5>
+                    <h5>Show :</h5>
                     <div className="top_pageniation">
                       <ul>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
+                        <li
+                          className="active"
+                          onClick={e => handleChangeLimit(e, 12)}
+                        >
+                          12
+                        </li>
+                        <li onClick={e => handleChangeLimit(e, 24)}>24</li>
+                        <li onClick={e => handleChangeLimit(e, 36)}>36</li>
                       </ul>
                     </div>
                   </div>
@@ -101,11 +128,13 @@ const CategoryProduct = () => {
                         type="text"
                         className="form-control"
                         placeholder="search"
+                        ref={searchRef}
                       />
                       <div className="input-group-prepend">
                         <span
                           className="input-group-text"
                           id="inputGroupPrepend"
+                          onClick={handleSearch}
                         >
                           <AiOutlineSearch />
                         </span>

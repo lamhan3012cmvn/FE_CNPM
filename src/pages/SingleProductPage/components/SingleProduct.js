@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import Slider from "react-slick"
 
 import { AiOutlineHeart, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
@@ -10,6 +10,7 @@ import { BsStar, BsStarFill } from "react-icons/bs"
 
 import ReviewItemProduct from "./ReviewItemProduct"
 import FromRateProduct from "./FromRateProduct"
+import { authRequest } from "../../../redux/_actions/Auth/user.Action"
 
 const SingleProduct = () => {
   const dispatch = useDispatch()
@@ -34,7 +35,12 @@ const SingleProduct = () => {
   const prevSlider = () => {
     refSlider.current.slickPrev()
   }
-  const handleAddCart = () => {
+  const history = useHistory()
+  const handleAddCart = async () => {
+    const res = await dispatch(authRequest())
+    if (res && !res.isAuth) {
+      history.push("/login")
+    }
     dispatch(
       createCartUserApi({
         idProduct: productDetail._id,

@@ -4,8 +4,8 @@ import { composeWithDevTools } from "redux-devtools-extension"
 import reduxLogger from "redux-logger"
 import rootReducers from "./_reducers/index"
 
-const middleware = [thunk, reduxLogger]
-
+// const middleware = [thunk, reduxLogger]
+const middleware = [thunk]
 const reducer = combineReducers({ ...rootReducers })
 
 const store = createStore(

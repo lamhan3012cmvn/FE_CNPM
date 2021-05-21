@@ -67,19 +67,19 @@ export const getUserFail = () => {
 
 export const authRequest = () => async dispatch => {
   try {
-    dispatch(loading(true))
+    // dispatch(loading(true))
     const res = await authAPI.getAuth()
     if (res.success) {
-      dispatch(loading())
+      // dispatch(loading())
       dispatch(getUserSuccess(res.data))
       return { ...res.data, isAuth: true }
     } else {
-      dispatch(loading())
+      // dispatch(loading())
       dispatch(getUserFail())
       return { isAuth: false }
     }
   } catch {
-    dispatch(loading())
+    // dispatch(loading())
     dispatch(getUserFail())
     return { isAuth: false }
   }

@@ -5,7 +5,11 @@ import {
   GET_ALL_PRODUCT_FAIL,
   GET_ALL_PRODUCT_SUCCESS,
   GET_PRODUCT_DETAIL_FAIL,
-  GET_PRODUCT_DETAIL_SUCCESS
+  GET_PRODUCT_DETAIL_SUCCESS,
+  SEARCH_PRODUCT,
+  RESET_FILTER,
+  CATEGORY_PRODUCT,
+  CHANGE_LIMIT
 } from "./type"
 import productApi from "../../../../Apis/Product.Api"
 import { changeLoading } from "../../System/app.Action"
@@ -31,7 +35,12 @@ export function getAllProductsFail() {
 export const getAllProductApi = reqData => async dispatch => {
   try {
     dispatch(loading(true))
-    const res = await productApi.getAll(reqData.page, reqData.limit)
+    const res = await productApi.getAll(
+      reqData.page,
+      reqData.limit,
+      reqData.search,
+      reqData.idCategory
+    )
     dispatch(loading())
     dispatch(getAllProductsSuccess(res))
     return true
@@ -89,10 +98,7 @@ export const getProductDetailApi = id => async dispatch => {
   try {
     dispatch(loading(true))
     const data = await productApi.getById(id)
-    console.log(
-      `LHA:  ===> file: category.Action.js ===> line 92 ===> data`,
-      data
-    )
+
     if (data) dispatch(getProductDetailSuccess(data))
     else dispatch(getProductDetailFail())
     dispatch(loading())
@@ -102,10 +108,37 @@ export const getProductDetailApi = id => async dispatch => {
     dispatch(loading())
   }
 }
+export const searchProduct = str => {
+  return {
+    type: SEARCH_PRODUCT,
+    payload: str
+  }
+}
 
+export const resetFilter = () => {
+  return {
+    type: RESET_FILTER,
+    payload: {}
+  }
+}
+export const filterCategory = id => {
+  return {
+    type: CATEGORY_PRODUCT,
+    payload: id
+  }
+}
+
+// CHANGE_LIMIT
 export function changePage(nextPage) {
   return {
     type: CHANGE_PAGE,
     payload: nextPage
+  }
+}
+
+export function changeLimit(limit) {
+  return {
+    type: CHANGE_LIMIT,
+    payload: limit
   }
 }

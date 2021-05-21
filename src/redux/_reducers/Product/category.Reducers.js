@@ -7,7 +7,11 @@ import {
   GET_ALL_PRODUCT_SUCCESS,
   GET_PRODUCT_DETAIL_FAIL,
   GET_PRODUCT_DETAIL_SUCCESS,
-  CHANGE_PAGE
+  CHANGE_PAGE,
+  SEARCH_PRODUCT,
+  RESET_FILTER,
+  CATEGORY_PRODUCT,
+  CHANGE_LIMIT
 } from "../../_actions/Product/Category/type"
 
 const initState = {
@@ -16,7 +20,9 @@ const initState = {
   total: 0,
   limit: 12,
   page: 1,
-  pages: 0
+  strSearch: "",
+  pages: 0,
+  idCategory: ""
 }
 export default function (state = initState, action) {
   switch (action.type) {
@@ -37,8 +43,31 @@ export default function (state = initState, action) {
       return { ...state, productDetail: action.payload }
     case GET_PRODUCT_DETAIL_FAIL:
       return { ...state, productDetail: action.payload }
+    case SEARCH_PRODUCT:
+      return {
+        ...state,
+        strSearch: action.payload,
+        page: 1,
+        limit: 12,
+        idCategory: ""
+      }
+    case RESET_FILTER:
+      return { ...state, strSearch: "", page: 1, limit: 12, idCategory: "" }
     case CHANGE_PAGE:
       return { ...state, page: action.payload }
+    case CATEGORY_PRODUCT:
+      return {
+        ...state,
+        strSearch: "",
+        page: 1,
+        limit: 12,
+        idCategory: action.payload
+      }
+    case CHANGE_LIMIT:
+      return {
+        ...state,
+        limit: action.payload
+      }
     default:
       return state
   }

@@ -10,4 +10,9 @@ export const GET_ALL_PRODUCT_BY_CATEGORY_FAIL = "getAllProductByCategory_fail"
 export const GET_ALL_PRODUCT_BY_CATEGORY_SUCCESS =
   "getAllProductByCategory_success"
 
+export const SEARCH_PRODUCT = "searchProduct"
+export const RESET_FILTER = "resetFilter"
+export const CATEGORY_PRODUCT = "categoryProduct"
+export const CHANGE_LIMIT = "changeLimit"
+
 export const CHANGE_PAGE = "changePage"

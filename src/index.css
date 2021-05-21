@@ -3297,10 +3297,13 @@ ul {
 .product_top_bar .single_product_menu .top_pageniation ul li {
   display: inline-block;
   margin-left: 10px;
+  cursor: pointer;
 }
-
+.product_top_bar .single_product_menu .top_pageniation ul li.active{
+  color: #ff3368;
+}
 .product_top_bar .single_product_menu .input-group {
-  width: 200px;
+  width: 260px;
 }
 
 .product_top_bar .single_product_menu .input-group .form-control {

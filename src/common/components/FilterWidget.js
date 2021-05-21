@@ -1,13 +1,13 @@
 import React from "react"
 import { useDispatch } from "react-redux"
-import { getAllProductByCategoryApi } from "../../redux/_actions/Product/Category/category.Action"
+import { filterCategory } from "../../redux/_actions/Product/Category/category.Action"
 
 const FilterWidget = props => {
   const { title, widgets = [] } = props
 
   const dispatch = useDispatch()
   const onClickCategory = idCategory => {
-    dispatch(getAllProductByCategoryApi(idCategory))
+    dispatch(filterCategory(idCategory))
   }
   return (
     <aside className="left_widgets p_filter_widgets">
