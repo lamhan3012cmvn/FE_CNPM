@@ -27,7 +27,7 @@ export function getCartUserSuccess(data) {
 export function getCartUserFail() {
   return {
     type: GET_CART_USER_FAIL,
-    payload: {}
+    payload: []
   }
 }
 

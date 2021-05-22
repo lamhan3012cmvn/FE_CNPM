@@ -11,6 +11,7 @@ import { BsStar, BsStarFill } from "react-icons/bs"
 import ReviewItemProduct from "./ReviewItemProduct"
 import FromRateProduct from "./FromRateProduct"
 import { authRequest } from "../../../redux/_actions/Auth/user.Action"
+import { FormatNumberToMoney } from "../../../common/functions"
 
 const SingleProduct = () => {
   const dispatch = useDispatch()
@@ -85,7 +86,7 @@ const SingleProduct = () => {
           <div className="col-lg-6" style={{ padding: "10px 30px" }}>
             <div className="s_product_text">
               <h3>{productDetail.Name}</h3>
-              <h2>{productDetail.Price} VND</h2>
+              <h2>{FormatNumberToMoney(~~productDetail.Price || 0)}</h2>
               <ul className="list">
                 <li>
                   <Link className="active" to="#">

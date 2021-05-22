@@ -16,20 +16,41 @@ const MenuIconHeader = props => {
   }
   const renderUser = () => {
     return (
-      <div className="dropdown-menu" style={{ marginTop: "35px" }}>
-        <Link className="dropdown-item " to={PATH.login}>
+      <div className="dropdown-menu">
+        <Link
+          className="dropdown-item "
+          style={{ textAlign: "left !important" }}
+          to={PATH.login}
+        >
           {user.fullName}
         </Link>
-        <Link className="dropdown-item " to={PATH.tracking}>
+        <Link
+          className="dropdown-item "
+          style={{ textAlign: "left !important" }}
+          to={PATH.tracking}
+        >
           tracking
         </Link>
-        <Link className="dropdown-item " to={PATH.cartArea}>
+        <Link
+          className="dropdown-item "
+          style={{ textAlign: "left !important" }}
+          to={PATH.cartArea}
+        >
           shopping cart
         </Link>
-        <Link className="dropdown-item " to={PATH.confirmation}>
+        <Link
+          className="dropdown-item "
+          style={{ textAlign: "left !important" }}
+          to={PATH.confirmation}
+        >
           confirmation
         </Link>
-        <Link className="dropdown-item " to="#" onClick={handleLogout}>
+        <Link
+          className="dropdown-item "
+          style={{ textAlign: "left !important" }}
+          to="#"
+          onClick={handleLogout}
+        >
           Logout
         </Link>
       </div>

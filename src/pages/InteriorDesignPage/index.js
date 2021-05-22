@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import Breadcrumb from "../../common/components/Breadcrumb"
 import TitleList from "../../common/components/TitleList"
+import { getInteriorApi } from "../../redux/_actions/InteriorDesign/interior.Action"
 import CartInterior from "./components/CartInterior"
 import SelectProjectType from "./components/SelectProjectType"
 import SingleBanner from "./components/SingleBanner"
@@ -9,8 +10,10 @@ import SingleBanner from "./components/SingleBanner"
 const InteriorDesignPage = () => {
   const [componentBanner, setComponentBanner] = useState([])
   const ImgBanner = useSelector(state => state.interior.ImgBanner)
+  const dispatch = useDispatch()
 
   const cartsInterior = useSelector(state => state.interior.Apartment)
+  const idTypeInterior = useSelector(state => state.interior.idTypeInterior)
 
   useEffect(() => {
     setComponentBanner(
@@ -21,10 +24,18 @@ const InteriorDesignPage = () => {
       })
     )
   }, [ImgBanner])
+
+  useEffect(() => {
+    dispatch(getInteriorApi(idTypeInterior))
+  }, [dispatch, idTypeInterior])
   const render = () => {
     return cartsInterior ? (
       cartsInterior.map(interior => (
-        <div className="col-lg-4 col-sm-6" style={{ paddingTop: "50px" }}>
+        <div
+          className="col-lg-4 col-sm-6"
+          style={{ paddingTop: "50px" }}
+          key={interior._id}
+        >
           <CartInterior interior={interior} />
         </div>
       ))

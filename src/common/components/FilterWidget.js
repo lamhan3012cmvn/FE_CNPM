@@ -4,6 +4,10 @@ import { filterCategory } from "../../redux/_actions/Product/Category/category.A
 
 const FilterWidget = props => {
   const { title, widgets = [] } = props
+  console.log(
+    `LHA:  ===> file: FilterWidget.js ===> line 7 ===> widgets`,
+    widgets
+  )
 
   const dispatch = useDispatch()
   const onClickCategory = idCategory => {
@@ -24,7 +28,7 @@ const FilterWidget = props => {
                 </div>
 
                 <ul className="list" style={{ marginTop: "unset" }}>
-                  {widget.Category.map(cate => (
+                  {widget.CateSelectgory.map(cate => (
                     <li
                       key={cate._id}
                       onClick={() => onClickCategory(cate._id)}

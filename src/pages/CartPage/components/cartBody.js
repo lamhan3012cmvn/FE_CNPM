@@ -3,6 +3,7 @@ import { FaAngleDown, FaAngleUp } from "react-icons/fa"
 import { FormatNumberToMoney } from "../../../common/functions"
 const CartBody = props => {
   const { cart } = props
+  console.log(`LHA:  ===> file: cartBody.js ===> line 6 ===> cart`, cart)
   const [quantity, setQuantity] = useState(cart.total)
   const handleChangeQuantity = () => {}
   const handleIncrement = () => {
@@ -14,7 +15,6 @@ const CartBody = props => {
   const refQuantity = useRef()
 
   const price = cart.product.Price
-  console.log(`LHA:  ===> file: cartBody.js ===> line 17 ===> price`, price)
 
   const totalPrice = () => {
     return FormatNumberToMoney(quantity * price)
@@ -32,7 +32,7 @@ const CartBody = props => {
         </div>
       </td>
       <td>
-        <h5>{FormatNumberToMoney(cart.Price)}</h5>
+        <h5>{FormatNumberToMoney(~~price)}</h5>
       </td>
       <td>
         <div className="product_count">

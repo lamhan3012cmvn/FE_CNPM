@@ -5,6 +5,7 @@ const url = "cart/"
 const getCartUser = async () => {
   try {
     const res = await axiosClient.get(`${url}getCart`)
+    console.log(`LHA:  ===> file: Cart.Api.js ===> line 8 ===> res`, res)
     if (res) {
       return {
         success: true,
@@ -26,6 +27,10 @@ const getCartUser = async () => {
 
 const createCartUser = async resData => {
   try {
+    console.log(
+      `LHA:  ===> file: Cart.Api.js ===> line 29 ===> resData`,
+      resData
+    )
     const res = await axiosClient.post(`${url}createCart`, resData)
     if (res) {
       return {

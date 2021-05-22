@@ -27,9 +27,8 @@ const CartArea = () => {
                 </tr>
               </thead>
               <tbody>
-                {carts.map(elm => (
-                  <CartBody key={elm._id} cart={elm} />
-                ))}
+                {carts.length > 0 &&
+                  carts.map(elm => <CartBody key={elm._id} cart={elm} />)}
 
                 {/* <tr className="bottom_button">
                   <td>

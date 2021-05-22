@@ -76,6 +76,10 @@ export const getAllFilterFail = () => {
 export const getAllFilterApi = () => async dispatch => {
   try {
     const data = await ProductApi.getFilter()
+    console.log(
+      `LHA:  ===> file: filter.Action.js ===> line 79 ===> data`,
+      data
+    )
     dispatch(getAllFilterSuccess(data))
   } catch (err) {
     console.log(err)

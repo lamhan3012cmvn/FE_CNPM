@@ -12,11 +12,8 @@ const Authentication = (SpecificComponent, option, adminRoute = null) => {
 
     const fetchAuth = async () => {
       const res = await dispatch(authRequest())
-      //res.payload.isAuth === false chưa đăng nhập
       if (res && !res.isAuth) {
-        console.log("da dang nahp")
         if (option) {
-          //bắt buộc đăng nhập
           history.push("/login")
         }
       } else {

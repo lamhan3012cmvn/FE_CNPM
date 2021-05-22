@@ -1,12 +1,20 @@
-import React from "react"
-import { useSelector } from "react-redux"
-import { Link } from "react-router-dom"
+import React, { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { Link, useParams } from "react-router-dom"
 import AppSlider from "../../common/components/AppSlider"
 import Breadcrumb from "../../common/components/Breadcrumb"
 import TitleList from "../../common/components/TitleList"
+import { getInteriorDetailApi } from "../../redux/_actions/InteriorDesign/interior.Action"
 
 const SingleInteriorPage = () => {
+  const params = useParams()
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getInteriorDetailApi(params.interiorID))
+  }, [dispatch, params])
+
   const interior = useSelector(state => state.interior.singleApartment)
+  console.log(`LHA:  ===> file: index.js ===> line 17 ===> interior`, interior)
   const cartsInterior = useSelector(state => state.interior.Apartment)
   const render = () => {
     return cartsInterior.map(interior => (
@@ -32,48 +40,64 @@ const SingleInteriorPage = () => {
         namePage="Single Interior Design"
         preLink={{ name: "Project Page" }}
       />
-      <section className="interior_list">
-        <div className="container">
-          <TitleList title="Project"></TitleList>
-          <div className="row align-items-center justify-content-center">
-            <div className="col-lg-10 col-md-12">
-              <h3>
-                Name: <span>{interior.title}</span>
-              </h3>
-            </div>
-            <div className="col-lg-10 col-md-12">
-              <ul className="interior_info">
-                <li>
-                  <p>
-                    Project: <span>{interior.info.project}</span>
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Style: <span>{interior.info.style}</span>
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Acreage: <span>{interior.info.S}</span>
-                  </p>
-                </li>
-              </ul>
-            </div>
-            <div className="col-lg-10 col-md-12 interior_description">
-              <p>
-                Description: <span>{interior.description}</span>
-              </p>
-            </div>
-            {interior.Images.map(Imgs => (
+      {interior ? (
+        <section className="interior_list">
+          <div className="container">
+            <TitleList title="Project"></TitleList>
+            <div className="row align-items-center justify-content-center">
               <div className="col-lg-10 col-md-12">
-                <img src={Imgs.img} alt="" />
-                <p>{Imgs.content}</p>
+                <h3>
+                  Name: <span>{interior.title}</span>
+                </h3>
               </div>
-            ))}
+              <div className="col-lg-10 col-md-12">
+                <ul className="interior_info">
+                  <li>
+                    <p>
+                      Project:{" "}
+                      <span>
+                        {(interior.info && interior.info.project) || "Empty"}
+                      </span>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Style:{" "}
+                      <span>
+                        {(interior.info && interior.info.style) || "Empty"}
+                      </span>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Acreage:{" "}
+                      <span>
+                        {(interior.info && interior.info.S) || "Empty"}
+                      </span>
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div className="col-lg-10 col-md-12 interior_description">
+                <p>
+                  Description: <span>{interior.description || "Empty"}</span>
+                </p>
+              </div>
+              {interior.Images &&
+                interior.Images.length > 0 &&
+                interior.Images.map(Imgs => (
+                  <div className="col-lg-10 col-md-12">
+                    <img src={Imgs.img} alt="" />
+                    <p>{Imgs.content}</p>
+                  </div>
+                ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : (
+        <h2>Empty</h2>
+      )}
+
       <section className="interior_list">
         <div className="container">
           <TitleList title="Maybe You Are Interested ..."></TitleList>
