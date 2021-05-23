@@ -12,7 +12,7 @@ const RegisterRoute = () => {
       <Route
         path={`${PATH.register}/verify`}
         exact
-        component={Auth(VerifyPage, true)}
+        component={Auth(VerifyPage, false)}
       />
     </Switch>
   )

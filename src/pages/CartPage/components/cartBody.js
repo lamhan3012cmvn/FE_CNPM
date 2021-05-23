@@ -3,7 +3,6 @@ import { FaAngleDown, FaAngleUp } from "react-icons/fa"
 import { FormatNumberToMoney } from "../../../common/functions"
 const CartBody = props => {
   const { cart } = props
-  console.log(`LHA:  ===> file: cartBody.js ===> line 6 ===> cart`, cart)
   const [quantity, setQuantity] = useState(cart.total)
   const handleChangeQuantity = () => {}
   const handleIncrement = () => {

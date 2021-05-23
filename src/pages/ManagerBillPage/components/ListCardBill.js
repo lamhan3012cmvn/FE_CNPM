@@ -1,13 +1,15 @@
 import React from "react"
+import { useSelector } from "react-redux"
 import CardBill from "./CardBill"
 
-const ListCardBill = () => {
+const ListCardBill = props => {
+  const { Bills } = props
+
   return (
     <div className="wrap-cart row">
-      <CardBill />
-      <CardBill />
-      <CardBill />
-      <CardBill />
+      {Bills.map(bill => {
+        return <CardBill bill={bill} key={bill._id} />
+      })}
     </div>
   )
 }

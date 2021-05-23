@@ -3,6 +3,7 @@ import systemReducer from "./System/app.Reducer"
 import interiorReducer from "./InteriorDesign/interior.Reducers"
 import productReducer from "./Product/index"
 import cartReducer from "./Cart/Cart.Reducer"
+import billManager from "./BillManager/BillManager.Reducer"
 
 const rootReducers = {
   user: userReducer,
@@ -10,6 +11,7 @@ const rootReducers = {
   interior: interiorReducer,
   filter: productReducer.filter,
   product: productReducer.category,
-  cart: cartReducer
+  cart: cartReducer,
+  billManager: billManager
 }
 export default rootReducers

@@ -15,10 +15,10 @@ const axiosClient = axios.create({
 
 axiosClient.interceptors.request.use(
   config => {
-    console.log(
-      `LHA:  ===> file: clientAxios.js ===> line 18 ===> config`,
-      config
-    )
+    // console.log(
+    //   `LHA:  ===> file: clientAxios.js ===> line 18 ===> config`,
+    //   config
+    // )
     //Handle token here ...
     const token = Cookie.get("token")
     config.headers.authorization = `Bearer ${token}`

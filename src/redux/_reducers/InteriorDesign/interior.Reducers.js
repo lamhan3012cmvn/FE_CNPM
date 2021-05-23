@@ -1,5 +1,4 @@
 /* eslint-disable import/no-anonymous-default-export */
-import {} from "../../_actions/Auth/type"
 import {
   GET_INTERIOR_DETAIL_FAIL,
   GET_INTERIOR_DETAIL_SUCCESS,

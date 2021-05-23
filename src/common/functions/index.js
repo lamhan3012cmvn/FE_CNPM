@@ -10,3 +10,7 @@ export const FormatNumberToMoney = (
 
   return convertMoney
 }
+
+export const getStatus = (obj, str) => {
+  return obj[str] || ""
+}

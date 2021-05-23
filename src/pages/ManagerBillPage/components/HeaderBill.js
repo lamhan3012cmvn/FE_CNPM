@@ -2,14 +2,14 @@ import React from "react"
 
 const HeaderBill = () => {
   return (
-    <div class="row title-colum-tab d-flex align-items-center my-3">
-      <span class="col-4">Sản phẩm</span>
-      <span class="col-2">Tổng đơn hàng</span>
-      <span class="col-2">
+    <div className="row title-colum-tab d-flex align-items-center my-3">
+      <span className="col-4">Sản phẩm</span>
+      <span className="col-2">Tổng đơn hàng</span>
+      <span className="col-2">
         Trạng thái <br /> Đếm ngược
       </span>
       <select
-        class="col-2"
+        className="col-2"
         style={{
           backgroundColor: "transparent",
           border: "none",
@@ -18,7 +18,7 @@ const HeaderBill = () => {
       >
         <option>Vận chuyển</option>
       </select>
-      <span class="col-2">Thao tác</span>
+      <span className="col-2">Thao tác</span>
     </div>
   )
 }
