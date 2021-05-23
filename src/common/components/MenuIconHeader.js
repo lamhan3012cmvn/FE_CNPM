@@ -3,13 +3,15 @@ import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai"
 import { FaCartPlus } from "react-icons/fa"
 import { FiSearch } from "react-icons/fi"
 import { useDispatch } from "react-redux"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import { logoutUser } from "../../redux/_actions/Auth/user.Action"
 import { PATH } from "../constants/path"
 
 const MenuIconHeader = props => {
   const dispacth = useDispatch()
+  const history = useHistory()
   const { onChange, isLogin, user } = props
+  console.log(`LHA:  ===> file: MenuIconHeader.js ===> line 13 ===> user`, user)
 
   const handleLogout = () => {
     dispacth(logoutUser())
@@ -20,9 +22,23 @@ const MenuIconHeader = props => {
         <Link className="dropdown-item " to={PATH.login}>
           {user.fullName}
         </Link>
+        {user.isAdmin && (
+          <Link
+            className="dropdown-item "
+            to="#"
+            // target="#"
+            onClick={() =>
+              window.open("http://admin_cnpm_v1.surge.sh/admin", "_blank")
+            }
+          >
+            Admin Manager
+          </Link>
+        )}
+
         <Link className="dropdown-item " to={PATH.cartArea}>
           shopping cart
         </Link>
+
         <Link className="dropdown-item " to={PATH.tracking}>
           tracking
         </Link>
