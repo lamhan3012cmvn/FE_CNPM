@@ -17,6 +17,7 @@ import { Suspense } from "react"
 import Loading from "../common/components/Loading"
 import UserProfile from "./UserProfile.Route"
 import ManagerBillRoute from "./ManagerBill.Route"
+import CheckoutRoute from "./Checkout.Router"
 
 const Routers = () => {
   return (
@@ -35,6 +36,7 @@ const Routers = () => {
         <ContactRoute />
         <UserProfile />
         <ManagerBillRoute />
+        <CheckoutRoute />
         <AppFooter />
       </Suspense>
       <Loading />

@@ -10,7 +10,8 @@ export const PATH = {
   interiorDesign: "/interiorDesign",
   contact: "/contact",
   userProfile: "/profile",
-  managerBill: "/managerBill"
+  managerBill: "/managerBill",
+  checkoutBill: "/checkoutBill"
 }
 
 export const PATH_API = {}
