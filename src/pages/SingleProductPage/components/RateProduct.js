@@ -9,7 +9,7 @@ const RateProduct = props => {
     <ul className="list">
       {listRate.map((elm, index) => {
         return (
-          <li onClick={() => onChange(index)}>
+          <li onClick={() => onChange(index)} key={index}>
             <span>{elm ? <BsStarFill /> : <BsStar />}</span>
           </li>
         )

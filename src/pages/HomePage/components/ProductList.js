@@ -4,48 +4,61 @@ import TitleList from "../../../common/components/TitleList"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import { getAllProductApi } from "../../../redux/_actions/Product/Category/category.Action"
+import AppSlider from "../../../common/components/AppSlider"
 const settings = {
-  dots: true,
-  infinite: true,
-  slidesToShow: 1,
-  slidesToScroll: 1,
+  dots: false,
+  infinite: false,
+  centerPadding: "60px",
+  slidesToShow: 4,
+  speed: 700,
+  rows: 2,
+  slidesToScroll: 4,
   autoplay: true,
-  speed: 2000,
-  autoplaySpeed: 3000,
-  cssEase: "linear"
+  autoplaySpeed: 2500,
+  initialSlide: 0,
+  cssEase: "linear",
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
 }
-const ProductList = () => {
-  const products = useSelector(state => state.product.products)
-  const page = 1
-  const limit = 24
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(getAllProductApi({ page, limit }))
-  }, [])
-
+const ProductList = ({ title, products }) => {
   return (
     <>
       <section className="product_list section_padding">
         <div className="container">
-          <TitleList title="awesome" content="shop" />
+          <TitleList title={title} content="shop" />
           <div className="row">
             <div className="col-lg-12">
-              <div className="product_list_slider owl-carousel">
-                <div className="single_product_list_slider">
-                  <Slider {...settings}>
-                    <div>
-                      <div className="row align-items-center justify-content-between">
-                        {products &&
-                          products.map((e, i) => (
-                            <div className="col-lg-3 col-sm-6" key={i}>
-                              <ProductItem product={e} />
-                            </div>
-                          ))}
-                      </div>
-                    </div>
-                  </Slider>
-                </div>
-              </div>
+              <Slider {...settings}>
+                {products.map((e, i) => (
+                  <div key={i}>
+                    <ProductItem product={e} />
+                  </div>
+                ))}
+              </Slider>
             </div>
           </div>
         </div>

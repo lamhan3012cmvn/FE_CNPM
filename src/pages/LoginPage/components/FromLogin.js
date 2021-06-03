@@ -17,7 +17,7 @@ const FromLogin = () => {
     if (!isValidate) return
     const res = await dispatch(loginUser({ email, password }))
     if (res) {
-      history.push("/")
+      history.goBack()
       return
     }
   }

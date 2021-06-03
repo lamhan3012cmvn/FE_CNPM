@@ -1,6 +1,5 @@
 import SingleBanner from "../../pages/HomePage/components/SingleBanner"
 import AppSlider from "./AppSlider"
-import img1 from "../../img/ghe-an-go-gina.png"
 const BannerPath = props => {
   const { propsBanner = [] } = props
 

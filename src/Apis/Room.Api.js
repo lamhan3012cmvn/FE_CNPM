@@ -11,6 +11,6 @@ const getAll = async () => {
     return null
   }
 }
-const Product = { getAll }
+const Room = { getAll }
 
-export default Product
+export default Room

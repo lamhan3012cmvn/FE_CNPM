@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700,800&display=swap");
 
-/* @import url("./css/bootstrap.min.css"); */
 
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
@@ -3742,7 +3741,31 @@ ul {
 .product_image_area .tab-content .table tbody tr:first-child td {
   border-top: 0px;
 }
+.review_list{
+  max-height: 400px;
+  overflow-y: scroll;
+}
+/* width */
+.review_list::-webkit-scrollbar {
+  width: 5px;
+  cursor: pointer;
+}
 
+/* Track */
+.review_list::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+.review_list::-webkit-scrollbar-thumb {
+  background: #f84374; 
+}
+
+/* Handle on hover */
+.review_list::-webkit-scrollbar-thumb:hover {
+  background: #ff3368; 
+  cursor: pointer;
+}
 .review_item {
   margin-bottom: 35px;
 }

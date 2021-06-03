@@ -36,7 +36,7 @@ export function loginUser(dataToSubmit) {
       dispatch(loading(true))
       const res = await authAPI.login(dataToSubmit)
       if (res.success) {
-        dispatch(loading(true))
+        dispatch(loading())
         dispatch(loginUserSuccess(res.data))
         return true
       }

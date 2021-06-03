@@ -12,8 +12,9 @@ import ReviewItemProduct from "./ReviewItemProduct"
 import FromRateProduct from "./FromRateProduct"
 import { authRequest } from "../../../redux/_actions/Auth/user.Action"
 import { FormatNumberToMoney } from "../../../common/functions"
+import { PATH } from "../../../common/constants/path"
 
-const SingleProduct = () => {
+const SingleProduct = props => {
   const dispatch = useDispatch()
 
   const refSlider = useRef(null)
@@ -29,6 +30,7 @@ const SingleProduct = () => {
     slidesToScroll: 1
   }
   const productDetail = useSelector(state => state.product.productDetail)
+  const isLogin = useSelector(state => state.user.isLogin)
 
   const nextSlider = () => {
     refSlider.current.slickNext()
@@ -49,7 +51,35 @@ const SingleProduct = () => {
       })
     )
   }
-
+  const renderOverall = () => {
+    return ((productDetail && productDetail.Rate) || []).reduce(
+      (t, v) => {
+        switch (v.value) {
+          case "5":
+            t[5] = t[5] + 1
+            break
+          case "4":
+            t[4] = t[4] + 1
+            break
+          case "3":
+            t[3] = t[3] + 1
+            break
+          case "2":
+            t[2] = t[2] + 1
+            break
+          case "1":
+            t[1] = t[1] + 1
+            break
+          default:
+            break
+        }
+        t[0] = t[0] + +v.value
+        return t
+      },
+      [0, 0, 0, 0, 0, 0]
+    )
+  }
+  const rate = renderOverall()
   return (
     <div className="product_image_area section_padding">
       <div className="container">
@@ -166,13 +196,24 @@ const SingleProduct = () => {
               <div className="col-6">
                 <div className="box_total">
                   <h5>Overall</h5>
-                  <h4>4.0</h4>
-                  <h6>(03 Reviews)</h6>
+                  <h4>
+                    {(
+                      rate[0] /
+                      ((productDetail.Rate && productDetail.Rate.length) || 1)
+                    ).toFixed(2)}
+                  </h4>
+                  <h6>
+                    ({(productDetail.Rate && productDetail.Rate.length) || 0}{" "}
+                    Reviews)
+                  </h6>
                 </div>
               </div>
               <div className="col-6">
                 <div className="rating_list">
-                  <h3>Based on 3 Reviews</h3>
+                  <h3>
+                    Based on {productDetail.Rate && productDetail.Rate.length}{" "}
+                    Reviews
+                  </h3>
                   <ul className="list">
                     <li>
                       <span>5 Star</span>
@@ -180,7 +221,7 @@ const SingleProduct = () => {
                       <BsStarFill />
                       <BsStarFill />
                       <BsStarFill />
-                      <BsStarFill /> <span>01</span>
+                      <BsStarFill /> <span>{rate[5]}</span>
                     </li>
                     <li>
                       <span>4 Star</span>
@@ -188,43 +229,69 @@ const SingleProduct = () => {
                       <BsStarFill />
                       <BsStarFill />
                       <BsStarFill />
-                      <BsStar /> <span>01</span>
+                      <BsStar /> <span>{rate[4]}</span>
                     </li>
                     <li>
-                      <span>4 Star</span>
+                      <span>3 Star</span>
                       <BsStarFill />
                       <BsStarFill />
                       <BsStarFill />
                       <BsStar />
-                      <BsStar /> <span>01</span>
+                      <BsStar /> <span>{rate[3]}</span>
                     </li>
                     <li>
-                      <span>4 Star</span>
+                      <span>2 Star</span>
                       <BsStarFill />
                       <BsStarFill />
                       <BsStar />
                       <BsStar />
-                      <BsStar /> <span>01</span>
+                      <BsStar /> <span>{rate[2]}</span>
                     </li>
                     <li>
-                      <span>4 Star</span>
+                      <span>1 Star</span>
                       <BsStarFill />
                       <BsStar />
                       <BsStar />
                       <BsStar />
-                      <BsStar /> <span>01</span>
+                      <BsStar /> <span>{rate[1]}</span>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
             <div className="review_list">
-              <ReviewItemProduct />
-              <ReviewItemProduct />
-              <ReviewItemProduct />
+              {productDetail &&
+                productDetail.Rate &&
+                productDetail.Rate.map(rate => {
+                  return <ReviewItemProduct currentRate={rate} />
+                })}
             </div>
           </div>
-          <FromRateProduct />
+          {isLogin ? (
+            <FromRateProduct idProduct={productDetail._id} />
+          ) : (
+            <div
+              className="col-lg-6 col-md-6 d-flex"
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+                padding: "54px",
+                height: "350px"
+              }}
+            >
+              <div className="login_part_text text-center">
+                <div className="login_part_text_iner">
+                  <h2>Login</h2>
+                  <p style={{ padding: "20px 0" }}>
+                    Sign in to review your products
+                  </p>
+                  <Link to={PATH.login} className="btn_3">
+                    Login
+                  </Link>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

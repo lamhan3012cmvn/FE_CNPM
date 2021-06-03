@@ -16,3 +16,6 @@ export const CATEGORY_PRODUCT = "categoryProduct"
 export const CHANGE_LIMIT = "changeLimit"
 
 export const CHANGE_PAGE = "changePage"
+
+export const GET_ALL_PRODUCT_HOME_SUCCESS = "getAllProductHomeSuccess"
+export const GET_ALL_PRODUCT_HOME_FAIL = "getAllProductHomeFail"

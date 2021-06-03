@@ -18,6 +18,11 @@ const CartBody = props => {
   const totalPrice = () => {
     return FormatNumberToMoney(quantity * price)
   }
+
+  const updateTimeoutRef = useRef(null)
+  const changeStatusProduct = () => {
+    console.log("check")
+  }
   return (
     <tr>
       <td>
@@ -56,7 +61,7 @@ const CartBody = props => {
         <h5>{totalPrice()}</h5>
       </td>
       <td>
-        <input type="checkbox" />
+        <input type="checkbox" onChange={changeStatusProduct} />
       </td>
     </tr>
   )

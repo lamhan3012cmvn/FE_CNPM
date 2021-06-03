@@ -24,6 +24,21 @@ const getAll = async (page = 1, limit = 12, search = "", idCategory = "") => {
     return null
   }
 }
+const getAllHome = async () => {
+  try {
+    const res = await axiosClient.get(`${url}getAllProductsHome`)
+    return (
+      { products: res.data, pages: 0, total: 0 } || {
+        products: [],
+        pages: 0,
+        total: 0
+      }
+    )
+  } catch (err) {
+    console.log(err)
+    return null
+  }
+}
 // const getByCate = async (id, page = 1, limit = 12) => {
 //   try {
 //     const res = await axiosClient.get(`${url}getProductsByCategory`, {
@@ -59,6 +74,21 @@ const getFilter = async () => {
   }
 }
 
-const Product = { getAll, getById, getFilter }
+const rateProduct = async data => {
+  try {
+    const res = await axiosClient.post(`${url}rateProduct`, {
+      idProduct: data.idProduct,
+      value: data.value,
+      content: data.content
+    })
+    console.log(`LHA:  ===> file: Product.Api.js ===> line 83 ===> res`, res)
+    return res.data
+  } catch (err) {
+    console.log(err)
+    return null
+  }
+}
+
+const Product = { getAll, getAllHome, getById, getFilter, rateProduct }
 
 export default Product

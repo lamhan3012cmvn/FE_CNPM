@@ -9,7 +9,9 @@ import {
   SEARCH_PRODUCT,
   RESET_FILTER,
   CATEGORY_PRODUCT,
-  CHANGE_LIMIT
+  CHANGE_LIMIT,
+  GET_ALL_PRODUCT_HOME_SUCCESS,
+  GET_ALL_PRODUCT_HOME_FAIL
 } from "./type"
 import productApi from "../../../../Apis/Product.Api"
 import { changeLoading } from "../../System/app.Action"
@@ -49,6 +51,29 @@ export const getAllProductApi = reqData => async dispatch => {
     dispatch(loading())
     dispatch(getAllProductsFail())
     return false
+  }
+}
+
+export function getAllProductsHomeSuccess(data) {
+  return {
+    type: GET_ALL_PRODUCT_HOME_SUCCESS,
+    payload: data
+  }
+}
+
+export function getAllProductsHomeFail() {
+  return {
+    type: GET_ALL_PRODUCT_HOME_FAIL,
+    payload: []
+  }
+}
+
+export const getAllProductsHomeApi = () => async dispatch => {
+  try {
+    const res = await productApi.getAllHome()
+    dispatch(getAllProductsHomeSuccess(res))
+  } catch (err) {
+    dispatch(getAllProductsHomeFail())
   }
 }
 export function getAllProductsByCategorySuccess(data) {
@@ -140,5 +165,27 @@ export function changeLimit(limit) {
   return {
     type: CHANGE_LIMIT,
     payload: limit
+  }
+}
+
+export const rateProduct = (idProduct, value, content) => async dispatch => {
+  try {
+    // dispatch(loading(true))
+    const res = await productApi.rateProduct({ idProduct, value, content })
+    console.log(
+      `LHA:  ===> file: category.Action.js ===> line 175 ===> res`,
+      res
+    )
+    if (res) {
+      dispatch(getProductDetailApi(idProduct))
+    }
+    // dispatch(loading())
+    // dispatch(getAllProductsSuccess(res))
+    return true
+  } catch (err) {
+    console.log(err)
+    dispatch(loading())
+    dispatch(getAllProductsFail())
+    return false
   }
 }

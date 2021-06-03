@@ -11,10 +11,13 @@ import {
   SEARCH_PRODUCT,
   RESET_FILTER,
   CATEGORY_PRODUCT,
-  CHANGE_LIMIT
+  CHANGE_LIMIT,
+  GET_ALL_PRODUCT_HOME_SUCCESS,
+  GET_ALL_PRODUCT_HOME_FAIL
 } from "../../_actions/Product/Category/type"
 
 const initState = {
+  productHome: [],
   products: [],
   productDetail: {},
   total: 0,
@@ -26,6 +29,10 @@ const initState = {
 }
 export default function (state = initState, action) {
   switch (action.type) {
+    case GET_ALL_PRODUCT_HOME_SUCCESS:
+      return { ...state, productHome: action.payload.products }
+    case GET_ALL_PRODUCT_HOME_FAIL:
+      return { ...state, productHome: [] }
     case GET_ALL_PRODUCT_SUCCESS:
       return {
         ...state,

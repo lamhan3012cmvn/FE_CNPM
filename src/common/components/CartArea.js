@@ -15,7 +15,6 @@ const totalPrice = (carts = []) => {
 const CartArea = () => {
   const dispatch = useDispatch()
   const carts = useSelector(state => state.cart.cartUser) || []
-  console.log(`LHA:  ===> file: CartArea.js ===> line 15 ===> carts`, carts)
   useEffect(() => {
     dispatch(getCartUserApi())
   }, [])
