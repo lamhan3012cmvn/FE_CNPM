@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import Select, { components } from "react-select"
+import Select from "react-select"
 const CheckoutPage = () => {
   const options = [
     { value: "chocolate", label: "Chocolate" },
@@ -8,8 +8,7 @@ const CheckoutPage = () => {
     { value: "vanilla", label: "Vanilla" }
   ]
   const handleChange = selectedOption => {
-    setSelectionOption({ selectedOption })
-    console.log(`Option selected:`, selectedOption)
+    setSelectionOption({ selectedOption })(`Option selected:`, selectedOption)
   }
   const [selectedOption, setSelectionOption] = useState(null)
   return (

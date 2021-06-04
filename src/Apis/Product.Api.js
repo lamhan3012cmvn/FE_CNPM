@@ -39,21 +39,6 @@ const getAllHome = async () => {
     return null
   }
 }
-// const getByCate = async (id, page = 1, limit = 12) => {
-//   try {
-//     const res = await axiosClient.get(`${url}getProductsByCategory`, {
-//       params: {
-//         page: page,
-//         limit: limit,
-//         idCategory: id
-//       }
-//     })
-//     return res.data
-//   } catch (err) {
-//     console.log(err)
-//     return null
-//   }
-// }
 const getById = async id => {
   try {
     const res = await axiosClient.get(`${url}getProduct/${id}`)
@@ -81,7 +66,6 @@ const rateProduct = async data => {
       value: data.value,
       content: data.content
     })
-    console.log(`LHA:  ===> file: Product.Api.js ===> line 83 ===> res`, res)
     return res.data
   } catch (err) {
     console.log(err)

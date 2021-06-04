@@ -5,7 +5,6 @@ const url = "cart/"
 const getCartUser = async () => {
   try {
     const res = await axiosClient.get(`${url}getCart`)
-    console.log(`LHA:  ===> file: Cart.Api.js ===> line 8 ===> res`, res)
     if (res) {
       return {
         success: true,
@@ -17,7 +16,6 @@ const getCartUser = async () => {
       data: {}
     }
   } catch (err) {
-    console.log(err)
     return {
       success: false,
       data: {}
@@ -27,10 +25,6 @@ const getCartUser = async () => {
 
 const createCartUser = async resData => {
   try {
-    console.log(
-      `LHA:  ===> file: Cart.Api.js ===> line 29 ===> resData`,
-      resData
-    )
     const res = await axiosClient.post(`${url}createCart`, resData)
     if (res) {
       return {
@@ -41,19 +35,21 @@ const createCartUser = async resData => {
       success: false
     }
   } catch (err) {
-    console.log(err)
     return {
       success: false
     }
   }
 }
 
-const updateCartUser = async () => {
+const updateCartUser = async ({ idProduct, total, status }) => {
   try {
-    // const res = await axiosClient.get(`${url}getCategory`)
+    await axiosClient.post(`${url}updateCart`, {
+      idProduct,
+      total,
+      status
+    })
     return true
   } catch (err) {
-    console.log(err)
     return null
   }
 }
@@ -63,7 +59,6 @@ const deleteCartUser = async () => {
     // const res = await axiosClient.get(`${url}getCategory`)
     return true
   } catch (err) {
-    console.log(err)
     return null
   }
 }

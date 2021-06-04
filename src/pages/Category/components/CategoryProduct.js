@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
 import FilterWidget from "../../../common/components/FilterWidget"
-import { useDispatch, useSelector, useStore } from "react-redux"
+import { useDispatch } from "react-redux"
 import { Range } from "rc-slider"
 import {
   changeLimit,

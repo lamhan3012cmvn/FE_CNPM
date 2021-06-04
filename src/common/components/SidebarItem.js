@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom"
 
 const SidebarItem = props => {
+  // eslint-disable-next-line no-unused-vars
   const [expanded, setExpanded] = useState(false)
   const { items } = props
 

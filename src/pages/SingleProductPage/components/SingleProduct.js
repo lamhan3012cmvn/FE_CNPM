@@ -262,8 +262,8 @@ const SingleProduct = props => {
             <div className="review_list">
               {productDetail &&
                 productDetail.Rate &&
-                productDetail.Rate.map(rate => {
-                  return <ReviewItemProduct currentRate={rate} />
+                productDetail.Rate.map((rate, index) => {
+                  return <ReviewItemProduct currentRate={rate} key={index} />
                 })}
             </div>
           </div>

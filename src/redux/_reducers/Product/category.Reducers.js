@@ -18,6 +18,7 @@ import {
 
 const initState = {
   productHome: [],
+  interHome: [],
   products: [],
   productDetail: {},
   total: 0,
@@ -30,9 +31,13 @@ const initState = {
 export default function (state = initState, action) {
   switch (action.type) {
     case GET_ALL_PRODUCT_HOME_SUCCESS:
-      return { ...state, productHome: action.payload.products }
+      return {
+        ...state,
+        productHome: action.payload.products.product,
+        interHome: action.payload.products.inter
+      }
     case GET_ALL_PRODUCT_HOME_FAIL:
-      return { ...state, productHome: [] }
+      return { ...state, productHome: [], interHome: [] }
     case GET_ALL_PRODUCT_SUCCESS:
       return {
         ...state,

@@ -2,12 +2,16 @@ import React from "react"
 import { BsStar, BsStarFill } from "react-icons/bs"
 
 const ReviewItemProduct = ({ currentRate }) => {
+  console.log(
+    `LHA:  ===> file: ReviewItemProduct.js ===> line 5 ===> currentRate`,
+    currentRate
+  )
   const renderStart = () => {
     const arrStart = []
     for (let i = 0; i < 5; i++) {
       if (i < currentRate.value) {
-        arrStart.push(<BsStarFill />)
-      } else arrStart.push(<BsStar />)
+        arrStart.push(<BsStarFill key={i} />)
+      } else arrStart.push(<BsStar key={i} />)
     }
     return arrStart
   }

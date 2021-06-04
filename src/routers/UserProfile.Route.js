@@ -1,6 +1,7 @@
 import React, { lazy } from "react"
 import { Route, Switch } from "react-router"
 import { PATH } from "../common/constants/path"
+import Auth from "../common/components/Auth"
 const lazyLoading = () => {
   return lazy(
     () =>
@@ -14,7 +15,7 @@ const page = lazyLoading()
 const UserProfile = () => {
   return (
     <Switch>
-      <Route exact path={PATH.userProfile} component={page} />
+      <Route exact path={PATH.userProfile} component={Auth(page, true)} />
     </Switch>
   )
 }

@@ -29,7 +29,6 @@ const FromRegister = () => {
     }
 
     const res = await dispatch(registerUser(obj))
-    console.log(`LHA:  ===> file: FromRegister.js ===> line 32 ===> res`, res)
     if (res === true) {
       history.push("/register/verify")
     }

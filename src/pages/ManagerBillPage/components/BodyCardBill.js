@@ -1,5 +1,4 @@
 import React from "react"
-import { useSelector } from "react-redux"
 import { FormatNumberToMoney } from "../../../common/functions"
 import { getStatus } from "../../../common/functions"
 import { objStatus } from "../../../common/constants/default"

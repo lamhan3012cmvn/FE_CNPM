@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "react-router-dom"
 import ReactPaginate from "react-paginate"
 import { FcPrevious, FcNext } from "react-icons/fc"
 import { HiDotsHorizontal } from "react-icons/hi"

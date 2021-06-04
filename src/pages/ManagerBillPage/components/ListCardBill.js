@@ -1,5 +1,4 @@
 import React from "react"
-import { useSelector } from "react-redux"
 import CardBill from "./CardBill"
 
 const ListCardBill = props => {

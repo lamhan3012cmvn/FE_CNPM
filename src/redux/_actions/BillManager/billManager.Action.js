@@ -1,8 +1,6 @@
 import {
   GET_BILL_STATUS_SUCCESS,
   GET_BILL_STATUS_FAIL,
-  CHANGE_STATUS_FAIL,
-  CHANGE_STATUS_SUCCESS,
   CREATE_BILL_STATUS_FAIL,
   CREATE_BILL_STATUS_SUCCESS,
   CHANGE_STATUS,
@@ -10,15 +8,15 @@ import {
   CHANGE_BILL_STATUS_SUCCESS
 } from "./type"
 
-import { changeLoading } from "../System/app.Action"
+// import { changeLoading } from "../System/app.Action"
 
 import BillApi from "../../../Apis/Bill.Api"
 import { getCartUserApi } from "../Cart/cart.Action"
 import { defaultStatusBill } from "../../../common/constants/default"
 
-const loading = (loading = false) => dispatch => {
-  dispatch(changeLoading(loading))
-}
+// const loading = (loading = false) => dispatch => {
+//   dispatch(changeLoading(loading))
+// }
 
 export function getBillStatusSuccess(data) {
   return {

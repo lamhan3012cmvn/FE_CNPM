@@ -9,39 +9,25 @@ import { PATH } from "../constants/path"
 
 const MenuIconHeader = props => {
   const dispacth = useDispatch()
-  const history = useHistory()
   const { onChange, isLogin, user } = props
-  console.log(`LHA:  ===> file: MenuIconHeader.js ===> line 13 ===> user`, user)
-
   const handleLogout = () => {
     dispacth(logoutUser())
   }
+
   const renderUser = () => {
     return (
       <div className="dropdown-menu">
-        <Link className="dropdown-item " to={PATH.login}>
+        <Link className="dropdown-item " to={PATH.userProfile}>
           {user.fullName}
         </Link>
-        {user.isAdmin && (
-          <Link
-            className="dropdown-item "
-            to="#"
-            // target="#"
-            onClick={() =>
-              window.open("http://admin_cnpm_v1.surge.sh/admin", "_blank")
-            }
-          >
-            Admin Manager
-          </Link>
-        )}
 
         <Link className="dropdown-item " to={PATH.cartArea}>
           shopping cart
         </Link>
-
+        {/* 
         <Link className="dropdown-item " to={PATH.tracking}>
           tracking
-        </Link>
+        </Link> */}
         <Link className="dropdown-item " to={PATH.managerBill}>
           bill manager
         </Link>
@@ -66,7 +52,10 @@ const MenuIconHeader = props => {
         <div className="single_product"></div>
       </div>
       <div className="dropdown cart">
-        <Link className="dropdown-toggle icon" to={PATH.login}>
+        <Link
+          className="dropdown-toggle icon"
+          to={isLogin === false ? PATH.login : "#"}
+        >
           <AiOutlineUser />
         </Link>
         {isLogin && renderUser()}

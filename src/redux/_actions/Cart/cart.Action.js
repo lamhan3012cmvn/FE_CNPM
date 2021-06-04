@@ -120,18 +120,10 @@ export function updateCartUserFail() {
   }
 }
 
-export const updateCartUserApi = () => async dispatch => {
+export const updateCartUserApi = async data => {
   try {
-    dispatch(loading(true))
-    const data = await Cart.updateCartUser()
-    if (data) {
-      dispatch(getCartUserApi())
-      dispatch(updateCartUserSuccess())
-    } else dispatch(updateCartUserFail())
-    dispatch(loading())
+    await Cart.updateCartUser(data)
   } catch (err) {
     console.log(err)
-    dispatch(updateCartUserFail())
-    dispatch(loading())
   }
 }

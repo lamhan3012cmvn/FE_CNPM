@@ -1,10 +1,10 @@
 import { FaPlay } from "react-icons/fa"
+import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
-import feature1 from "../../../img/feature/feature_1.png"
-import feature2 from "../../../img/feature/feature_2.png"
-import feature3 from "../../../img/feature/feature_3.png"
-import feature4 from "../../../img/feature/feature_4.png"
+import { PATH } from "../../../common/constants/path"
+
 const FeaturePart = () => {
+  const inter = useSelector(state => state.product.interHome)
   return (
     <>
       <section className="feature_part padding_top">
@@ -17,46 +17,26 @@ const FeaturePart = () => {
             </div>
           </div>
           <div className="row align-items-center justify-content-between">
-            <div className="col-lg-7 col-sm-6">
-              <div className="single_feature_post_text">
-                <p>Premium Quality</p>
-                <h3>Latest foam Sofa</h3>
-                <Link to="#" className="feature_btn">
-                  EXPLORE NOW <FaPlay />
-                </Link>
-                <img src={feature1} alt="" />
-              </div>
-            </div>
-            <div className="col-lg-5 col-sm-6">
-              <div className="single_feature_post_text">
-                <p>Premium Quality</p>
-                <h3>Latest foam Sofa</h3>
-                <Link to="#" className="feature_btn">
-                  EXPLORE NOW <FaPlay />
-                </Link>
-                <img src={feature2} alt="" />
-              </div>
-            </div>
-            <div className="col-lg-5 col-sm-6">
-              <div className="single_feature_post_text">
-                <p>Premium Quality</p>
-                <h3>Latest foam Sofa</h3>
-                <Link to="#" className="feature_btn">
-                  EXPLORE NOW <FaPlay />
-                </Link>
-                <img src={feature3} alt="" />
-              </div>
-            </div>
-            <div className="col-lg-7 col-sm-6">
-              <div className="single_feature_post_text">
-                <p>Premium Quality</p>
-                <h3>Latest foam Sofa</h3>
-                <Link to="#" className="feature_btn">
-                  EXPLORE NOW <FaPlay />
-                </Link>
-                <img src={feature4} alt="" />
-              </div>
-            </div>
+            {inter.map((int, i) => {
+              const nameClass =
+                i % 3 === 0 ? "col-lg-7 col-sm-6" : "col-lg-5 col-sm-6"
+              return (
+                <div className={nameClass} key={i}>
+                  <div className="single_feature_post_text">
+                    <p>{int.TypeInteriorDesign.name}</p>
+                    <h3 style={{ width: "80%" }}>{int.title}</h3>
+                    <Link
+                      to={`${PATH.interiorDesign}/${int._id}`}
+                      className="feature_btn"
+                    >
+                      EXPLORE NOW <FaPlay />
+                    </Link>
+                    <div className="imgBx_Feature"></div>
+                    <img src={int.Images[0].img} alt="" />
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>

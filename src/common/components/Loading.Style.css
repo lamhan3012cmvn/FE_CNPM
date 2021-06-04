@@ -8,7 +8,7 @@
   z-index: 10000;
   display: none;
 }
-#loading{
+#loading {
   display: flex;
   justify-content: center;
   align-items: center;

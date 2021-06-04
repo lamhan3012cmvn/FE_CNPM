@@ -17,7 +17,7 @@ const CartArea = () => {
   const carts = useSelector(state => state.cart.cartUser) || []
   useEffect(() => {
     dispatch(getCartUserApi())
-  }, [])
+  }, [dispatch])
 
   const handlePayBill = () => {
     dispatch(createBillApi())
@@ -44,6 +44,7 @@ const CartArea = () => {
                   <tr>
                     <td></td>
                     <td></td>
+                    <td></td>
                     <td>
                       <h5>Subtotal</h5>
                     </td>
@@ -53,49 +54,6 @@ const CartArea = () => {
                     <td></td>
                   </tr>
                 )}
-                {/* <tr className="shipping_area">
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <h5>Shipping</h5>
-                  </td>
-                  <td>
-                    <div className="shipping_box">
-                      <ul className="list">
-                        <li>
-                          <Link to="#">Flat Rate: $5.00</Link>
-                        </li>
-                        <li>
-                          <Link to="#">Free Shipping</Link>
-                        </li>
-                        <li>
-                          <Link to="#">Flat Rate: $10.00</Link>
-                        </li>
-                        <li className="active">
-                          <Link to="#">Local Delivery: $2.00</Link>
-                        </li>
-                      </ul>
-                      <h6>
-                        Calculate Shipping
-                        <i className="fa fa-caret-down" aria-hidden="true"></i>
-                      </h6>
-                      <select className="shipping_select">
-                        <option value="1">Bangladesh</option>
-                        <option value="2">India</option>
-                        <option value="4">Pakistan</option>
-                      </select>
-                      <select className="shipping_select section_bg">
-                        <option value="1">Select a State</option>
-                        <option value="2">Select a State</option>
-                        <option value="4">Select a State</option>
-                      </select>
-                      <input type="text" placeholder="Postcode/Zipcode" />
-                      <Link className="btn_1" to="#">
-                        Update Details
-                      </Link>
-                    </div>
-                  </td>
-                </tr> */}
               </tbody>
             </table>
             <div className="checkout_btn_inner float-right">

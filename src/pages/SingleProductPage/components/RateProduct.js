@@ -1,6 +1,5 @@
 import React from "react"
 import { BsStar, BsStarFill } from "react-icons/bs"
-import { Link } from "react-router-dom"
 
 const RateProduct = props => {
   const { listRate, onChange } = props

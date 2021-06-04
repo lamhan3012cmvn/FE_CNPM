@@ -1,5 +1,4 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { defaultStatusBill } from "../../../common/constants/default"
 import {
   GET_BILL_STATUS_SUCCESS,
   GET_BILL_STATUS_FAIL,

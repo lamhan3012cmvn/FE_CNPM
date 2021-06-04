@@ -7,7 +7,6 @@ const getAll = async () => {
     const res = await axiosClient.get(`${url}getCategory`)
     return res.data
   } catch (err) {
-    console.log(err)
     return null
   }
 }

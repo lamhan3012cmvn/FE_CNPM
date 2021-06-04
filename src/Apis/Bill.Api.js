@@ -20,7 +20,6 @@ const getBillStatusUser = async status => {
       data: []
     }
   } catch (err) {
-    console.log(err)
     return {
       success: false,
       data: []
@@ -40,11 +39,9 @@ const createBill = async () => {
       success: false
     }
   } catch (err) {
-    console.log(err)
-    // return {
-    //   success: false,
-    //   data: []
-    // }
+    return {
+      success: false
+    }
   }
 }
 
@@ -61,11 +58,9 @@ const changeBillStatus = async body => {
       success: false
     }
   } catch (err) {
-    console.log(err)
-    // return {
-    //   success: false,
-    //   data: []
-    // }
+    return {
+      success: false
+    }
   }
 }
 const Cart = { getBillStatusUser, createBill, changeBillStatus }

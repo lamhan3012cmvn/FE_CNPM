@@ -18,7 +18,6 @@ const login = async body => {
       return { data: {}, success: true }
     }
   } catch (err) {
-    console.log(err)
     return {
       success: false
     }
@@ -36,7 +35,6 @@ const register = async body => {
     )
     return res ? { data: res || {}, success: true } : { success: false }
   } catch (err) {
-    console.log(err)
     return {
       success: false
     }
@@ -57,7 +55,6 @@ const verify = async body => {
     )
     return res ? { data: res || {}, success: true } : { success: false }
   } catch (err) {
-    console.log(err)
     return {
       success: false
     }
@@ -69,11 +66,20 @@ const getAuth = async () => {
     const res = await axiosClient.get(`auth/getAuth`)
     return res ? { data: res.data, success: true } : { success: false }
   } catch (err) {
-    console.log(err)
     return null
   }
 }
 
-const Auth = { getAuth, login, register, verify }
+const updateProfile = async data => {
+  try {
+    const res = await axiosClient.post(`auth/updateProfile`, data)
+    toast(res ? "Update profile success" : "Update profile Fail")
+    return res ? { success: true } : { success: false }
+  } catch (err) {
+    return null
+  }
+}
+
+const Auth = { getAuth, login, register, verify, updateProfile }
 
 export default Auth

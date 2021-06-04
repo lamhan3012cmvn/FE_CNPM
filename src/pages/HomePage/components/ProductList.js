@@ -1,13 +1,9 @@
 import ProductItem from "../../../common/components/ProductItem"
 import Slider from "react-slick"
 import TitleList from "../../../common/components/TitleList"
-import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
-import { getAllProductApi } from "../../../redux/_actions/Product/Category/category.Action"
-import AppSlider from "../../../common/components/AppSlider"
 const settings = {
   dots: false,
-  infinite: false,
+  infinite: true,
   centerPadding: "60px",
   slidesToShow: 4,
   speed: 700,
@@ -23,7 +19,6 @@ const settings = {
       settings: {
         slidesToShow: 3,
         slidesToScroll: 3,
-        infinite: true,
         dots: true
       }
     },

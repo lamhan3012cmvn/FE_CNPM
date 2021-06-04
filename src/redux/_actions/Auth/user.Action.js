@@ -146,3 +146,16 @@ export const verifyUser = body => async dispatch => {
     return false
   }
 }
+
+export const updateProfileApi = body => async dispatch => {
+  try {
+    const res = await authAPI.updateProfile(body)
+    if (!res.success) {
+      return
+    } else {
+      dispatch(authRequest())
+    }
+  } catch (err) {
+    console.log(err)
+  }
+}

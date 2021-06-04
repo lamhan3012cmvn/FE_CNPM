@@ -14,7 +14,6 @@ const SingleInteriorPage = () => {
   }, [dispatch, params])
 
   const interior = useSelector(state => state.interior.singleApartment)
-  console.log(`LHA:  ===> file: index.js ===> line 17 ===> interior`, interior)
   const cartsInterior = useSelector(state => state.interior.Apartment)
   const render = () => {
     return cartsInterior.map(interior => (

@@ -22,7 +22,6 @@ const HomePage = () => {
     }
   ])
   const products = useSelector(state => state.product.productHome)
-  console.log(`LHA:  ===> file: index.js ===> line 25 ===> products`, products)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getAllProductsHomeApi())
