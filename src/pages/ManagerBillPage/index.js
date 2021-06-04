@@ -18,7 +18,7 @@ const ManagerBillPage = () => {
   }, [dispatch, statusAction])
   return (
     <>
-      <Breadcrumb />
+      <Breadcrumb namePage="Bill Manager" preLink={{ name: "Home" }} />
       <section className="section_padding">
         <div className="container">
           <div className="wrap-status">

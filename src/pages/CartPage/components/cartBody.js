@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react"
 import { FaAngleDown, FaAngleUp } from "react-icons/fa"
 import { FormatNumberToMoney } from "../../../common/functions"
 import CartApi from "../../../Apis/Cart.Api.js"
+import { useDispatch } from "react-redux"
+import { deleteCartUserApi } from "../../../redux/_actions/Cart/cart.Action"
 const CartBody = props => {
   const { cart } = props
   const [quantity, setQuantity] = useState(cart.total)
@@ -14,7 +16,8 @@ const CartBody = props => {
   }
   const handleDecrement = () => {
     changeStatusProduct()
-    setQuantity(quantity - 1)
+    const newq = quantity - 1
+    setQuantity(newq <= 0 ? 1 : newq)
   }
   const refQuantity = useRef()
   const refStatus = useRef(null)
@@ -23,7 +26,11 @@ const CartBody = props => {
   const totalPrice = () => {
     return FormatNumberToMoney(quantity * price)
   }
-
+  const dispatch = useDispatch()
+  const handleDelete = e => {
+    e.preventDefault()
+    dispatch(deleteCartUserApi(cart.idProduct))
+  }
   const updateTimeoutRef = useRef(null)
   const changeStatusProduct = () => {
     if (updateTimeoutRef.current) {
@@ -92,7 +99,9 @@ const CartBody = props => {
         />
       </td>
       <td>
-        <button className="btn">Delete</button>
+        <button className="btn" onClick={handleDelete}>
+          Delete
+        </button>
       </td>
     </tr>
   )

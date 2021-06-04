@@ -90,19 +90,15 @@ export function deleteCartUserFail() {
   }
 }
 
-export const deleteCartUserApi = () => async dispatch => {
+export const deleteCartUserApi = idProduct => async dispatch => {
   try {
-    dispatch(loading(true))
-    const data = await Cart.deleteCartUser()
-    if (data) {
+    // dispatch(loading(true))
+    const data = await Cart.deleteCartUser(idProduct)
+    if (data.success) {
       dispatch(getCartUserApi())
-      dispatch(deleteCartUserSuccess())
-    } else dispatch(deleteCartUserFail())
-    dispatch(loading())
+    }
   } catch (err) {
     console.log(err)
-    dispatch(deleteCartUserFail())
-    dispatch(loading())
   }
 }
 

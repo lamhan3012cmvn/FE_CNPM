@@ -54,12 +54,13 @@ const updateCartUser = async ({ idProduct, total, status }) => {
   }
 }
 
-const deleteCartUser = async () => {
+const deleteCartUser = async idProduct => {
   try {
-    // const res = await axiosClient.get(`${url}getCategory`)
-    return true
+    const res = await axiosClient.post(`${url}deleteCart`, { idProduct })
+    if (res) return { success: true }
+    return { success: false }
   } catch (err) {
-    return null
+    return { success: false }
   }
 }
 const Cart = { getCartUser, createCartUser, updateCartUser, deleteCartUser }

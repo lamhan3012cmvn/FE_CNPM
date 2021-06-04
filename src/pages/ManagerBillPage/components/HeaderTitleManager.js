@@ -9,7 +9,7 @@ const HeaderTitleManager = () => {
     const current = document.querySelector("label.active")
     current.className = current.className.replace("active", "")
     e.target.className += " active"
-    dispatch(changeStatus(status))
+    dispatch(changeStatus(status === "ALL" ? "" : status))
   }
   return (
     <div className="wrap-name-column">
@@ -43,9 +43,6 @@ const HeaderTitleManager = () => {
       >
         Đã hủy
       </label>
-      {/* <label onClick={changeActive} className="">
-        Trả hàng/Hoàn tiền
-      </label> */}
     </div>
   )
 }
